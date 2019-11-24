@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-
-class CreateLogsTables extends Migration
+class CreateBossHackerArsenalsTables extends Migration
 {
     /**
      * Run the migrations.
@@ -14,16 +13,14 @@ class CreateLogsTables extends Migration
      */
     public function up()
     {
-
-        Schema::create('logs', function (Blueprint $table) {
+        Schema::create('weapons', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('slug'); // Classe Gateway que pertence
-            $table->string('description')->nullable();
-            $table->integer('status');
             $table->timestamps();
         });
+
     }
+
     /**
      * Reverse the migrations.
      *
@@ -31,6 +28,6 @@ class CreateLogsTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('logs');
+        Schema::dropIfExists('weapons');
     }
 }

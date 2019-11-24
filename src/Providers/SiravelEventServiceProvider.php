@@ -1,10 +1,10 @@
 <?php
 
-namespace Siravel\Providers;
+namespace Population\Providers;
 
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 
-class SiravelEventServiceProvider extends ServiceProvider
+class PopulationEventServiceProvider extends ServiceProvider
 {
     /**
      * The event listener mappings for the application.

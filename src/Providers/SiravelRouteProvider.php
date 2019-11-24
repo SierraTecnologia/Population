@@ -1,13 +1,13 @@
 <?php
 
-namespace Siravel\Providers;
+namespace Population\Providers;
 
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Routing\Router;
 use SiObject\Http\Middleware\Analytics;
-use Siravel\Http\Middleware\isAjax;
+use Population\Http\Middleware\isAjax;
 
-class SiravelRouteProvider extends ServiceProvider
+class PopulationRouteProvider extends ServiceProvider
 {
     /**
      * This namespace is applied to the controller routes in your routes file.
@@ -16,7 +16,7 @@ class SiravelRouteProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Siravel\Http\Controllers';
+    protected $namespace = 'Population\Http\Controllers';
 
     /**
      * Define your route model bindings, pattern filters, etc.

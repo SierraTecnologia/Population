@@ -1,6 +1,6 @@
 <?php
 
-namespace Siravel\Providers\Exemplos;
+namespace Population\Providers\Exemplos;
 
 use App;
 use Config;

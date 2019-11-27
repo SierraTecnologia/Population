@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc248da0ede294f8f21a8501f95a91cf",
+    "content-hash": "25d0b77d100bc722d4d3725c15fd61e8",
     "packages": [
         {
             "name": "sierratecnologia/informate",
@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "392273617e34c9ac848dac87165acd3eabae429c"
+                "reference": "622d1087a33d573dbfef996300e7cc7fcb3875a6"
             },
             "require": {
                 "php": "^7.3.0"

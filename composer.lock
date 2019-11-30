@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "cc9127bed540231a2f893f158ed12fe104a6f390"
+                "reference": "7e6602d1663dab67ad1f53c4967c3b7d62c6e7b2"
             },
             "require": {
                 "php": "^7.3.0"

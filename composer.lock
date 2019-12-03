@@ -1,0 +1,64 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "25d0b77d100bc722d4d3725c15fd61e8",
+    "packages": [
+        {
+            "name": "sierratecnologia/informate",
+            "version": "dev-master",
+            "dist": {
+                "type": "path",
+                "url": "../Informate",
+                "reference": "52d5dffdd36d166e059443e03113a05ecf18dc5e"
+            },
+            "require": {
+                "php": "^7.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Informate\\InformateProvider"
+                    ],
+                    "dont-discover": []
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Informate\\": "src/"
+                }
+            },
+            "scripts": {
+                "post-install-cmd": [],
+                "post-update-cmd": [],
+                "post-create-project-cmd": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ricardo Rebello Sierra",
+                    "email": "contato@ricardosierra.com.br"
+                }
+            ],
+            "description": "informate",
+            "transport-options": {
+                "symlink": true
+            }
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "dev",
+    "stability-flags": {
+        "sierratecnologia/informate": 20
+    },
+    "prefer-stable": true,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

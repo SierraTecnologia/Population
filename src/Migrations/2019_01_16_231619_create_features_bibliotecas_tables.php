@@ -14,14 +14,6 @@ class CreateFeaturesBibliotecasTables extends Migration
 	 */
 	public function up()
 	{
-		Schema::create('biblioteca_types', function (Blueprint $table) {
-			$table->engine = 'InnoDB';
-			$table->increments('id')->unsigned();
-			$table->string('name', 255);
-			$table->text('description')->nullable();
-			$table->timestamps();
-            $table->softDeletes();
-		});
 		Schema::create('bibliotecas', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
@@ -32,26 +24,18 @@ class CreateFeaturesBibliotecasTables extends Migration
 			$table->timestamps();
             $table->softDeletes();
 		});
+        
+		Schema::create('bibliotecables', function (Blueprint $table) {
+			$table->engine = 'InnoDB';
+			$table->increments('id')->unsigned();
+			$table->integer('bibliotecable_id');
+			$table->string('bibliotecable_type', 255);
 
-		BibliotecaType::create([
-			'id' => 1,
-			'name' => 'Portal',
-		]);
-
-		BibliotecaType::create([
-			'id' => 2,
-			'name' => 'Aplicativo',
-		]);
-
-		BibliotecaType::create([
-			'id' => 3,
-			'name' => 'Livro',
-		]);
-
-		BibliotecaType::create([
-			'id' => 4,
-			'name' => 'Filmes',
-		]);
+            $table->unsignedInteger('biblioteca_id')->nullable();
+            // $table->foreign('biblioteca_id')->references('id')->on('bibliotecas');
+			$table->timestamps();
+            $table->softDeletes();
+		});
 	}
 
 	/**

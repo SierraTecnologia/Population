@@ -62,7 +62,7 @@ class Personagem extends Model
      */
     public function skills()
     {
-        return $this->morphToMany('Informate\Models\Entytys\Fisicos\Skill', 'skillable');
+        return $this->morphToMany('Informate\Models\Entytys\About\Skill', 'skillable');
     }
 
 }

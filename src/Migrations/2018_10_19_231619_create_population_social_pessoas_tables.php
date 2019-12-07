@@ -157,11 +157,15 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->string('name', 255)->nullable();
             $table->text('description')->nullable();
             $table->string('cpf')->nullable();
-            $table->string('hr_clt')->nullable();
-            $table->string('hr_paid')->nullable();
             $table->string('birthday')->nullable();
             $table->string('facebook')->nullable();
-            $table->string('is_active')->nullable();
+			$table->integer('is_active')->nullable();
+			
+            $table->float('hr_clt')->nullable();
+            $table->float('hr_paid')->nullable();
+            $table->float('price_hour')->nullable(); // @todo VErificar se vai ficar aqui mesmo ou em outra tabela
+            $table->float('price_monty')->nullable(); // @todo VErificar se vai ficar aqui mesmo ou em outra tabela
+			
 			$table->timestamps();
             $table->softDeletes();
 		});

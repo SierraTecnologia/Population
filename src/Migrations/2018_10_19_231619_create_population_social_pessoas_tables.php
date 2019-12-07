@@ -221,8 +221,8 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->increments('id')->unsigned();
 			$table->string('date', 255)->nullable();
 			$table->string('text', 255)->nullable();
-			$table->string('infoable_id')->nullable();
-			$table->string('infoable_type', 255)->nullable();
+			$table->string('fatoable_id')->nullable();
+			$table->string('fatoable_type', 255)->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});

@@ -56,4 +56,12 @@ class Sitio extends Model
     {
         return $this->morphedByMany('App\Models\User', 'sitioable');
     }
+
+    /**
+     * Aparece em videos
+     */
+    public function videos()
+    {
+        return $this->morphedByMany('Informate\Models\Entytys\Digital\Midia\Video', 'videoable');
+    }
 }

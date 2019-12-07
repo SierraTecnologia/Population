@@ -3,7 +3,7 @@
 namespace Population\Models\Identity\Actors;
 
 use Informate\Models\Model;
-use Informate\Traits\AsHuman;
+use Population\Traits\AsHuman;
 
 class Person extends Model
 {

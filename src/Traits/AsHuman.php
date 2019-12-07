@@ -50,7 +50,7 @@ trait AsHuman
      */
     public function videos()
     {
-        return $this->morphedByMany('Informate\Models\Entytys\Digital\Midia\Video', 'videoable');
+        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Video', 'videoable');
     }
 
     /**
@@ -58,7 +58,7 @@ trait AsHuman
      */
     public function images()
     {
-        return $this->morphedByMany('Informate\Models\Entytys\Digital\Midia\Image', 'imageable');
+        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Image', 'imageable');
     }
 
     /**

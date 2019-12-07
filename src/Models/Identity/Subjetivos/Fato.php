@@ -37,37 +37,39 @@ class Fato extends Model
     );
 
 
-    public function links()
-    {
-        return $this->sitios();
-    }
+    // public function links()
+    // {
+    //     return $this->sitios();
+    // }
 
-    public function sitios()
-    {
-        return $this->morphToMany('Population\Models\Identity\Digital\Sitio', 'videoable');
-    }
-
-    /**
-     * Get all of the users that are assigned this tag.
-     */
-    public function users()
-    {
-        return $this->morphToMany('App\Models\User', 'videoable');
-    }
-
-    /**
-     * Get all of the persons that are assigned this tag.
-     */
-    public function persons()
-    {
-        return $this->morphToMany('Population\Models\Identity\Actors\Person', 'videoable');
-    }
+    // public function sitios()
+    // {
+    //     return $this->morphToMany('Population\Models\Identity\Digital\Sitio', 'videoable');
+    // }
 
     // /**
-    //  * Get all of the owning fatoable models.
+    //  * Get all of the users that are assigned this tag.
     //  */
-    // public function fatoable()
+    // public function users()
     // {
-    //     // @todo Verificar depois //return $this->morphTo();
+    //     return $this->morphToMany('App\Models\User', 'videoable');
     // }
+
+    // /**
+    //  * Get all of the persons that are assigned this tag.
+    //  */
+    // public function persons()
+    // {
+    //     return $this->morphToMany('Population\Models\Identity\Actors\Person', 'videoable');
+    // }
+
+    /**
+     * Get all of the owning fatoable models.
+     * 
+     * Usa esse aqui pois é apenas um fato por modelo
+     */
+    public function fatoable()
+    {
+        return $this->morphTo();
+    }
 }

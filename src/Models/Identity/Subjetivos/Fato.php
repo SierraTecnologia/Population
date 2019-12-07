@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\Models\Entytys\Subjetivos;
+namespace Population\Models\Entytys\Subjetivos;
 
 use Informate\Models\Model;
 

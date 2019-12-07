@@ -13,6 +13,9 @@ use Overtrue\LaravelFollow\Traits\CanBookmark;
 // Podem Serem Seguidos
 use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
+use Informate\Traits\AsFofocavel;
+use Informate\Traits\MakeEconomicActions;
+
 trait AsHuman
 {
     use MakeEconomicActions, AsFofocavel;

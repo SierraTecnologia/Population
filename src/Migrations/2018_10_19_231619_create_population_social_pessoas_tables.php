@@ -16,6 +16,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		Schema::create(config('app.db-prefix', '').'sitios', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
+			$table->string('name', 255)->nullable();
 			$table->string('url', 255);
 			$table->timestamps();
             $table->softDeletes();

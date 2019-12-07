@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\Models\Entytys\Fisicos;
+namespace Population\Models\Identity\Fisicos;
 
 use Population\Models\Model;
 

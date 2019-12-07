@@ -1,4 +1,6 @@
-<?php namespace Population\Models\Components\Book;
+<?php
+
+namespace Population\Models\Components\Book;
 
 use App\Models\User;
 use Population\Models\Model;

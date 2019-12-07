@@ -1,4 +1,6 @@
-<?php namespace Population\Models\Components\Book\Repos;
+<?php
+
+namespace Population\Models\Components\Book\Repos;
 
 use Casa\Models\Components\Book\Book;
 use Casa\Models\Components\Book\Chapter;

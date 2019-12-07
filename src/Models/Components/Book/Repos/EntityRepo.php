@@ -1,4 +1,6 @@
-<?php namespace Population\Models\Components\Book\Repos;
+<?php
+
+namespace Population\Models\Components\Book\Repos;
 
 use Casa\Actions\Book\TagRepo;
 use Casa\Actions\Book\ViewService;

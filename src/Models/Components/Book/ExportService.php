@@ -1,4 +1,6 @@
-<?php namespace Population\Models\Components\Book;
+<?php
+
+namespace Population\Models\Components\Book;
 
 use Casa\Models\Components\Book\Repos\EntityRepo;
 use SiObjects\Entitys\Uploads\ImageService;

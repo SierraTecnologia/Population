@@ -17,8 +17,6 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('url', 255);
-			$table->string('sitioable_id')->nullable();
-			$table->string('sitioable_type', 255)->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});

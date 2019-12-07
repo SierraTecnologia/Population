@@ -1,4 +1,6 @@
-<?php namespace Population\Models\Components\Book;
+<?php
+
+namespace Population\Models\Components\Book;
 
 use Casa\Actions\Book\Activity;
 use Casa\Actions\Book\Comment;

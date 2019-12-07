@@ -48,10 +48,10 @@ class Account extends Model
     /**
      * Get all of the owning businessable models.
      */
-    public function accountable()
-    {
+    // public function accountable()
+    // {
         // @todo Verificar depois //return $this->morphTo(); //, 'businessable_type', 'businessable_code'
-    }
+    // }
 
     /**
      * Get all of the business that are assigned this tag.

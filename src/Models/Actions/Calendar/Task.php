@@ -1,11 +1,27 @@
 <?php
 
-namespace Population\Models\Market\Actions;
+/**
+ * This file is part of Gitonomy.
+ *
+ * (c) Alexandre Salomé <alexandre.salome@gmail.com>
+ * (c) Julien DIDIER <genzo.wm@gmail.com>
+ *
+ * This source file is subject to the GPL license that is bundled
+ * with this source code in the file LICENSE.
+ */
 
+namespace Population\Models\Actions\Calendar;
+
+use Informate\Traits\ComplexRelationamentTrait;
 use Population\Models\Model;
+
+use Illuminate\Support\Facades\Log;
 
 class Task extends Model
 {
+    use ComplexRelationamentTrait;
+
+    protected $organizationPerspective = true;
 
     /**
      * The attributes that are mass assignable.
@@ -17,7 +33,9 @@ class Task extends Model
         'time', // im segundos
         'money_code',
         'money_value',
-        'role_id'
+        'description',
+        'date_estimated',
+        'done'
     ];
 
     protected $mappingProperties = array(
@@ -72,4 +90,5 @@ class Task extends Model
     {
         return $this->morphedByMany('App\Models\User', 'skillable');
     }
+
 }

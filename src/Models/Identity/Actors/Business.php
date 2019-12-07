@@ -120,7 +120,7 @@ class Business extends Model
      */
     public function phones()
     {
-        return $this->morphToMany('Population\Models\Identity\Phone', 'phoneable');
+        return $this->morphToMany('Population\Models\Identity\Digital\Phone', 'phoneable');
     }
 
     /**

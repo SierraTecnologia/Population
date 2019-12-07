@@ -57,7 +57,7 @@ class CreateFeaturesProductionsTables extends Migration
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->integer('production_id')->nullable();
-			$table->integer('productionable_id')->nullable();
+			$table->string('productionable_id')->nullable();
 			$table->string('productionable_type', 255)->nullable();
 			$table->timestamps();
             $table->softDeletes();

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Subjetivos;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Fato extends Model
 {

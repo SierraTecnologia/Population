@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Actors;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 use Population\Traits\AsHuman;
 
 class Person extends Model

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Business;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Product extends Model
 {

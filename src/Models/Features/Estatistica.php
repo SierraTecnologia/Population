@@ -13,7 +13,7 @@
 
 namespace Population\Models\Features;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Estatistica extends Model
 {

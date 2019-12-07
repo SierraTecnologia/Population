@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Actors;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Business extends Model
 {

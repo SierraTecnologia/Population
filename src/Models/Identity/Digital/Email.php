@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Email extends Model
 {

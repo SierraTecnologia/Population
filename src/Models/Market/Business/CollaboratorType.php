@@ -7,7 +7,7 @@
  */
 namespace Population\Models\Market\Business;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class CollaboratorType extends Model
 {

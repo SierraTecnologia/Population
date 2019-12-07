@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Actions;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Vaga extends Model
 {

@@ -5,7 +5,7 @@
 
 namespace Population\Models\Features\Statistics;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class CommandResult extends Model
 {

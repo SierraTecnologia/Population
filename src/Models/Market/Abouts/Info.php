@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Abouts;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Info extends Model
 {

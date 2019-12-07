@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 use Informate\Traits\ComplexRelationamentTrait;
 
 class Account extends Model

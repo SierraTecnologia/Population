@@ -2,7 +2,7 @@
 
 namespace Population\Models\Features\Qa;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 use Informate\Traits\EloquentGetTableNameTrait;
 use Informate\Traits\ComplexRelationamentInTrait;
 

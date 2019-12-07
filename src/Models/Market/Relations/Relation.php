@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Relations;
 
-use Informate\Models\Model;
+use Population\Models\Model;
 
 class Relation extends Model
 {

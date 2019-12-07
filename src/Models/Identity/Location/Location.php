@@ -8,7 +8,7 @@ use Informate\Features\Photos\Entities\LocationEntity;
 use Informate\ValueObjects\Coordinates;
 use Informate\ValueObjects\Latitude;
 use Informate\ValueObjects\Longitude;
-use Informate\Models\Model;
+use Population\Models\Model;
 use Illuminate\Support\Str;
 
 /**

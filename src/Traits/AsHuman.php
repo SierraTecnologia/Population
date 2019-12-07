@@ -56,9 +56,9 @@ trait AsHuman
     /**
      * Aparece em fotos
      */
-    public function images()
+    public function imagens()
     {
-        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Image', 'imageable');
+        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Imagen', 'imagenable');
     }
 
     /**

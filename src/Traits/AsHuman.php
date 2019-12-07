@@ -160,6 +160,17 @@ trait AsHuman
     
 
     /**
+     * Ajudantes que chamam outras funcoes
+     */
+    public function setDiario($date, $text)
+    {
+        $this->fatos()->create([
+            'date' => $date,
+            'text' => $text
+        ]);
+    }
+
+    /**
      * Events
      */
     public static function bootAsHuman()                                                                                                                                                             

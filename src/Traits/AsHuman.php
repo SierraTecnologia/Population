@@ -155,7 +155,7 @@ trait AsHuman
     }
     public function productions()
     {
-        return $this->morphToMany('Informate\Models\Components\Productions\Production', 'productionable');
+        return $this->morphToMany('Population\Models\Components\Productions\Production', 'productionable');
     }
     
 

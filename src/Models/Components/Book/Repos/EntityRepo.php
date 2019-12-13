@@ -2,8 +2,8 @@
 
 namespace Population\Models\Components\Book\Repos;
 
-use Casa\Actions\Book\TagRepo;
-use Casa\Actions\Book\ViewService;
+use SiObjects\Components\Book\TagRepo;
+use SiObjects\Components\Book\ViewService;
 use App\Models\Permissions\PermissionService;
 use App\Models\User;
 use Population\Models\Components\Book\Book;

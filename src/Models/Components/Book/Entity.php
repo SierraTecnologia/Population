@@ -2,10 +2,10 @@
 
 namespace Population\Models\Components\Book;
 
-use Casa\Actions\Book\Activity;
-use Casa\Actions\Book\Comment;
-use Casa\Actions\Book\Tag;
-use Casa\Actions\Book\View;
+use SiObjects\Components\Book\Activity;
+use SiObjects\Components\Book\Comment;
+use SiObjects\Components\Book\Tag;
+use SiObjects\Components\Book\View;
 use App\Models\Permissions\EntityPermission;
 use App\Models\Permissions\JointPermission;
 use App\Models\Ownable;

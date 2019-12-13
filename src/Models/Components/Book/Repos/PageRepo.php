@@ -193,7 +193,7 @@ class PageRepo extends EntityRepo
 
     /**
      * Get the plain text version of a page's content.
-     * @param \App\Models\Components\Book\Page $page
+     * @param \Population\Models\Components\Book\Page $page
      * @return string
      */
     protected function pageToPlainText(Page $page) : string
@@ -206,7 +206,7 @@ class PageRepo extends EntityRepo
      * Get a new draft page instance.
      * @param Book $book
      * @param Chapter|null $chapter
-     * @return \App\Models\Components\Book\Page
+     * @return \Population\Models\Components\Book\Page
      * @throws \Throwable
      */
     public function getDraftPage(Book $book, Chapter $chapter = null)
@@ -472,10 +472,10 @@ class PageRepo extends EntityRepo
 
     /**
      * Create a copy of a page in a new location with a new name.
-     * @param \App\Models\Components\Book\Page $page
-     * @param \App\Models\Components\Book\Entity $newParent
+     * @param \Population\Models\Components\Book\Page $page
+     * @param \Population\Models\Components\Book\Entity $newParent
      * @param string $newName
-     * @return \App\Models\Components\Book\Page
+     * @return \Population\Models\Components\Book\Page
      * @throws \Throwable
      */
     public function copyPage(Page $page, Entity $newParent, string $newName = '')

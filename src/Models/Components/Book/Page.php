@@ -128,7 +128,7 @@ class Page extends Entity
 
     /**
      * Get the current revision for the page if existing
-     * @return \App\Models\Components\Book\PageRevision|null
+     * @return \Population\Models\Components\Book\PageRevision|null
      */
     public function getCurrentRevision()
     {

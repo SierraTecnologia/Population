@@ -2,7 +2,7 @@
 
 namespace Population\Models\Components\Book;
 
-use App\Models\Permissions\PermissionService;
+use Population\Models\Components\Book\Permissions\PermissionService;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;
@@ -336,7 +336,7 @@ class SearchService
 
     /**
      * Index multiple Entities at once
-     * @param \App\Models\Components\Book\Entity[] $entities
+     * @param \Population\Models\Components\Book\Entity[] $entities
      */
     protected function indexEntities($entities)
     {

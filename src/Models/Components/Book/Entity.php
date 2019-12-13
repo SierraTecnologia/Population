@@ -6,9 +6,9 @@ use SiObjects\Components\Book\Activity;
 use SiObjects\Components\Book\Comment;
 use SiObjects\Components\Book\Tag;
 use SiObjects\Components\Book\View;
-use App\Models\Permissions\EntityPermission;
-use App\Models\Permissions\JointPermission;
-use App\Models\Ownable;
+use Population\Models\Components\Book\Permissions\EntityPermission;
+use Population\Models\Components\Book\Permissions\JointPermission;
+use Population\Models\Ownable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 
@@ -26,7 +26,7 @@ use Illuminate\Database\Eloquent\Relations\MorphMany;
  * @property int $updated_by
  * @property boolean $restricted
  *
- * @package App\Models\Components\Book
+ * @package Population\Models\Components\Book
  */
 class Entity extends Ownable
 {

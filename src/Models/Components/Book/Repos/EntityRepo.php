@@ -4,7 +4,7 @@ namespace Population\Models\Components\Book\Repos;
 
 use SiObjects\Components\Book\TagRepo;
 use SiObjects\Components\Book\ViewService;
-use App\Models\Permissions\PermissionService;
+use Population\Models\Components\Book\Permissions\PermissionService;
 use App\Models\User;
 use Population\Models\Components\Book\Book;
 use Population\Models\Components\Book\Bookshelf;
@@ -103,7 +103,7 @@ class EntityRepo
      * @param integer $id
      * @param bool $allowDrafts
      * @param bool $ignorePermissions
-     * @return \App\Models\Components\Book\Entity
+     * @return \Population\Models\Components\Book\Entity
      */
     public function getById($type, $id, $allowDrafts = false, $ignorePermissions = false)
     {
@@ -139,7 +139,7 @@ class EntityRepo
      * @param string $type
      * @param string $slug
      * @param string|bool $bookSlug
-     * @return \App\Models\Components\Book\Entity
+     * @return \Population\Models\Components\Book\Entity
      * @throws NotFoundException
      */
     public function getBySlug($type, $slug, $bookSlug = false)
@@ -307,7 +307,7 @@ class EntityRepo
     /**
      * Get the child items for a chapter sorted by priority but
      * with draft items floated to the top.
-     * @param \App\Models\Components\Book\Bookshelf $bookshelf
+     * @param \Population\Models\Components\Book\Bookshelf $bookshelf
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getBookshelfChildren(Bookshelf $bookshelf)
@@ -319,7 +319,7 @@ class EntityRepo
      * Get all child objects of a book.
      * Returns a sorted collection of Pages and Chapters.
      * Loads the book slug onto child elements to prevent access database access for getting the slug.
-     * @param \App\Models\Components\Book\Book $book
+     * @param \Population\Models\Components\Book\Book $book
      * @param bool $filterDrafts
      * @param bool $renderPages
      * @return mixed
@@ -369,7 +369,7 @@ class EntityRepo
     /**
      * Get the child items for a chapter sorted by priority but
      * with draft items floated to the top.
-     * @param \App\Models\Components\Book\Chapter $chapter
+     * @param \Population\Models\Components\Book\Chapter $chapter
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getChapterChildren(Chapter $chapter)
@@ -381,7 +381,7 @@ class EntityRepo
 
     /**
      * Get the next sequential priority for a new child element in the given book.
-     * @param \App\Models\Components\Book\Book $book
+     * @param \Population\Models\Components\Book\Book $book
      * @return int
      */
     public function getNewBookPriority(Book $book)
@@ -392,7 +392,7 @@ class EntityRepo
 
     /**
      * Get a new priority for a new page to be added to the given chapter.
-     * @param \App\Models\Components\Book\Chapter $chapter
+     * @param \Population\Models\Components\Book\Chapter $chapter
      * @return int
      */
     public function getNewChapterPriority(Chapter $chapter)
@@ -441,7 +441,7 @@ class EntityRepo
     /**
      * Updates entity restrictions from a request
      * @param Request $request
-     * @param \App\Models\Components\Book\Entity $entity
+     * @param \Population\Models\Components\Book\Entity $entity
      * @throws \Throwable
      */
     public function updateEntityPermissionsFromRequest(Request $request, Entity $entity)
@@ -472,7 +472,7 @@ class EntityRepo
      * @param string $type
      * @param array $input
      * @param bool|Book $book
-     * @return \App\Models\Components\Book\Entity
+     * @return \Population\Models\Components\Book\Entity
      */
     public function createFromInput($type, $input = [], $book = false)
     {
@@ -496,9 +496,9 @@ class EntityRepo
      * Update entity details from request input.
      * Used for books and chapters
      * @param string $type
-     * @param \App\Models\Components\Book\Entity $entityModel
+     * @param \Population\Models\Components\Book\Entity $entityModel
      * @param array $input
-     * @return \App\Models\Components\Book\Entity
+     * @return \Population\Models\Components\Book\Entity
      */
     public function updateFromInput($type, Entity $entityModel, $input = [])
     {
@@ -521,7 +521,7 @@ class EntityRepo
     /**
      * Sync the books assigned to a shelf from a comma-separated list
      * of book IDs.
-     * @param \App\Models\Components\Book\Bookshelf $shelf
+     * @param \Population\Models\Components\Book\Bookshelf $shelf
      * @param string $books
      */
     public function updateShelfBooks(Bookshelf $shelf, string $books)
@@ -546,7 +546,7 @@ class EntityRepo
      * @param integer $newBookId
      * @param Entity $entity
      * @param bool $rebuildPermissions
-     * @return \App\Models\Components\Book\Entity
+     * @return \Population\Models\Components\Book\Entity
      */
     public function changeBook($type, $newBookId, Entity $entity, $rebuildPermissions = false)
     {
@@ -719,7 +719,7 @@ class EntityRepo
 
     /**
      * Destroy a bookshelf instance
-     * @param \App\Models\Components\Book\Bookshelf $shelf
+     * @param \Population\Models\Components\Book\Bookshelf $shelf
      * @throws \Throwable
      */
     public function destroyBookshelf(Bookshelf $shelf)
@@ -730,7 +730,7 @@ class EntityRepo
 
     /**
      * Destroy the provided book and all its child entities.
-     * @param \App\Models\Components\Book\Book $book
+     * @param \Population\Models\Components\Book\Book $book
      * @throws NotifyException
      * @throws \Throwable
      */
@@ -748,7 +748,7 @@ class EntityRepo
 
     /**
      * Destroy a chapter and its relations.
-     * @param \App\Models\Components\Book\Chapter $chapter
+     * @param \Population\Models\Components\Book\Chapter $chapter
      * @throws \Throwable
      */
     public function destroyChapter(Chapter $chapter)
@@ -790,7 +790,7 @@ class EntityRepo
 
     /**
      * Destroy or handle the common relations connected to an entity.
-     * @param \App\Models\Components\Book\Entity $entity
+     * @param \Population\Models\Components\Book\Entity $entity
      * @throws \Throwable
      */
     protected function destroyEntityCommonRelations(Entity $entity)
@@ -807,7 +807,7 @@ class EntityRepo
     /**
      * Copy the permissions of a bookshelf to all child books.
      * Returns the number of books that had permissions updated.
-     * @param \App\Models\Components\Book\Bookshelf $bookshelf
+     * @param \Population\Models\Components\Book\Bookshelf $bookshelf
      * @return int
      * @throws \Throwable
      */

@@ -65,7 +65,7 @@ class User extends Model implements AuthenticatableContract
 
 	public function language()
 	{
-		return $this->belongsTo('Casa\Models\System\Language');
+		return $this->belongsTo('App\Models\System\Language');
 	}
 
 	public function provider()

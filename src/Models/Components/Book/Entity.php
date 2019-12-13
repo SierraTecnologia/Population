@@ -6,9 +6,9 @@ use Casa\Actions\Book\Activity;
 use Casa\Actions\Book\Comment;
 use Casa\Actions\Book\Tag;
 use Casa\Actions\Book\View;
-use Casa\Models\Permissions\EntityPermission;
-use Casa\Models\Permissions\JointPermission;
-use Casa\Models\Ownable;
+use App\Models\Permissions\EntityPermission;
+use App\Models\Permissions\JointPermission;
+use App\Models\Ownable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Components\Book;
 
-use Casa\Models\Permissions\PermissionService;
+use App\Models\Permissions\PermissionService;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Query\Builder;

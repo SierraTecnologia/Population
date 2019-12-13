@@ -2,11 +2,11 @@
 
 namespace Population\Models\Components\Book\Repos;
 
-use Casa\Models\Components\Book\Book;
-use Casa\Models\Components\Book\Chapter;
-use Casa\Models\Components\Book\Entity;
-use Casa\Models\Components\Book\Page;
-use Casa\Models\Components\Book\PageRevision;
+use Population\Models\Components\Book\Book;
+use Population\Models\Components\Book\Chapter;
+use Population\Models\Components\Book\Entity;
+use Population\Models\Components\Book\Page;
+use Population\Models\Components\Book\PageRevision;
 use Carbon\Carbon;
 use DOMDocument;
 use DOMXPath;

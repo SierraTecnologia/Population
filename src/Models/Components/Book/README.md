@@ -1,0 +1,1 @@
+https://github.com/figassis/docker-bookstack/tree/master/bookstack

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Components\Book;
 
-use Casa\Models\Components\Book\Repos\EntityRepo;
+use Population\Models\Components\Book\Repos\EntityRepo;
 use SiObjects\Entitys\Uploads\ImageService;
 
 class ExportService

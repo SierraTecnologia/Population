@@ -29,14 +29,6 @@ class Address extends Model
         ],
     );
     
-        
-    /**
-     * Get all of the owning addressable models.
-     */
-    public function addressable()
-    {
-        // @todo Verificar depois //return $this->morphTo();
-    }
 
     /**
      * Get all of the business that are assigned this tag.

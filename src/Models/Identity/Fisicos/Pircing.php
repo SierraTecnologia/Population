@@ -41,6 +41,6 @@ class Pircing extends Model
      */
     public function pircingable()
     {
-        // @todo Verificar depois //return $this->morphTo();
+        return $this->morphTo();
     }
 }

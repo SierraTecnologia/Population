@@ -42,6 +42,6 @@ class Tatuage extends Model
      */
     public function tatuageable()
     {
-        // @todo Verificar depois //return $this->morphTo();
+        return $this->morphTo();
     }
 }

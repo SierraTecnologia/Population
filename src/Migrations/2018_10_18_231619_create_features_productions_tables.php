@@ -32,8 +32,8 @@ class CreateFeaturesProductionsTables extends Migration
 			$table->string('personagenable_id')->nullable();
 			$table->string('personagenable_type', 255)->nullable();
 
-            $table->string('personagen_code')->nullable();
-            $table->foreign('personagen_code')->references('code')->on('personagens');
+            $table->string('personagem_code')->nullable();
+            $table->foreign('personagem_code')->references('code')->on('personagens');
 			$table->timestamps();
             $table->softDeletes();
         });

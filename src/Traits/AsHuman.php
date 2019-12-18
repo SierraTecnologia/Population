@@ -34,17 +34,6 @@ trait AsHuman
     }
 
 
-        
-    // /**
-    //  * Pega Relacao com as Proprias Pessoas
-    //  * Get all of the owning personable models.
-    //  */
-    // public function personable()
-    // {
-    //     // @todo Verificar depois //return $this->morphTo(); //, 'personable_type', 'personable_code'
-    // }
-
-
     /**
      * Aparece em videos
      */

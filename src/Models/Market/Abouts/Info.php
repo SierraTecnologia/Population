@@ -28,6 +28,6 @@ class Info extends Model
      */
     public function infoable()
     {
-        // @todo Verificar depois //return $this->morphTo();
+        return $this->morphTo();
     }
 }

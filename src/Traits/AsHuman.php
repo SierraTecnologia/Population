@@ -33,6 +33,17 @@ trait AsHuman
         return true;
     }
 
+    /**
+     * Contatos
+     */
+    public function phones()
+    {
+        return $this->morphToMany('Population\Models\Identity\Digital\Phone', 'phoneable');
+    }
+    public function emails()
+    {
+        return $this->morphToMany('Population\Models\Identity\Digital\Email', 'emailable');
+    }
 
     /**
      * Aparece em videos

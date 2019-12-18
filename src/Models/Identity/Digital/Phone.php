@@ -30,9 +30,9 @@ class Phone extends Model
     /**
      * Get all of the slaves that are assigned this tag.
      */
-    public function slaves()
+    public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Slave', 'skillable');
+        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'phoneable');
     }
 
     /**
@@ -40,6 +40,6 @@ class Phone extends Model
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'skillable');
+        return $this->morphedByMany('App\Models\User', 'phoneable');
     }
 }

@@ -97,12 +97,9 @@ class Person extends Model
     }
     public static function convertSlugToName($slug)
     {
-        $slug = self::cleanCodeSlug($slug);
-        $names = collect(explode('.', $slug))->map(function($namePart) {
+        return collect(explode('.', self::cleanCodeSlug($slug)))->map(function($namePart) {
             return ucfirst($namePart);
-        });
-        
-        return implode(' ', $names);
+        })->implode(' ');
     }
 
     // @todo resolver problema do nome vazio

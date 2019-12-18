@@ -59,7 +59,7 @@ class Person extends Model
         ],
     );
     
-    public static function returnOrCreateByCode()
+    public static function returnOrCreateByCode($code)
     {
         $slugify = new Slugify();
         

@@ -58,6 +58,17 @@ class Person extends Model
             "analyzer" => "standard",
         ],
     );
+
+    public function save(array $options = [])
+    {
+        // If no author has been assigned, assign the current user's id as the author of the post
+        if (!$this->name || empty($this->name)) {
+            $this->name = self::convertSlugToName($this->code);
+        }
+
+        parent::save();
+    }
+
     
     public static function returnOrCreateByCode($personCode)
     {
@@ -68,7 +79,7 @@ class Person extends Model
         if (!$person) {
             $person = self::create([
                 'code' => self::cleanCodeSlug($personCode),
-                'name' => self::cleanCodeSlug($personCode),
+                'name' => self::convertSlugToName($personCode),
             ]);
         }
 
@@ -87,13 +98,11 @@ class Person extends Model
     public static function convertSlugToName($slug)
     {
         $slug = self::cleanCodeSlug($slug);
-        $names = collect(explode('', $slug))->map(function($namePart) {
+        $names = collect(explode('.', $slug))->map(function($namePart) {
             return ucfirst($namePart);
         });
         
-        $slug = $slugify->slugify($slug, '.'); // hello-world
-        
-        return implode;
+        return implode(' ', $names);
     }
 
     // @todo resolver problema do nome vazio

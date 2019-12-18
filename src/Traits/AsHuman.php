@@ -60,7 +60,18 @@ trait AsHuman
     {
         return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Imagen', 'imagenable');
     }
-
+    
+    /**
+     * Get all of the post's weapons.
+     */
+    public function ferramentas()
+    {
+        return $this->weapons();
+    }
+    public function weapons()
+    {
+        return $this->morphToMany('Informate\Models\Entytys\Fisicos\Weapon', 'weaponable');
+    }
     /**
      * Get all of the post's equipaments.
      */

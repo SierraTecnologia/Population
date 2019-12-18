@@ -157,6 +157,10 @@ trait AsHuman
     {
         return $this->morphToMany('Population\Models\Components\Productions\Production', 'productionable');
     }
+    public function personagens()
+    {
+        return $this->morphToMany('Population\Models\Market\Actors\Personagem', 'personagenable');
+    }
     
 
     /**

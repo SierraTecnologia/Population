@@ -65,4 +65,19 @@ class Personagem extends Model
         return $this->morphToMany('Informate\Models\Entytys\About\Skill', 'skillable');
     }
 
+    /**
+     * Get all of the users that are assigned this tag.
+     */
+    public function users()
+    {
+        return $this->morphedByMany('App\Models\User', 'personagenable');
+    }
+
+    /**
+     * Get all of the persons that are assigned this tag.
+     */
+    public function persons()
+    {
+        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'personagenable');
+    }
 }

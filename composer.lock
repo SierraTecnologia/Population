@@ -3204,7 +3204,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "77ac62b31eecb7dea44622fd97aea27edd20ef04"
+                "reference": "3703812d3ef5aa69d3933721d9b21aa7b9ab9b8a"
             },
             "require": {
                 "php": ">=7.2.0",

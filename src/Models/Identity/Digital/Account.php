@@ -4,6 +4,7 @@ namespace Population\Models\Identity\Digital;
 
 use Population\Models\Model;
 use Informate\Traits\ComplexRelationamentTrait;
+use Population\Models\Market\Relations\Integration;
 
 class Account extends Model
 {
@@ -75,5 +76,14 @@ class Account extends Model
     public function persons()
     {
         return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'accountable');
+    }
+
+    /**
+     * Relation for the user that created this entity.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function integration()
+    {
+        return $this->belongsTo(Integration::class, 'created_by');
     }
 }

@@ -4,6 +4,7 @@ namespace Population\Models\Identity\Actors;
 
 use Population\Models\Model;
 use Population\Traits\AsHuman;
+use Cocur\Slugify\Slugify;
 
 class Person extends Model
 {
@@ -57,4 +58,31 @@ class Person extends Model
             "analyzer" => "standard",
         ],
     );
+    
+    public static function returnOrCreateByCode()
+    {
+        $slugify = new Slugify();
+        
+        $code = $slugify->slugify($code, '.'); // hello-world
+
+    }
+    
+    public static function cleanCodeSlug($slug)
+    {
+        $slugify = new Slugify();
+        
+        $slug = $slugify->slugify($slug, '.'); // hello-world
+        
+        return $slug;
+    }
+
+    // @todo resolver problema do nome vazio
+    // public static function boot() {
+
+    //     static::creating(function ($model) {
+    //         if (empty($model->name)) {
+    //             $model->name = $model->code;
+    //         }
+    //     });
+    // }
 }

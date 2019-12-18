@@ -59,11 +59,20 @@ class Person extends Model
         ],
     );
     
-    public static function returnOrCreateByCode($code)
+    public static function returnOrCreateByCode($personCode)
     {
-        $slugify = new Slugify();
-        
-        $code = $slugify->slugify($code, '.'); // hello-world
+
+        $person = self::where([
+            'code' => self::cleanCodeSlug($personCode)
+        ])->first();
+        if (!$person) {
+            $person = self::create([
+                'code' => self::cleanCodeSlug($personCode),
+                'name' => self::cleanCodeSlug($personCode),
+            ]);
+        }
+
+        return $person;
 
     }
     
@@ -74,6 +83,17 @@ class Person extends Model
         $slug = $slugify->slugify($slug, '.'); // hello-world
         
         return $slug;
+    }
+    public static function convertSlugToName($slug)
+    {
+        $slug = self::cleanCodeSlug($slug);
+        $names = collect(explode('', $slug))->map(function($namePart) {
+            return ucfirst($namePart);
+        });
+        
+        $slug = $slugify->slugify($slug, '.'); // hello-world
+        
+        return implode;
     }
 
     // @todo resolver problema do nome vazio

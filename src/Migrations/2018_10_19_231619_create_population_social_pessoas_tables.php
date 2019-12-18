@@ -34,7 +34,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		Schema::create(config('app.db-prefix', '').'infos', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text', 255)->nullable();
 			$table->string('infoable_id')->nullable();
 			$table->string('infoable_type', 255)->nullable();
 			$table->timestamps();
@@ -45,7 +45,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		Schema::create(config('app.db-prefix', '').'tatuages', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text', 255)->nullable();
 			$table->string('tatuageable_id');
 			$table->string('tatuageable_type', 255);
 			$table->timestamps();
@@ -55,7 +55,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		Schema::create(config('app.db-prefix', '').'pircings', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text', 255)->nullable();
 			$table->string('pircingable_id');
 			$table->string('pircingable_type', 255);
 			$table->timestamps();
@@ -65,7 +65,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		Schema::create(config('app.db-prefix', '').'pintinhas', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('text', 255)->nullable();
+			$table->longText('text', 255)->nullable();
 			$table->string('pintinhable_id');
 			$table->string('pintinhable_type', 255);
 			$table->timestamps();
@@ -223,7 +223,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('date', 255)->nullable();
-			$table->string('text', 255)->nullable();
+			$table->longText('text', 255)->nullable();
 			$table->string('fatoable_id')->nullable();
 			$table->string('fatoable_type', 255)->nullable();
 			$table->timestamps();

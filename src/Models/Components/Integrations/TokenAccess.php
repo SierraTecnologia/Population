@@ -24,7 +24,7 @@ class TokenAccess extends Model
         'model',
         'model_id',
         'token_id',
-        'integration_service_id',
+        'integration_id',
         'status'
     ];
 

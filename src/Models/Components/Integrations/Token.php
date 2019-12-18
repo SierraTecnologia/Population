@@ -25,7 +25,7 @@ class Token extends Model
     protected $fillable = [
         'account',
         'token',
-        'integration_service_id',
+        'integration_id',
         'obs',
         'scopes',
         'status'

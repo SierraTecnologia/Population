@@ -24,7 +24,7 @@ class CreateIntegrationsTables extends Migration
             $table->increments('id');
             $table->string('account');
             $table->string('token');
-            $table->integer('integration_service_id');
+            $table->integer('integration_id');
             $table->integer('status')->default(1);
             $table->string('obs')->nullable();
             $table->json('scopes')->nullable();

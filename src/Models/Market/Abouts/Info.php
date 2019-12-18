@@ -13,24 +13,11 @@ class Info extends Model
      * @var array
      */
     protected $fillable = [
-        'name',
-        'description',
-        'info_id'
+        'text'
     ];
 
     protected $mappingProperties = array(
-        /**
-         * User Info
-         */
-        'name' => [
-            'type' => 'string',
-            "analyzer" => "standard",
-        ],
-        'description' => [
-            'type' => 'string',
-            "analyzer" => "standard",
-        ],
-        'info_id' => [
+        'text' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],

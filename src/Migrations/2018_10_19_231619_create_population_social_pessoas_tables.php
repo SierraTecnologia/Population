@@ -105,9 +105,9 @@ class CreatePopulationSocialPessoasTables extends Migration
 		Schema::create(config('app.db-prefix', '').'phones', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
-			$table->string('country', 255);
-			$table->string('state', 255);
-			$table->integer('number')->nullable();
+			$table->string('country', 255)->default('55')->nullable();
+			$table->string('state', 255)->default('21')->nullable();
+			$table->string('number')->nullable();
 			$table->integer('whatsapp')->nullable();
 			$table->timestamps();
             $table->softDeletes();

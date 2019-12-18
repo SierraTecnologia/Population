@@ -15,7 +15,7 @@ namespace Population\Models\Actions\Calendar;
 use Informate\Traits\ComplexRelationamentTrait;
 use Siravel\Models\Model;
 use SiInteractions\Actions\Action;
-use Illuminate\Support\Facades\Log;
+use Log;
 class Spent extends Model
 {
     use ComplexRelationamentTrait;

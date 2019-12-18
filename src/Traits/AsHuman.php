@@ -2,7 +2,7 @@
 
 namespace Population\Traits;
 
-use Illuminate\Support\Facades\Log;
+use Log;
 // Podem Seguir
 use Overtrue\LaravelFollow\Traits\CanFollow;
 use Overtrue\LaravelFollow\Traits\CanLike;

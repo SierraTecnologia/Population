@@ -15,7 +15,7 @@ namespace Population\Models\Actions\Calendar;
 use Informate\Traits\ComplexRelationamentTrait;
 use Population\Models\Model;
 
-use Illuminate\Support\Facades\Log;
+use Log;
 
 class Task extends Model
 {

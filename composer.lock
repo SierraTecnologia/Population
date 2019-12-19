@@ -3249,7 +3249,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "e4b5fa6c868edba5e434d7ae35578620cdc209c9"
+                "reference": "501c87ae1460586e9157fad4244792621ce27328"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",

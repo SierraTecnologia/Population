@@ -140,12 +140,12 @@ trait AsHuman
         ]);
     }
     /**
-     * Accounts do Usuario - Refazer
+     * DataInfo do Usuario - @todo Refazer
      *
      * @param array $data
      * @return void
      */
-    public function addAccount($data)
+    public function addDataInfo($data)
     {
         // @todo Refazer
         return $this->infos()->create([

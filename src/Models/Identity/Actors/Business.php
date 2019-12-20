@@ -3,6 +3,8 @@
 namespace Population\Models\Identity\Actors;
 
 use Population\Models\Model;
+use Population\Traits\AsHuman;
+use Cocur\Slugify\Slugify;
 
 class Business extends Model
 {
@@ -50,13 +52,14 @@ class Business extends Model
         ],
     );
         
-    /**
-     * Get all of the owning businessable models.
-     */
-    public function businessable()
-    {
-        return $this->morphTo(); //, 'businessable_type', 'businessable_code'
-    }
+    // /**
+    //  * Get all of the owning businessable models.
+    //  */
+    // @todo A relacao porliformica é diferente nesse caso, podemos ter varias pessoas associadas ao mesmo item.
+    // public function businessable()
+    // {
+    //     return $this->morphTo(); //, 'businessable_type', 'businessable_code'
+    // }
 
     /**
      * Get all of the users that are assigned this tag.
@@ -64,6 +67,10 @@ class Business extends Model
     public function users()
     {
         return $this->morphedByMany('App\Models\User', 'businessable'); //, 'businessable_type', 'businessable_code');
+    }
+    public function collaborators()
+    {
+        return $this->morphedByMany(Person::class, 'businessable'); //, 'businessable_type', 'businessable_code');
     }
 
 
@@ -177,4 +184,21 @@ class Business extends Model
         return $this->morphToMany('Population\Models\Identity\Fisicos\Tatuagem', 'tatuageable');
     }
 
+    /**
+     * @todo Codigo repetido , resolver
+     */
+    public static function cleanCodeSlug($slug)
+    {
+        $slugify = new Slugify();
+        
+        $slug = $slugify->slugify($slug, '.'); // hello-world
+        
+        return $slug;
+    }
+    public static function convertSlugToName($slug)
+    {
+        return collect(explode('.', self::cleanCodeSlug($slug)))->map(function($namePart) {
+            return ucfirst($namePart);
+        })->implode(' ');
+    }
 }

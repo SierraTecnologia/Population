@@ -6,6 +6,12 @@ use Support\Models\Base;
 
 class Email extends Base
 {
+    public $incrementing = false;
+    protected $casts = [
+        'email' => 'string',
+    ];
+    protected $primaryKey = 'email';
+    protected $keyType = 'string'; 
 
     /**
      * The attributes that are mass assignable.

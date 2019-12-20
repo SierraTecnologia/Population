@@ -83,19 +83,19 @@ class CreatePopulationSocialPessoasTables extends Migration
         
 		Schema::create(config('app.db-prefix', '').'emails', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
-			$table->increments('id')->unsigned();
-			$table->string('email', 255);
+            $table->string('email')->unique();
+            $table->primary('email');
 			$table->string('address', 255)->nullable();
 			$table->string('domain')->nullable();
 			$table->integer('integration_id')->nullable();
-			$table->unique('email');
+			$table->unique(['address', 'domain', 'integration_id']);
 			$table->timestamps();
             $table->softDeletes();
 		});
         
 		Schema::create(config('app.db-prefix', '').'emailables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
-			$table->integer('email_id')->unsigned();
+			$table->string('email_email');
 			$table->string('emailable_id');
 			$table->string('emailable_type', 255);
 			$table->timestamps();

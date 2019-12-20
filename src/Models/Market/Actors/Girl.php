@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Girl extends Model
+class Girl extends Base
 {
 
     /**

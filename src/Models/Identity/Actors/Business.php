@@ -2,11 +2,11 @@
 
 namespace Population\Models\Identity\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Population\Traits\AsHuman;
 use Cocur\Slugify\Slugify;
 
-class Business extends Model
+class Business extends Base
 {
 
     public $incrementing = false;
@@ -184,21 +184,4 @@ class Business extends Model
         return $this->morphToMany('Population\Models\Identity\Fisicos\Tatuagem', 'tatuageable');
     }
 
-    /**
-     * @todo Codigo repetido , resolver
-     */
-    public static function cleanCodeSlug($slug)
-    {
-        $slugify = new Slugify();
-        
-        $slug = $slugify->slugify($slug, '.'); // hello-world
-        
-        return $slug;
-    }
-    public static function convertSlugToName($slug)
-    {
-        return collect(explode('.', self::cleanCodeSlug($slug)))->map(function($namePart) {
-            return ucfirst($namePart);
-        })->implode(' ');
-    }
 }

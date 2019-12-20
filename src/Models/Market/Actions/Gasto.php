@@ -2,10 +2,10 @@
 
 namespace Population\Models\Market\Actions;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 
-class Gasto extends Model
+class Gasto extends Base
 {
 
     /**

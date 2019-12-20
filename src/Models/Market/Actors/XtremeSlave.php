@@ -5,7 +5,7 @@
 
 namespace Population\Models\Market\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
 class XtremeSlave extends Slave
 {

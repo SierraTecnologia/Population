@@ -13,17 +13,6 @@ class CreateGameOthers extends Migration
     public function up()
     {
         
-      Schema::create('integrations', function (Blueprint $table) {
-        $table->engine = 'InnoDB';
-        $table->increments('id')->unsigned();
-        $table->string('name', 255)->nullable();
-        $table->string('description', 255)->nullable();
-        $table->string('url', 255)->nullable();
-        $table->integer('code')->nullable();
-        $table->integer('status')->nullable();
-        $table->timestamps();
-        $table->softDeletes();
-      });
     }
 
     /**
@@ -33,6 +22,7 @@ class CreateGameOthers extends Migration
      */
     public function down()
     {
-      Schema::dropIfExists('integrations');
+      
+      
     }
 }

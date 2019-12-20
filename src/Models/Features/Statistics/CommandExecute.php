@@ -5,9 +5,9 @@
 
 namespace Population\Models\Features\Statistics;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class CommandExecute extends Model
+class CommandExecute extends Base
 {
 
     protected $organizationPerspective = true;

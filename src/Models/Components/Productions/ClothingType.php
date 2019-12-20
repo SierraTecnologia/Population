@@ -5,7 +5,7 @@ namespace Population\Models\Components\Productions;
 /**
  * Tipos de Produções
  */
-use Population\Models\Model;
+use Support\Models\Base;
 
 class ClothingType extends Item
 {

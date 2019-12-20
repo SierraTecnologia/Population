@@ -5,9 +5,9 @@ namespace Population\Models\Components\Productions;
 /**
  * Tipos de Produções
  */
-use Population\Models\Model;
+use Support\Models\Base;
 
-class SceneLocal extends Model
+class SceneLocal extends Base
 {
 
     protected $table = 'production_scene_locals';

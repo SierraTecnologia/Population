@@ -5,9 +5,10 @@
 
 namespace Population\Models\Components\Integrations;
 
-use Population\Models\Model;
+use Support\Models\Base;
+use Population\Models\Identity\Digital\Account;
 
-class Token extends Model
+class Token extends Base
 {
 
     
@@ -15,7 +16,7 @@ class Token extends Model
 
     public static $apresentationName = 'Tokens';
 
-    protected $table = 'integration_tokens';       
+    protected $table = 'tokens';       
 
     /**
      * The attributes that are mass assignable.
@@ -23,9 +24,8 @@ class Token extends Model
      * @var array
      */
     protected $fillable = [
-        'account',
+        'account_id',
         'token',
-        'integration_id',
         'obs',
         'scopes',
         'status'
@@ -40,7 +40,6 @@ class Token extends Model
         'scopes' => 'json',
     ];
 
-
     protected $mappingProperties = array(
 
         'name' => [
@@ -53,13 +52,13 @@ class Token extends Model
         ],
     );
 
-    // public function user()
-    // {
-    //     return $this->belongsTo('App\Models\User', 'user_id', 'id');
-    // }
 
-    public function getApresentationName()
+    /**
+     * Relation for the user that created this entity.
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function account()
     {
-        return 'Tokens de Serviços';
+        return $this->belongsTo(Account::class);
     }
 }

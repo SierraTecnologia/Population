@@ -1,4 +1,7 @@
 <?php
+/**
+ * @todo Analisar, provavelmente tera que sair
+ */
 
 namespace Population\Models\Market\Business;
 

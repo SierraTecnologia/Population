@@ -2,9 +2,9 @@
 
 namespace Population\Models\Components\Pegadas;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class History extends Model
+class History extends Base
 {
 
     /**

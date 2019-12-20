@@ -2,9 +2,9 @@
 
 use App\Models\Role;
 use Population\Models\Components\Book\Entity;
-use App\Models\Model;
+use Support\Models\Base;
 
-class JointPermission extends Model
+class JointPermission extends Base
 {
     public $timestamps = false;
 

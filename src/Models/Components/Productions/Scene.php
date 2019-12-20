@@ -2,9 +2,9 @@
 
 namespace Population\Models\Components\Productions;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Scene extends Model
+class Scene extends Base
 {
 
     protected $table = 'production_scenes';

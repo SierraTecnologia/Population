@@ -2,9 +2,9 @@
 
 namespace Population\Models\Components\Book\Permissions;
 
-use App\Models\Model;
+use Support\Models\Base;
 
-class EntityPermission extends Model
+class EntityPermission extends Base
 {
 
     protected $fillable = ['role_id', 'action'];

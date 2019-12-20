@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Socialite\Contracts\User as SocialUser;
 
-class User extends Model implements AuthenticatableContract
+class User extends Base implements AuthenticatableContract
 {
 	use Authenticatable, SoftDeletes;
 

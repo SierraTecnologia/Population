@@ -13,9 +13,9 @@
 
 namespace Population\Models\Features;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Estatistica extends Model
+class Estatistica extends Base
 {
     /**
      * The attributes that are mass assignable.

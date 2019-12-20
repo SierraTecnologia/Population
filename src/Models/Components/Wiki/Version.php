@@ -5,7 +5,7 @@ namespace Population;
 use Request;
 use Illuminate\Database\Eloquent\Model;
 
-class Version extends Model
+class Version extends Base
 {
 	// Meta ========================================================================
 

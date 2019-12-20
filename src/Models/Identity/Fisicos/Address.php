@@ -2,10 +2,10 @@
 
 namespace Population\Models\Identity\Fisicos;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 
-class Address extends Model
+class Address extends Base
 {
 
     /**

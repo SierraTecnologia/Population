@@ -2,10 +2,10 @@
 
 namespace Population\Models\Market\Abouts;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 
-class Renda extends Model
+class Renda extends Base
 {
     /**
      * The attributes that are mass assignable.

@@ -2,9 +2,9 @@
 
 namespace Population\Models\Components\Book;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class SearchTerm extends Model
+class SearchTerm extends Base
 {
 
     protected $fillable = ['term', 'entity_id', 'entity_type', 'score'];

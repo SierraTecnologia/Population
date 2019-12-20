@@ -4,7 +4,7 @@ namespace Population;
 
 use Baum\Node as Model;
 
-class Category extends Model
+class Category extends Base
 {
 	// Meta ========================================================================
 

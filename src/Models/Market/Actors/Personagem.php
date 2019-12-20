@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Personagem extends Model
+class Personagem extends Base
 {
     protected $table = 'personagens';
     

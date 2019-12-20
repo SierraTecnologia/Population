@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Business;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Product extends Model
+class Product extends Base
 {
 
     protected $organizationPerspective = true;

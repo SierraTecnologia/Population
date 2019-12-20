@@ -5,7 +5,7 @@
 
 namespace Population\Models\Components\Productions;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
 class ActionOcorrence extends Person
 {

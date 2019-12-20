@@ -5,7 +5,7 @@ namespace Population;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Page extends Model
+class Page extends Base
 {
 	use SoftDeletes;
 

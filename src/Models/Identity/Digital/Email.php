@@ -2,9 +2,9 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Email extends Model
+class Email extends Base
 {
 
     /**
@@ -28,6 +28,14 @@ class Email extends Model
             "analyzer" => "standard",
         ],
     );
+    
+    /**
+     * Get all of the slaves that are assigned this tag.
+     */
+    public function associations($class)
+    {
+        return $this->morphedByMany($class, 'emailable');
+    }
     
     /**
      * Get all of the slaves that are assigned this tag.

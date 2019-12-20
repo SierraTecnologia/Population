@@ -2,11 +2,11 @@
 
 namespace Population\Models\Market\Informacao;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 use Informate\Models\Entytys\Category\BibliotecaType;
 
-class Biblioteca extends Model
+class Biblioteca extends Base
 {
     /**
      * The attributes that are mass assignable.

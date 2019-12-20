@@ -5,9 +5,9 @@
 
 namespace Population\Models\Components\Analitics;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class CollectRegister extends Model
+class CollectRegister extends Base
 {
 
     protected $table = 'analitics_collect_registers';

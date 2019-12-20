@@ -2,9 +2,9 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Sitio extends Model
+class Sitio extends Base
 {
 
     /**

@@ -2,11 +2,11 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
-use Population\Models\Market\Relations\Integration;
+use Population\Models\Components\Integrations\Integration;
 
-class Account extends Model
+class Account extends Base
 {
     // use ComplexRelationamentTrait;
     
@@ -24,23 +24,29 @@ class Account extends Model
         'username',
         'password',
         'email',
+        'customize_url',
         'status',
         'integration_id',
     ];
 
     protected $mappingProperties = array(
-        /**
-         * User Info
-         */
-        'url' => [
+        'username' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],
-        'account' => [
+        'password' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],
-        'type' => [
+        'email' => [
+            'type' => 'string',
+            "analyzer" => "standard",
+        ],
+        'customize_url' => [
+            'type' => 'string',
+            "analyzer" => "standard",
+        ],
+        'integration_id' => [
             'type' => 'string',
             "analyzer" => "standard",
         ],
@@ -76,6 +82,17 @@ class Account extends Model
      */
     public function integration()
     {
-        return $this->belongsTo(Integration::class, 'created_by');
+        return $this->belongsTo(Integration::class);
+    }
+
+
+    public function save(array $options = [])
+    {
+        // If no author has been assigned, assign the current user's id as the author of the post
+        if (!$this->username || empty($this->username)) {
+            $this->username = $this->email;
+        }
+
+        parent::save();
     }
 }

@@ -8,7 +8,7 @@ namespace Population\Models\Actions\Event;
 use Illuminate\Support\Facades\Hash;
 
 use Siravel\Models\Model;
-class PaymentType  extends Model
+class PaymentType  extends Base
 {
 
     /**

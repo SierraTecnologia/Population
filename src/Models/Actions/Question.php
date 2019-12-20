@@ -16,7 +16,7 @@ use Siravel\Models\Model;
  * @property Collection responses
  * @package App\Models
  */
-class Question extends Model
+class Question extends Base
 {
     /**
      * @inheritdoc

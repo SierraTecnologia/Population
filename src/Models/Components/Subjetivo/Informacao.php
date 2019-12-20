@@ -5,7 +5,7 @@ namespace Population\Models\Components\Subjetivo;
 use Request;
 use Illuminate\Database\Eloquent\Model;
 
-class Informacao extends Model
+class Informacao extends Base
 {
 	// Meta ========================================================================
 

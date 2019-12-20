@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Abouts;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Info extends Model
+class Info extends Base
 {
 
     /**

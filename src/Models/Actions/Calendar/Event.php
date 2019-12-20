@@ -16,7 +16,7 @@ use Informate\Traits\ComplexRelationamentTrait;
 use Siravel\Models\Model;
 use SiInteractions\Actions\Action;
 use Log;
-class Event extends Model
+class Event extends Base
 {
     use ComplexRelationamentTrait;
 

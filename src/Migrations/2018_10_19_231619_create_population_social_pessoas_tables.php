@@ -123,29 +123,6 @@ class CreatePopulationSocialPessoasTables extends Migration
 		});
         
         
-		Schema::create(config('app.db-prefix', '').'accounts', function (Blueprint $table) {
-			$table->engine = 'InnoDB';
-			$table->increments('id')->unsigned();
-			$table->string('username', 255);
-			$table->string('email')->nullable();
-			$table->string('password')->nullable();
-			$table->integer('status')->nullable();
-			$table->integer('integration_id');
-			$table->unique(['username', 'integration_id']);
-			$table->timestamps();
-            $table->softDeletes();
-		});
-        
-		Schema::create(config('app.db-prefix', '').'accountables', function (Blueprint $table) {
-			$table->engine = 'InnoDB';
-			$table->increments('id')->unsigned();
-			$table->integer('account_id')->nullable();
-			$table->boolean('is_sincronizado')->default(false);
-			$table->string('accountable_id');
-			$table->string('accountable_type', 255);
-			$table->timestamps();
-            $table->softDeletes();
-		});
 
         
         
@@ -199,6 +176,8 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->timestamps();
             $table->softDeletes();
 		});
+
+		// @todo Tirar aqui
 		Schema::create(config('app.db-prefix', '').'identity_person_equipaments', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();

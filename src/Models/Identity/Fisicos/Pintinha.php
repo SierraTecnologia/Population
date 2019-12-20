@@ -2,9 +2,9 @@
 
 namespace Population\Models\Identity\Fisicos;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Pintinha extends Model
+class Pintinha extends Base
 {
 
     /**

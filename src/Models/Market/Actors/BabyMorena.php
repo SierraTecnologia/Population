@@ -5,9 +5,9 @@
 
 namespace Population\Models\Market\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class BabyMorena extends Model
+class BabyMorena extends Base
 {
 
     /**

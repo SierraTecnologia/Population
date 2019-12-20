@@ -13,11 +13,11 @@
 namespace Population\Models\Actions\Calendar;
 
 use Informate\Traits\ComplexRelationamentTrait;
-use Population\Models\Model;
+use Support\Models\Base;
 
 use Log;
 
-class Task extends Model
+class Task extends Base
 {
     use ComplexRelationamentTrait;
 

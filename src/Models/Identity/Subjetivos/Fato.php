@@ -2,9 +2,9 @@
 
 namespace Population\Models\Identity\Subjetivos;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Fato extends Model
+class Fato extends Base
 {
 
     /**

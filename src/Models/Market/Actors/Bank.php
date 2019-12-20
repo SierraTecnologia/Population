@@ -2,10 +2,10 @@
 
 namespace Population\Models\Market\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 
-class Bank extends Model
+class Bank extends Base
 {
 
     /**

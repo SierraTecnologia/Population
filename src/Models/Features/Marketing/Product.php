@@ -2,11 +2,11 @@
 
 namespace Population\Models\Features\Marketing;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 use Informate\Traits\BusinessTrait;
 
-class Product extends Model
+class Product extends Base
 {
     use ComplexRelationamentTrait;
     

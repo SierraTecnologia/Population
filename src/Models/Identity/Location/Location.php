@@ -8,7 +8,7 @@ use Informate\Features\Photos\Entities\LocationEntity;
 use Informate\ValueObjects\Coordinates;
 use Informate\ValueObjects\Latitude;
 use Informate\ValueObjects\Longitude;
-use Population\Models\Model;
+use Support\Models\Base;
 use Illuminate\Support\Str;
 
 /**
@@ -21,7 +21,7 @@ use Illuminate\Support\Str;
  * @property Coordinates coordinates
  * @package App\Models
  */
-class Location extends Model
+class Location extends Base
 {
     /**
      * @inheritdoc

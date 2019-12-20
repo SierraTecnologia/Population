@@ -5,9 +5,9 @@
 
 namespace Population\Models\Components\Productions;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Action extends Model
+class Action extends Base
 {
 
     protected $table = 'production_actions';

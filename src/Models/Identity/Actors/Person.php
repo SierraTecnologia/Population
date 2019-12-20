@@ -2,11 +2,10 @@
 
 namespace Population\Models\Identity\Actors;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Population\Traits\AsHuman;
-use Cocur\Slugify\Slugify;
 
-class Person extends Model
+class Person extends Base
 {
     use AsHuman;
 
@@ -70,37 +69,6 @@ class Person extends Model
     }
 
     
-    public static function returnOrCreateByCode($personCode)
-    {
-
-        $person = self::where([
-            'code' => self::cleanCodeSlug($personCode)
-        ])->first();
-        if (!$person) {
-            $person = self::create([
-                'code' => self::cleanCodeSlug($personCode),
-                'name' => self::convertSlugToName($personCode),
-            ]);
-        }
-
-        return $person;
-
-    }
-    
-    public static function cleanCodeSlug($slug)
-    {
-        $slugify = new Slugify();
-        
-        $slug = $slugify->slugify($slug, '.'); // hello-world
-        
-        return $slug;
-    }
-    public static function convertSlugToName($slug)
-    {
-        return collect(explode('.', self::cleanCodeSlug($slug)))->map(function($namePart) {
-            return ucfirst($namePart);
-        })->implode(' ');
-    }
 
     // @todo resolver problema do nome vazio
     // public static function boot() {

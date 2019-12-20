@@ -37,7 +37,7 @@ class CreateEventsTables extends Migration
 			$table->string('eventable_type', 255);
 
             $table->unsignedInteger('event_id')->nullable();
-            // $table->foreign('event_id')->references('id')->on('events');
+            $table->foreign('event_id')->references('id')->on('events');
 			$table->timestamps();
             $table->softDeletes();
 		});

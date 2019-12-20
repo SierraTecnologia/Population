@@ -1,9 +1,9 @@
 <?php namespace Population\Models\Components\Book\Permissions;
 
 use App\Models\Role;
-use App\Models\Model;
+use Support\Models\Base;
 
-class RolePermission extends Model
+class RolePermission extends Base
 {
     /**
      * The roles that belong to the permission.

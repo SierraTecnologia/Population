@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use DomainException;
 use Session;
 
-class Language extends Model
+class Language extends Base
 {
 	use SoftDeletes;
 

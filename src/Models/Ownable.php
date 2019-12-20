@@ -3,8 +3,10 @@
 namespace Population\Models;
 
 use App\Models\User;
+use Support\Models\Base;
+use Support\Discovers\Code\ParseClass;
 
-abstract class Ownable extends Model
+abstract class Ownable extends Base
 {
     /**
      * Relation for the user that created this entity.
@@ -30,6 +32,6 @@ abstract class Ownable extends Model
      */
     public static function getClassName()
     {
-        return strtolower(array_slice(explode('\\', static::class), -1, 1)[0]);
+        return ParseClass::getClassName(static::class);
     }
 }

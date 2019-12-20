@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Actions;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Vaga extends Model
+class Vaga extends Base
 {
 
     protected $organizationPerspective = false;

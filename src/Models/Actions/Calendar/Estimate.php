@@ -17,7 +17,7 @@ use Siravel\Models\Model;
 use SiInteractions\Actions\Action;
 use Log;
 
-class Estimate extends Model
+class Estimate extends Base
 {
     use ComplexRelationamentTrait;
 

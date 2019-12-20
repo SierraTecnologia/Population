@@ -5,9 +5,9 @@
 
 namespace Population\Models\Features\Statistics;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Statistic extends Model
+class Statistic extends Base
 {
     use ComplexRelationamentTrait;
 

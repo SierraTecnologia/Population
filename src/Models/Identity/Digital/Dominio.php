@@ -2,9 +2,9 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Dominio extends Model
+class Dominio extends Base
 {
 
     protected $organizationPerspective = false;

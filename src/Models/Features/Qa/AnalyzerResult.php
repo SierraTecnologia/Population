@@ -2,11 +2,11 @@
 
 namespace Population\Models\Features\Qa;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\EloquentGetTableNameTrait;
 use Informate\Traits\ComplexRelationamentInTrait;
 
-class AnalyzerResult extends Model
+class AnalyzerResult extends Base
 {
     use EloquentGetTableNameTrait, ComplexRelationamentInTrait;
 

@@ -2,9 +2,9 @@
 
 namespace Population\Models\Components\Pegadas;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Notification extends Model
+class Notification extends Base
 {
 
     /**

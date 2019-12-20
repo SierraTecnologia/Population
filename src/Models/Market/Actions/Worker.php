@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Actions;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Worker extends Model
+class Worker extends Base
 {
 
     /**

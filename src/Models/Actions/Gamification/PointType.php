@@ -4,7 +4,7 @@ namespace Population\Models\Actions\Gamification;
 
 use Siravel\Models\Model;
 
-class PointType extends Model
+class PointType extends Base
 {
 
     /**

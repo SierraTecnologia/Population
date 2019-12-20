@@ -5,9 +5,9 @@ namespace Population\Models\Components\Productions;
 /**
  * Tipos de Produções
  */
-use Population\Models\Model;
+use Support\Models\Base;
 
-class ActionType extends Model
+class ActionType extends Base
 {
 
     protected $table = 'production_action_types';

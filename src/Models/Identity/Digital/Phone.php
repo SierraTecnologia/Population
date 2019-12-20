@@ -2,10 +2,10 @@
 
 namespace Population\Models\Identity\Digital;
 
-use Population\Models\Model;
+use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 
-class Phone extends Model
+class Phone extends Base
 {
 
     /**

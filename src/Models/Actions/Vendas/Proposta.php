@@ -4,7 +4,7 @@ namespace Population\Models\Actions\Vendas;
 
 use Siravel\Models\Model;
 
-class Proposta extends Model
+class Proposta extends Base
 {
 
     protected $organizationPerspective = true;

@@ -2,9 +2,9 @@
 
 namespace Population\Models\Market\Relations;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Relation extends Model
+class Relation extends Base
 {
 
     /**

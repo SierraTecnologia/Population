@@ -3,9 +3,9 @@
 namespace Population\Models\Components\Book;
 
 use App\Models\User;
-use Population\Models\Model;
+use Support\Models\Base;
 
-class PageRevision extends Model
+class PageRevision extends Base
 {
     protected $fillable = ['name', 'html', 'text', 'markdown', 'summary'];
 

@@ -5,7 +5,7 @@ namespace Population\Models\Components\Subjetivo;
 use Request;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class Question extends Base
 {
 	// Meta ========================================================================
 

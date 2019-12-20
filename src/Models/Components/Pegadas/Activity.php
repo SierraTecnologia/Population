@@ -2,9 +2,9 @@
 
 namespace Population\Models\Components\Pegadas;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class Activity extends Model
+class Activity extends Base
 {
 
     /**

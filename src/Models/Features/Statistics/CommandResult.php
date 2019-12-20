@@ -5,9 +5,9 @@
 
 namespace Population\Models\Features\Statistics;
 
-use Population\Models\Model;
+use Support\Models\Base;
 
-class CommandResult extends Model
+class CommandResult extends Base
 {
 
     protected $organizationPerspective = true;

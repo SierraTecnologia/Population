@@ -1,6 +1,6 @@
 <?php
 
-namespace Population\Models\Market\Business;
+namespace Population\Models\Identity\Actors\Business;
 
 use Support\Models\Base;
 

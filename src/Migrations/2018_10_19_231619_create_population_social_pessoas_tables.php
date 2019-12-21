@@ -95,9 +95,11 @@ class CreatePopulationSocialPessoasTables extends Migration
         
 		Schema::create(config('app.db-prefix', '').'emailables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
-			$table->string('email_email');
 			$table->string('emailable_id');
 			$table->string('emailable_type', 255);
+			$table->string('email_email');
+			$table->foreign('email_email')->references('email')->on('emails');
+			
 			$table->timestamps();
             $table->softDeletes();
 		});

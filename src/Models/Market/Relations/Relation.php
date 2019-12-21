@@ -4,6 +4,8 @@ namespace Population\Models\Market\Relations;
 
 use Support\Models\Base;
 
+use Informate\Models\Entytys\Relations\Position;
+
 class Relation extends Base
 {
 

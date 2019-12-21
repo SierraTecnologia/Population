@@ -5,6 +5,7 @@ namespace Population\Models\Identity\Digital;
 use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
 use Population\Models\Components\Integrations\Integration;
+use Population\Models\Identity\Actors\Business;
 
 class Account extends Base
 {
@@ -57,7 +58,7 @@ class Account extends Base
      */
     public function business()
     {
-        return $this->morphedByMany('Population\Models\Market\Business', 'accountable');
+        return $this->morphedByMany(Business::class, 'accountable');
     }
 
     /**

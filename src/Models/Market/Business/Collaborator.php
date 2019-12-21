@@ -3,7 +3,7 @@
  * @todo Analisar, provavelmente tera que sair
  */
 
-namespace Population\Models\Market\Business;
+namespace Population\Models\Identity\Actors\Business;
 
 use Population\Models\Identity\Actors\Person;
 

@@ -40,7 +40,7 @@ class Email extends Base
      */
     public function associations($class)
     {
-        return $this->morphedByMany($class, 'emailable');
+        return $this->morphedByMany($class, 'emailable'); //, 'emailables', 'email_email', 'emailable_code', 'emailable_type');
     }
     
     /**

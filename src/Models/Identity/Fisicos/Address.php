@@ -35,7 +35,7 @@ class Address extends Base
      */
     public function business()
     {
-        return $this->morphedByMany(config('sitec-tools.models.business'), 'addressable');
+        return $this->morphedByMany(config('sitec-tools.models.business', \Population\Models\Identity\Actors\Business::class), 'addressable');
     }
 
     /**

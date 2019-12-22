@@ -43,7 +43,7 @@ class Task extends Base
      */
     public function girls()
     {
-        return $this->morphedByMany('Population\Models\Identity\Girl', 'taskable');
+        return $this->morphedByMany('Population\Models\Market\Actors\Girl', 'taskable');
     }
 
     /**

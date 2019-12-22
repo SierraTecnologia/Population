@@ -38,7 +38,7 @@ class Sitio extends Base
      */
     public function businesses()
     {
-        return $this->morphedByMany(config('sitec-tools.models.business'), 'sitioable');
+        return $this->morphedByMany(config('sitec-tools.models.business', \Population\Models\Identity\Actors\Business::class), 'sitioable');
     }
 
     /**
@@ -46,7 +46,7 @@ class Sitio extends Base
      */
     public function girls()
     {
-        return $this->morphedByMany('Population\Models\Identity\Girl', 'sitioable');
+        return $this->morphedByMany('Population\Models\Market\Actors\Girl', 'sitioable');
     }
 
     /**

@@ -68,15 +68,8 @@ class Person extends Base
         parent::save();
     }
 
-    
-
-    // @todo resolver problema do nome vazio
-    // public static function boot() {
-
-    //     static::creating(function ($model) {
-    //         if (empty($model->name)) {
-    //             $model->name = $model->code;
-    //         }
-    //     });
-    // }
+    public function users()
+    {
+        return $this->morphedByMany('App\Models\User', 'personable'); //, 'businessable_type', 'businessable_code');
+    }
 }

@@ -62,7 +62,7 @@ class Product extends Base
      */
     public function girls()
     {
-        return $this->morphedByMany('Population\Models\Identity\Girl', 'skillable');
+        return $this->morphedByMany('Population\Models\Market\Actors\Girl', 'skillable');
     }
 
     /**

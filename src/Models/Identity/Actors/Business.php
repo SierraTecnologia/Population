@@ -6,10 +6,11 @@ use Support\Models\Base;
 use Population\Traits\AsHuman;
 use Cocur\Slugify\Slugify;
 use Population\Traits\HasServicesAndAccounts;
+use Population\Traits\HasContacts;
 
 class Business extends Base
 {
-    use HasServicesAndAccounts;
+    use HasServicesAndAccounts, HasContacts;
 
     public $incrementing = false;
     protected $casts = [
@@ -116,21 +117,6 @@ class Business extends Base
     //     return $this->hasMany('App\Models\Negocios\Subscription');
     // }
 
-    /**
-     * Get all of the addresses for the post.
-     */
-    public function addresses()
-    {
-        return $this->morphToMany('Population\Models\Identity\Address', 'addresseable');
-    }
-
-    /**
-     * Get all of the phones for the post.
-     */
-    public function phones()
-    {
-        return $this->morphToMany('Population\Models\Identity\Digital\Phone', 'phoneable');
-    }
 
     /**
      * Retorna se é ou não o busines padrão
@@ -143,17 +129,6 @@ class Business extends Base
     }
 
 
-
-    /**
-     * Outros Relatiosn Nad a aver
-     *
-     * @return void
-     */
-
-    public function sitios()
-    {
-        return $this->morphToMany('Population\Models\Identity\Digital\Sitio', 'sitioable');
-    }
     /**
      * Get all of the skills for the post.
      */
@@ -164,18 +139,6 @@ class Business extends Base
     public function infos()
     {
         return $this->morphMany('Population\Models\Market\Abouts\Info', 'infoable');
-    }
-    public function gostos()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\About\Gosto', 'gostoable');
-    }
-    public function pircings()
-    {
-        return $this->morphToMany('Population\Models\Identity\Fisicos\Pircing', 'pircingable');
-    }
-    public function tatuages()
-    {
-        return $this->morphToMany('Population\Models\Identity\Fisicos\Tatuagem', 'tatuageable');
     }
 
 }

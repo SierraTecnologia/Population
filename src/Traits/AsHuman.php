@@ -18,7 +18,8 @@ use Informate\Traits\MakeEconomicActions;
 
 trait AsHuman
 {
-    use MakeEconomicActions, AsFofocavel, HasServicesAndAccounts;
+    use MakeEconomicActions, AsFofocavel;
+    use HasServicesAndAccounts, HasContacts;
 
     use CanFollow, CanLike, CanFavorite, CanSubscribe, CanVote, CanBookmark;
     use CanBeFollowed;
@@ -31,18 +32,6 @@ trait AsHuman
     {
         // @todo Fazer
         return true;
-    }
-
-    /**
-     * Contatos
-     */
-    public function phones()
-    {
-        return $this->morphToMany('Population\Models\Identity\Digital\Phone', 'phoneable');
-    }
-    public function emails()
-    {
-        return $this->morphToMany('Population\Models\Identity\Digital\Email', 'emailable');
     }
 
     /**
@@ -132,6 +121,7 @@ trait AsHuman
             'text' => implode(';', $data)
         ]);
     }
+    
     /**
      * DataInfo do Usuario - @todo Refazer
      *

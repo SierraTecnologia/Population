@@ -55,8 +55,4 @@ class Product extends Base
         return $this->belongsTo('App\Models\User', 'user_id', 'id');
     }
 
-    public function customer()
-    {
-        return $this->belongsTo('App\Models\Customer', 'customer_id', 'id');
-    }
 }

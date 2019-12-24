@@ -5,9 +5,11 @@ namespace Population\Models\Identity\Actors;
 use Support\Models\Base;
 use Population\Traits\AsHuman;
 use Cocur\Slugify\Slugify;
+use Population\Traits\HasServicesAndAccounts;
 
 class Business extends Base
 {
+    use HasServicesAndAccounts;
 
     public $incrementing = false;
     protected $casts = [
@@ -128,14 +130,6 @@ class Business extends Base
     public function phones()
     {
         return $this->morphToMany('Population\Models\Identity\Digital\Phone', 'phoneable');
-    }
-
-    /**
-     * Get all of the post's accounts.
-     */
-    public function accounts()
-    {
-        return $this->morphMany('Population\Models\Identity\Digital\Account', 'accountable');
     }
 
     /**

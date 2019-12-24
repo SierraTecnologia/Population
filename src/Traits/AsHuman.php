@@ -18,7 +18,7 @@ use Informate\Traits\MakeEconomicActions;
 
 trait AsHuman
 {
-    use MakeEconomicActions, AsFofocavel;
+    use MakeEconomicActions, AsFofocavel, HasServicesAndAccounts;
 
     use CanFollow, CanLike, CanFavorite, CanSubscribe, CanVote, CanBookmark;
     use CanBeFollowed;
@@ -80,13 +80,6 @@ trait AsHuman
         return $this->morphToMany('Informate\Models\Entytys\Fisicos\Equipament', 'equipamentable');
     }
 
-    /**
-     * Get all of the post's accounts.
-     */
-    public function accounts()
-    {
-        return $this->morphToMany('Population\Models\Identity\Digital\Account', 'accountable');
-    }
 
     /**
      * Worker e Tarefas

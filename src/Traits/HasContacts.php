@@ -35,7 +35,6 @@ trait HasContacts
      *
      * @return void
      */
-
     public function sitios()
     {
         return $this->morphToMany('Population\Models\Identity\Digital\Sitio', 'sitioable');

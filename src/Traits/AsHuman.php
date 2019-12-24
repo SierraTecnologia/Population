@@ -3,80 +3,10 @@
 namespace Population\Traits;
 
 use Log;
-// Podem Seguir
-use Overtrue\LaravelFollow\Traits\CanFollow;
-use Overtrue\LaravelFollow\Traits\CanLike;
-use Overtrue\LaravelFollow\Traits\CanFavorite;
-use Overtrue\LaravelFollow\Traits\CanSubscribe;
-use Overtrue\LaravelFollow\Traits\CanVote;
-use Overtrue\LaravelFollow\Traits\CanBookmark;
-// Podem Serem Seguidos
-use Overtrue\LaravelFollow\Traits\CanBeFollowed;
-
-use Informate\Traits\AsFofocavel;
-use Informate\Traits\MakeEconomicActions;
 
 trait AsHuman
 {
-    use MakeEconomicActions, AsFofocavel;
-    use HasServicesAndAccounts, HasContacts;
-
-    use CanFollow, CanLike, CanFavorite, CanSubscribe, CanVote, CanBookmark;
-    use CanBeFollowed;
-
-        
-    /**
-     * Get all of the owning personable models.
-     */
-    public function savePassword($password = '', $type = '')
-    {
-        // @todo Fazer
-        return true;
-    }
-
-    /**
-     * Aparece em videos
-     */
-    public function videos()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Video', 'videoable');
-    }
-
-    /**
-     * Aparece em fotos
-     */
-    public function imagens()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Imagen', 'imagenable');
-    }
-    
-    /**
-     * Get all of the post's weapons.
-     */
-    public function ferramentas()
-    {
-        return $this->weapons();
-    }
-    public function weapons()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\Fisicos\Weapon', 'weaponable');
-    }
-    /**
-     * Get all of the post's equipaments.
-     */
-    public function equipaments()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\Fisicos\Equipament', 'equipamentable');
-    }
-
-
-    /**
-     * Worker e Tarefas
-     */
-    public function workers()
-    {
-        return $this->morphMany('Population\Models\Market\Actions\Worker', 'workerable');
-    }
+    use AsOrganization;
 
     /**
      * Construtores
@@ -103,10 +33,6 @@ trait AsHuman
     {
         return $this->morphMany('Population\Models\Identity\Fisicos\Tatuage', 'tatuageable');
     }
-    public function fatos()
-    {
-        return $this->morphMany('Population\Models\Identity\Subjetivos\Fato', 'fatoable');
-    }
     
     /**
      * Projetos do Usuario - Refazer
@@ -121,7 +47,7 @@ trait AsHuman
             'text' => implode(';', $data)
         ]);
     }
-    
+
     /**
      * DataInfo do Usuario - @todo Refazer
      *
@@ -139,14 +65,6 @@ trait AsHuman
     /**
      * Many To Many (Polymorphic)
      */
-    public function skills()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\About\Skill', 'skillable');
-    }
-    public function itens()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\Fisicos\Item', 'itemable');
-    }
     public function productions()
     {
         return $this->morphToMany('Population\Models\Components\Productions\Production', 'productionable');

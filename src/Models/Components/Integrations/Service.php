@@ -13,7 +13,9 @@ class Service extends Base
      */
     protected $fillable = [
         'name',
-        'description'
+        'description',
+        'integration_id',
+        'status'
     ];
 
     protected $mappingProperties = array(

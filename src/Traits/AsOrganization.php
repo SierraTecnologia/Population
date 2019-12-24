@@ -14,7 +14,6 @@ use Overtrue\LaravelFollow\Traits\CanBookmark;
 use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
 use Informate\Traits\HasPersonality;
-use Informate\Traits\MakeEconomicActions;
 
 trait AsOrganization
 {
@@ -46,7 +45,7 @@ trait AsOrganization
      */
     public function workers()
     {
-        return $this->morphMany('Population\Models\Market\Actions\Worker', 'workerable');
+        return $this->morphMany('Casa\Models\Economic\Worker', 'workerable');
     }
     public function fatos()
     {

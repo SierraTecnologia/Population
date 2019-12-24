@@ -2,7 +2,7 @@
 
 namespace Population\Models\Actions\Vendas;
 
-use Siravel\Models\Model;
+use Support\Models\Base;
 
 class Proposta extends Base
 {

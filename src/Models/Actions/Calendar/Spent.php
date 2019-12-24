@@ -13,7 +13,7 @@
 namespace Population\Models\Actions\Calendar;
 
 use Informate\Traits\ComplexRelationamentTrait;
-use Siravel\Models\Model;
+use Support\Models\Base;
 use SiInteractions\Actions\Action;
 use Log;
 class Spent extends Base

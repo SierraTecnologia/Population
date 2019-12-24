@@ -5,12 +5,11 @@ namespace Population\Models\Identity\Actors;
 use Support\Models\Base;
 use Population\Traits\AsHuman;
 use Cocur\Slugify\Slugify;
-use Population\Traits\HasServicesAndAccounts;
-use Population\Traits\HasContacts;
+use Population\Traits\AsOrganization;
 
 class Business extends Base
 {
-    use HasServicesAndAccounts, HasContacts;
+    use AsOrganization;
 
     public $incrementing = false;
     protected $casts = [
@@ -125,20 +124,9 @@ class Business extends Base
      */
     public function isDefault()
     {
-        return \Informate\Services\System\BusinessService::getSingleton()->isDefault($this);
-    }
-
-
-    /**
-     * Get all of the skills for the post.
-     */
-    public function skills()
-    {
-        return $this->morphToMany('Informate\Models\Entytys\About\Skill', 'skillable');
-    }
-    public function infos()
-    {
-        return $this->morphMany('Population\Models\Market\Abouts\Info', 'infoable');
+        // @todo Fazer aqui
+        return true;
+        // return \Informate\Services\System\BusinessService::getSingleton()->isDefault($this);
     }
 
 }

@@ -9,7 +9,7 @@ class Proposta extends Base
 
     protected $organizationPerspective = true;
 
-    protected $table = 'venda_propostas';       
+    protected $table = 'propostas';       
 
     /**
      * The attributes that are mass assignable.
@@ -17,46 +17,10 @@ class Proposta extends Base
      * @var array
      */
     protected $fillable = [
-        'user_id',
-        'person_id',
-        'business_id',
-        'business_collaborator_type_id',
+        'value',
+        'parcelas',
+        'money_id',
+        'date',
+        
     ];
-
-
-    protected $mappingProperties = array(
-
-        'customer_id' => [
-            'type' => 'integer',
-            "analyzer" => "standard",
-        ],
-        'credit_card_id' => [
-            'type' => 'integer',
-            "analyzer" => "standard",
-        ],
-        'user_id' => [
-            'type' => 'integer',
-            "analyzer" => "standard",
-        ],
-        'score' => [
-            'type' => 'float',
-            "analyzer" => "standard",
-        ],
-    );
-
-
-    public function gateway()
-    {
-        return $this->belongsTo('App\Models\Gateway', 'gateway_id', 'id');
-    }
-
-    public function user()
-    {
-        return $this->belongsTo('App\Models\User', 'user_id', 'id');
-    }
-
-    public function customer()
-    {
-        return $this->belongsTo('App\Models\Customer', 'customer_id', 'id');
-    }
 }

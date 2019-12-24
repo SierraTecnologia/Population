@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\Traits;
+namespace Population\Traits;
 
 use Log;
 
@@ -21,6 +21,24 @@ trait MakeEconomicActions
     public function gastos()
     {
         return $this->morphMany('Casa\Models\Economic\Gasto', 'gastoable');
+    }
+    public function timings()
+    {
+        return $this->workers();
+    }
+    /**
+     * Worker e Tarefas
+     */
+    public function workers()
+    {
+        return $this->morphMany('Casa\Models\Economic\Worker', 'workerable');
+    }
+    /**
+     * Get all of the points for the post.
+     */
+    public function points()
+    {
+        return $this->morphToMany('Gamer\Models\Point', 'pointable');
     }
 
     /**

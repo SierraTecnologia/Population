@@ -40,13 +40,6 @@ trait AsOrganization
     }
 
 
-    /**
-     * Worker e Tarefas
-     */
-    public function workers()
-    {
-        return $this->morphMany('Casa\Models\Economic\Worker', 'workerable');
-    }
     public function fatos()
     {
         return $this->morphMany('Population\Models\Identity\Subjetivos\Fato', 'fatoable');

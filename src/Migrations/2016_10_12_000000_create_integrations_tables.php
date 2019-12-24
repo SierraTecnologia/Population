@@ -23,6 +23,15 @@ class CreateIntegrationsTables extends Migration
           $table->timestamps();
           $table->softDeletes();
         });
+        Schema::create('services', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
+          $table->bigIncrements('id')->unsigned();
+          $table->string('name', 255)->nullable();
+          $table->integer('status')->default(1);
+          $table->bigInteger('integration_id')->unsigned();
+          $table->timestamps();
+          $table->softDeletes();
+        });
 
         /**
          * Account

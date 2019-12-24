@@ -71,7 +71,7 @@ class Integration extends Base
      */
     public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'skillable');
+        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'personable');
     }
 
 }

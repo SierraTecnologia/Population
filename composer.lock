@@ -1829,16 +1829,16 @@
         },
         {
             "name": "league/flysystem",
-            "version": "1.0.61",
+            "version": "1.0.62",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/flysystem.git",
-                "reference": "4fb13c01784a6c9f165a351e996871488ca2d8c9"
+                "reference": "14dd5d7dff5fbc29ca9a2a53ff109760e40d91a0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/4fb13c01784a6c9f165a351e996871488ca2d8c9",
-                "reference": "4fb13c01784a6c9f165a351e996871488ca2d8c9",
+                "url": "https://api.github.com/repos/thephpleague/flysystem/zipball/14dd5d7dff5fbc29ca9a2a53ff109760e40d91a0",
+                "reference": "14dd5d7dff5fbc29ca9a2a53ff109760e40d91a0",
                 "shasum": ""
             },
             "require": {
@@ -1909,7 +1909,7 @@
                 "sftp",
                 "storage"
             ],
-            "time": "2019-12-08T21:46:50+00:00"
+            "time": "2019-12-29T14:46:55+00:00"
         },
         {
             "name": "league/fractal",
@@ -3204,7 +3204,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "3a0a13acd1354ddb57145a76c03e69f7e0513897"
+                "reference": "d32402b9c69dc3a2a4228d4664c9ee0941cf5c0b"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -3249,7 +3249,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "6bcf1bcc9c9b62e2a531d4fb1589f24c0308176b"
+                "reference": "23bf284aa50d50ef1f44dc0dc578a9e4fe8315b2"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",

@@ -18,14 +18,11 @@ class Analyser extends Base
                                                                                                                                                                                                  
     public $errorMessage = null;                                                                                                                                                                 
                                                                                                                                                                                                  
-    public static function rules()                                                                                                                                                               
-    {                                                                                                                                                                                            
-        return [                                                                                                                                                                                 
-            'model_name' => 'required|name|max:32',                                                                                                                                    
-            'model_id' => 'required|integer',                                                                                                                                        
-            'dateinseconds' => 'required|integer',
-        ];
-    }
+    public $rules =  [                                                                                                                                                                                 
+        'model_name' => 'required|name|max:32',                                                                                                                                    
+        'model_id' => 'required|integer',                                                                                                                                        
+        'dateinseconds' => 'required|integer',
+    ];
 
     /**
      * The attributes that are mass assignable.

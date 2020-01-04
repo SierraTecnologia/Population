@@ -3203,7 +3203,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "d03bff7b787cce047f9732af13bc74eb00f4a8c1"
+                "reference": "5676696ecaf7f618d84712e2ab8c1c1c18d19bef"
             },
             "require": {
                 "php": ">=7.2.0",

@@ -1,8 +1,8 @@
 <?php
 
-namespace Population;
+namespace Population\Models\Components\Wiki;
 
-use Illuminate\Database\Eloquent\Model;
+use Support\Models\Base; //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Base

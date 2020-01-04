@@ -1,10 +1,10 @@
 <?php
 
-namespace Population;
+namespace Population\Models\Components\Wiki;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Database\Eloquent\Model;
+use Support\Models\Base; //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Socialite\Contracts\User as SocialUser;
 

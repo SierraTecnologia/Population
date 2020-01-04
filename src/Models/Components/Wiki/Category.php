@@ -1,8 +1,8 @@
 <?php
 
-namespace Population;
+namespace Population\Models\Components\Wiki;
 
-use Baum\Node as Model;
+use Support\Models\Base;
 
 class Category extends Base
 {

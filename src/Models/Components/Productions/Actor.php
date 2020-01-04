@@ -3,6 +3,7 @@
 namespace Population\Models\Components\Productions;
 
 use Support\Models\Base;
+use Population\Models\Identity\Actors\Person;
 
 class Actor extends Person
 {

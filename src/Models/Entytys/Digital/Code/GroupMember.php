@@ -5,7 +5,7 @@
 
 namespace Population\Models\Entytys\Digital\Code;
 
-use Illuminate\Database\Eloquent\Model;
+use Support\Models\Base; //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
 use Informate\Traits\EloquentGetTableNameTrait;

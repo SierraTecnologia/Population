@@ -6,8 +6,9 @@
 namespace Population\Models\Components\Productions;
 
 use Support\Models\Base;
+use Population\Models\Identity\Actors\Person;
 
-class ActionOcorrence extends Person
+class ActionOcorrence extends Base
 {
 
     protected $table = 'production_action_ocorrences';

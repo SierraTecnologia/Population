@@ -3,7 +3,7 @@
 namespace Population\Models\Components\Subjetivo;
 
 use Request;
-use Illuminate\Database\Eloquent\Model;
+use Support\Models\Base; //use Illuminate\Database\Eloquent\Model;
 
 class Question extends Base
 {

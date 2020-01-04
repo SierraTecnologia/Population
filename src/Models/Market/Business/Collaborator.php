@@ -5,6 +5,7 @@
 
 namespace Population\Models\Identity\Actors\Business;
 
+use Support\Models\Base;
 use Population\Models\Identity\Actors\Person;
 
 class Collaborator extends Person

@@ -1,9 +1,9 @@
 <?php
 
-namespace Population;
+namespace Population\Models\Components\Wiki;
 
 use Request;
-use Illuminate\Database\Eloquent\Model;
+use Support\Models\Base; //use Illuminate\Database\Eloquent\Model;
 
 class Version extends Base
 {

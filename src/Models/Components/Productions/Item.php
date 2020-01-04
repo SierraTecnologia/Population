@@ -4,7 +4,7 @@ namespace Population\Models\Components\Productions;
 
 use Support\Models\Base;
 
-class Item extends Person
+class Item extends Base
 {
 
     protected $table = 'production_items';

@@ -4,7 +4,7 @@ namespace Population\Models\Entytys\Digital\Infra\Ci;
 
 use Support\Models\Base;
 
-class Build extends Base
+class Build2 extends Base
 {
 
     protected $organizationPerspective = true;

@@ -4,7 +4,7 @@ namespace Population\Models;
 
 use App\Models\User;
 use Support\Models\Base;
-use Support\Discovers\Code\ParseClass;
+use Support\Coder\Parser\ParseClass;
 
 abstract class Ownable extends Base
 {

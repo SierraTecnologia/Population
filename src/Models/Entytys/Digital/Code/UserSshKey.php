@@ -12,6 +12,8 @@
 
 namespace Population\Models\Entytys\Digital\Code;
 
+use Support\Models\Base;
+
 class UserSshKey extends Base
 {
 

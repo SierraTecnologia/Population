@@ -12,6 +12,8 @@
 
 namespace Population\Models\Entytys\Digital\Code;
 
+use Support\Models\Base;
+
 use Gitonomy\Bundle\CoreBundle\Security\ProjectRole;
 
 class UserRoleProject extends Base

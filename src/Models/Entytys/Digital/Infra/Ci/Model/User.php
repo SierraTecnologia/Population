@@ -1,6 +1,6 @@
 <?php
 
-namespace SiUtils\Tools\Model;
+namespace Population\Models\Entytys\Digital\Infra\Ci\Model;
 
 use SiUtils\Tools\Config;
 use Population\Models\Entytys\Digital\Infra\Ci\Base\User as BaseUser;

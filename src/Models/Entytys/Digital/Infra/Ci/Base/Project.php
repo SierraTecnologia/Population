@@ -3,7 +3,7 @@
 namespace Population\Models\Entytys\Digital\Infra\Ci\Base;
 
 use SiUtils\Tools\Exception\InvalidArgumentException;
-use SiUtils\Tools\Model;
+use Support\Models\Base;
 
 class Project extends Base
 {

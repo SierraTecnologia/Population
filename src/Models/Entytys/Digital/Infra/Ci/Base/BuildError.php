@@ -2,7 +2,7 @@
 
 namespace Population\Models\Entytys\Digital\Infra\Ci\Base;
 
-use SiUtils\Tools\Model;
+use Support\Models\Base;
 use SiUtils\Tools\Exception\InvalidArgumentException;
 
 class BuildError extends Base

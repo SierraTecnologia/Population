@@ -1,6 +1,6 @@
 <?php
 
-namespace SiUtils\Tools\Model;
+namespace Population\Models\Entytys\Digital\Infra\Ci;
 
 use SiUtils\Tools\Builder;
 use SiUtils\Helper\Lang;

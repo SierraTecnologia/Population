@@ -85,7 +85,7 @@ class Language extends Base
 
 	public function users()
 	{
-		return $this->hasMany('App\User');
+		return $this->hasMany('App\Models\User');
 	}
 
 	// Static Methods ==============================================================

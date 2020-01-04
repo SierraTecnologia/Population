@@ -3203,7 +3203,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "5676696ecaf7f618d84712e2ab8c1c1c18d19bef"
+                "reference": "83445f26dd49db193a26cb998af7f2dd34b46db2"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -3248,7 +3248,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "828034e331b2eab139bfa929e82a45aef82d1611"
+                "reference": "31f7a67332be1b74c38b53f25d76fe52d91de2fa"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",

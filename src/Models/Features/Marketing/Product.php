@@ -4,7 +4,6 @@ namespace Population\Models\Features\Marketing;
 
 use Support\Models\Base;
 use Informate\Traits\ComplexRelationamentTrait;
-use Informate\Traits\BusinessTrait;
 
 class Product extends Base
 {

@@ -27,7 +27,7 @@ trait HasContacts
      */
     public function addresses()
     {
-        return $this->morphToMany('Population\Models\Identity\Fisicos\Address', 'addresseable');
+        return $this->morphToMany('Locaravel\Models\Address', 'addresseable');
     }
 
     /**

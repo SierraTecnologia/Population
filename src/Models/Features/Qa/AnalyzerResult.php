@@ -3,12 +3,11 @@
 namespace Population\Models\Features\Qa;
 
 use Support\Models\Base;
-use Informate\Traits\EloquentGetTableNameTrait;
-use Informate\Traits\ComplexRelationamentInTrait;
+use Informate\Traits\ComplexRelationamentTrait;
 
 class AnalyzerResult extends Base
 {
-    use EloquentGetTableNameTrait, ComplexRelationamentInTrait;
+    use ComplexRelationamentTrait;
 
     protected $organizationPerspective = true;
 

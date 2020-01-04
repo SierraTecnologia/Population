@@ -58,4 +58,23 @@ class PaymentType  extends Base
      */
     public static $DRUGS = 6;
 
+
+
+
+    /**
+     * @todo Criei depois, verificar se precisa
+     */
+    /**
+     * FOOD
+     *
+     * @var array
+     */
+    public static $FOOD = 7;
+    /**
+     * TRANSPORT
+     *
+     * @var array
+     */
+    public static $TRANSPORT = 8;
+
 }

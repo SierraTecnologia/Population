@@ -27,6 +27,15 @@ trait MakeEconomicActions
         return $this->workers();
     }
     /**
+     * Historico de QNt era o Saldo na epoca
+     */
+    public function saldo()
+    {
+        return $this->morphMany('Casa\Models\Historic\Saldo', 'saldoable');
+    }
+
+
+    /**
      * Worker e Tarefas
      */
     public function workers()

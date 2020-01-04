@@ -325,11 +325,6 @@ class AnalyzerResult extends Base
 
     }
 
-    public function gateway()
-    {
-        return $this->belongsTo('App\Models\Gateway', 'gateway_id', 'id');
-    }
-
     public function money()
     {
         return $this->belongsTo('App\Models\Money');

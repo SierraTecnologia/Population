@@ -74,9 +74,4 @@ class GroupMember extends Base
     {
         return $this->belongsTo('App\Models\CreditCard', 'credit_card_id', 'id');
     }
-
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order');
-    }
 }

@@ -76,11 +76,6 @@ class ProjectMember extends Base
         return $this->hasMany('App\Models\Analysi');
     }
 
-    public function orders()
-    {
-        return $this->hasMany('App\Models\Order');
-    }
-
     /**
      * Get the tokens record associated with the user.
      */

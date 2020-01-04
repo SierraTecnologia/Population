@@ -9,7 +9,6 @@ use Support\Models\Base; //use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Hash;
 use Informate\Traits\EloquentGetTableNameTrait;
-use Support\Models\Base;
 
 class GroupMember extends Base
 {

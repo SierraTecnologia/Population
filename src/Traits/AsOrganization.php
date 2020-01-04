@@ -28,7 +28,7 @@ trait AsOrganization
      */
     public function videos()
     {
-        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Video', 'videoable');
+        return $this->morphToMany('Population\Models\Entytys\Digital\Midia\Video', 'videoable');
     }
 
     /**
@@ -36,7 +36,7 @@ trait AsOrganization
      */
     public function imagens()
     {
-        return $this->morphToMany('Informate\Models\Entytys\Digital\Midia\Imagen', 'imagenable');
+        return $this->morphToMany('Population\Models\Entytys\Digital\Midia\Imagen', 'imagenable');
     }
 
 

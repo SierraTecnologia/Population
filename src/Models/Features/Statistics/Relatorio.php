@@ -17,7 +17,7 @@ class Relatorio extends Base
 
     protected static $COMPLEX_RELATIONAMENT_MODELS = [
         'model' => [
-            \Informate\Models\Entytys\Digital\Code\Commit::class
+            \Population\Models\Entytys\Digital\Code\Commit::class
         ]
     ];
 

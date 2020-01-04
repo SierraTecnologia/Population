@@ -1,0 +1,5 @@
+<?php
+/**
+ * Tipo:
+ * - sub dominio
+ */

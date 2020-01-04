@@ -11,8 +11,8 @@ class Product extends Base
     use ComplexRelationamentTrait;
     
     protected static $COMPLEX_RELATIONAMENT_MODELS = [
-        \Informate\Models\Entytys\Digital\Midia\Photo::class,
-        \Informate\Models\Entytys\Digital\Midia\Video::class
+        \Population\Models\Entytys\Digital\Midia\Photo::class,
+        \Population\Models\Entytys\Digital\Midia\Video::class
     ];
 
     /**

@@ -51,6 +51,7 @@ class SceneLine extends Base
     );
 
     /**
+     * // @todo Resolver esse skillable e aonde aparece novamente
      * Get all of the slaves that are assigned this tag.
      */
     public function persons()

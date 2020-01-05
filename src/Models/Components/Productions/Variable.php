@@ -55,7 +55,7 @@ class Variable extends Production
      */
     public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'skillable');
+        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'variaable');
     }
 
     /**
@@ -63,6 +63,6 @@ class Variable extends Production
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'skillable');
+        return $this->morphedByMany('App\Models\User', 'variaable');
     }
 }

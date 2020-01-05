@@ -53,6 +53,7 @@ class Feature extends Base
             "analyzer" => "standard",
         ],
     );
+    
     /**
      * Get all of the girls that are assigned this tag.
      */

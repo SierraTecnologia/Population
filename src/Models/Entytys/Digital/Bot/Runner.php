@@ -69,6 +69,12 @@ class Runner extends Base
         if (!is_null($this->id)){
             $this->save();
         }
+
+        if (!$this->action) {
+            \Log::warning('[Estimate] Nenhuma ação para executar');
+            return false;
+        }
+        
         $this->worker = $this->action->getClassWithParams($this->target);
         $this->worker->execute();
         return $this;

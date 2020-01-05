@@ -51,8 +51,6 @@ class Character extends Person
         ],
     );
 
-
-    
     /**
      * Get all of the slaves that are assigned this tag.
      */

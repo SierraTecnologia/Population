@@ -50,8 +50,6 @@ class Variable extends Production
         ],
     );
 
-
-    
     /**
      * Get all of the slaves that are assigned this tag.
      */

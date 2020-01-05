@@ -56,7 +56,7 @@ class Product extends Base
             "analyzer" => "standard",
         ],
     );
-    /**
+}    /**
      * Get all of the girls that are assigned this tag.
      */
     public function girls()

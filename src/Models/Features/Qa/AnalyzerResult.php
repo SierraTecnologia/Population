@@ -335,11 +335,6 @@ class AnalyzerResult extends Base
         return $this->belongsTo('App\Models\FraudAnalysi', 'fraud_analysi_id', 'id');
     }
 
-    public function analysis()
-    {
-        return $this->hasMany('App\Models\Analysi', 'analysi_id', 'id');
-    }
-
     /**
      * Retorna o cliente do payment responsável pelo entrega de ingressos
      * dos organizadores (produtoras)

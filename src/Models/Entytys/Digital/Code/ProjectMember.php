@@ -83,12 +83,3 @@ class ProjectMember extends Base
     {
         return $this->hasMany('App\Models\CreditCardToken', 'credit_card_id', 'id');
     }
-
-    /**
-     * Recupera os tokens de gateways desse usuário
-     */
-    public function gatewayCustomers()
-    {
-        return $this->hasMany('App\Models\GatewayCustomer', 'customer_id', 'id');
-    }
-}

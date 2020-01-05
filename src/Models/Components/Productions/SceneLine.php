@@ -49,7 +49,7 @@ class SceneLine extends Base
             "analyzer" => "standard",
         ],
     );
-    
+
     /**
      * Get all of the slaves that are assigned this tag.
      */

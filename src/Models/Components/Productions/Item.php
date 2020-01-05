@@ -49,7 +49,7 @@ class Item extends Base
             "analyzer" => "standard",
         ],
     );
-    
+
     /**
      * Get all of the slaves that are assigned this tag.
      */

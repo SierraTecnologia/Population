@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use Informate\Features\Photos\Entities\PhotoEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
+use TCG\Voyager\Models\Post;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**

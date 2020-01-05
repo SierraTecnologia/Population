@@ -7,6 +7,7 @@ use Siravel\Contants\Tables;
 use Siravel\Features\Photos\Entities\QuestionReponseEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
+use TCG\Voyager\Models\Post;
 
 /**
  * Class QuestionReponse.

@@ -362,57 +362,58 @@ class AnalyzerResult extends Base
         return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'business_id', 'id');
     }
 
-    /**
-     * Recupera o Consumidor (Usuário que recebe o produto da venda)
-     * Usuário que possui o cartão processado no pagamento
-     */
-    public function customer()
-    {
-        return $this->belongsTo('App\Models\Customer');
-    }
+    // @todo ver aqui
+    // /**
+    //  * Recupera o Consumidor (Usuário que recebe o produto da venda)
+    //  * Usuário que possui o cartão processado no pagamento
+    //  */
+    // public function customer()
+    // {
+    //     return $this->belongsTo('config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class)');
+    // }
 
-    /**
-     * Recupera o Consumidor (Usuário que recebe o produto da venda)
-     * Usuário que possui o cartão processado no pagamento
-     */
-    public function customerToken()
-    {
-        return $this->belongsTo('App\Models\CustomerToken');
-    }
+    // /**
+    //  * Recupera o Consumidor (Usuário que recebe o produto da venda)
+    //  * Usuário que possui o cartão processado no pagamento
+    //  */
+    // public function customerToken()
+    // {
+    //     return $this->belongsTo('config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class)Token');
+    // }
 
-    /**
-     * Cartão usado pelo consumidor
-     */
-    public function creditCard()
-    {
-        return $this->belongsTo('App\Models\CreditCard');
-    }
+    // /**
+    //  * Cartão usado pelo consumidor
+    //  */
+    // public function creditCard()
+    // {
+    //     return $this->belongsTo('App\Models\CreditCard');
+    // }
 
-    /**
-     * Recupera a instancia de cartão na  usado pelo consumidor
-     */
-    public function creditToken()
-    {
-        return $this->belongsTo('App\Models\CreditCardToken');
-    }
+    // /**
+    //  * Recupera a instancia de cartão na  usado pelo consumidor
+    //  */
+    // public function creditToken()
+    // {
+    //     return $this->belongsTo('App\Models\CreditCardToken');
+    // }
 
-    /**
-     * Responde uma string da Forma de Pagamento
-     */
-    public function getPaymentType()
-    {
-        if ($this->payment_type_id==PaymentType::$BOLETO_ID) {
-            return trans('gateway.boleto');
-        }
+    // /**
+    //  * Responde uma string da Forma de Pagamento
+    //  */
+    // public function getPaymentType()
+    // {
+    //     if ($this->payment_type_id==PaymentType::$BOLETO_ID) {
+    //         return trans('gateway.boleto');
+    //     }
 
-        if ($this->payment_type_id==PaymentType::$CREDIT_CARD_ID) {
-            return trans('gateway.creditCard');
-        }
+    //     if ($this->payment_type_id==PaymentType::$CREDIT_CARD_ID) {
+    //         return trans('gateway.creditCard');
+    //     }
 
-        if ($this->payment_type_id==PaymentType::$ESPECIE_ID) {
-            return trans('gateway.fiatMoney');
-        }
+    //     if ($this->payment_type_id==PaymentType::$ESPECIE_ID) {
+    //         return trans('gateway.fiatMoney');
+    //     }
 
-        return trans('gateway.notIdentify');
-    }
+    //     return trans('gateway.notIdentify');
+    // }
 }

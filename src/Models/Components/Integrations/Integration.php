@@ -55,7 +55,7 @@ class Integration extends Base
     //  */
     // public function customerTokens()
     // {
-    //     return $this->hasMany('App\Models\CustomerToken', 'customer_id', 'id');
+    //     return $this->hasMany('config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class)Token', 'customer_id', 'id');
     // }
 
     // /**

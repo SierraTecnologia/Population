@@ -83,3 +83,4 @@ class ProjectMember extends Base
     {
         return $this->hasMany('App\Models\CreditCardToken', 'credit_card_id', 'id');
     }
+}

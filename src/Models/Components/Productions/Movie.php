@@ -54,3 +54,4 @@ class Movie extends Production
     {
         return Scene::orderBy('order', 'DESC')->all();
     }
+}

@@ -53,12 +53,12 @@ class Feature extends Base
             "analyzer" => "standard",
         ],
     );
-}    /**
+    /**
      * Get all of the girls that are assigned this tag.
      */
     public function girls()
     {
-        return $this->morphedByMany('Population\Models\Market\Actors\Girl', 'skillable');
+        return $this->morphedByMany('Population\Models\Market\Actors\Girl', 'featureable');
     }
 
     /**
@@ -66,6 +66,6 @@ class Feature extends Base
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'skillable');
+        return $this->morphedByMany('App\Models\User', 'featureable');
     }
 }

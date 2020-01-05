@@ -52,7 +52,7 @@ class Fato extends Base
     //  */
     // public function users()
     // {
-    //     return $this->morphToMany('App\Models\User', 'videoable');
+    //     return $this->morphToMany(config('sitec.core.models.user', \App\Models\User::class), 'videoable');
     // }
 
     // /**

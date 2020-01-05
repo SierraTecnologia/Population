@@ -68,7 +68,7 @@ class Business extends Base
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'businessable'); //, 'businessable_type', 'businessable_code');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'businessable'); //, 'businessable_type', 'businessable_code');
     }
     public function collaborators()
     {

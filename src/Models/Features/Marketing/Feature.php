@@ -67,6 +67,6 @@ class Feature extends Base
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'featureable');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'featureable');
     }
 }

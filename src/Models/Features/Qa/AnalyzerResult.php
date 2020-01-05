@@ -342,7 +342,7 @@ class AnalyzerResult extends Base
      */
     public function user()
     {
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class));
     }
 
     /**
@@ -359,7 +359,7 @@ class AnalyzerResult extends Base
      */
     public function business()
     {
-        return $this->belongsTo('App\Models\User', 'business_id', 'id');
+        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'business_id', 'id');
     }
 
     /**

@@ -49,7 +49,7 @@ class Role extends Base
 
 	public function users()
 	{
-		return $this->hasMany('App\Models\User');
+		return $this->hasMany(config('sitec.core.models.user', \App\Models\User::class));
 	}
 
 	// Events ======================================================================

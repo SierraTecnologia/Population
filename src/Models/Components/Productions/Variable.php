@@ -63,6 +63,6 @@ class Variable extends Production
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'variaable');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'variaable');
     }
 }

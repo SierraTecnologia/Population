@@ -70,6 +70,6 @@ class Person extends Base
 
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'personable'); //, 'businessable_type', 'businessable_code');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'personable'); //, 'businessable_type', 'businessable_code');
     }
 }

@@ -64,6 +64,6 @@ class Character extends Person
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'characteable');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'characteable');
     }
 }

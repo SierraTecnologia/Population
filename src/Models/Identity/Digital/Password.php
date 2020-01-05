@@ -53,6 +53,6 @@ class Password extends Base
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'passwordable');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'passwordable');
     }
 }

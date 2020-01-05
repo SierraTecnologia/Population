@@ -70,7 +70,7 @@ class Personagem extends Base
      */
     public function users()
     {
-        return $this->morphedByMany('App\Models\User', 'personagenable');
+        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'personagenable');
     }
 
     /**

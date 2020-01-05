@@ -369,7 +369,7 @@ class AnalyzerResult extends Base
     //  */
     // public function customer()
     // {
-    //     return $this->belongsTo('config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class)');
+    //     return $this->belongsTo(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class));
     // }
 
     // /**

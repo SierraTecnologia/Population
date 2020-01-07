@@ -1,4 +1,7 @@
 <?php
+/**
+ * @todo Fazer Modelo
+ */
 
 namespace Population\Models\Entytys\Digital\Code;
 
@@ -70,17 +73,4 @@ class ProjectMember extends Base
         ],
     );
 
-
-    public function analysis()
-    {
-        return $this->hasMany('App\Models\Analysi');
-    }
-
-    /**
-     * Get the tokens record associated with the user.
-     */
-    public function creditCardTokens()
-    {
-        return $this->hasMany('App\Models\CreditCardToken', 'credit_card_id', 'id');
-    }
 }

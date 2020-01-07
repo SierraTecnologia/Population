@@ -53,7 +53,7 @@ class Video extends Base
      */
     public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'videoable');
+        return $this->morphedByMany(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'videoable');
     }
         
     // // /**

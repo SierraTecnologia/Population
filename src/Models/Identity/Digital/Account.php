@@ -74,7 +74,7 @@ class Account extends Base
      */
     public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'accountable');
+        return $this->morphedByMany(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'accountable');
     }
 
     /**

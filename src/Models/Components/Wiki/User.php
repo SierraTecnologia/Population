@@ -65,22 +65,22 @@ class User extends Base implements AuthenticatableContract
 
 	public function language()
 	{
-		return $this->belongsTo('App\Models\System\Language');
+		return $this->belongsTo('RicardoSierra\Translation\Models\Language');
 	}
 
 	public function provider()
 	{
-		return $this->belongsTo('App\Models\Provider');
+		return $this->belongsTo('Facilitador\Models\Provider');
 	}
 
 	public function role()
 	{
-		return $this->belongsTo('App\Role');
+		return $this->belongsTo('Facilitador\Models\Role');
 	}
 
 	public function versions()
 	{
-		return $this->hasMany('App\Version');
+		return $this->hasMany('Population\Models\Components\Wiki\Version');
 	}
 
 	// Events ======================================================================

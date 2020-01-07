@@ -2,22 +2,22 @@
 
 namespace Population\Models\Actions;
 
-use SiObjects\Manipule\Builders\QuestionReponseBuilder;
+use SiObjects\Manipule\Builders\QuestionResponseBuilder;
 use Siravel\Contants\Tables;
-use Siravel\Features\Photos\Entities\QuestionReponseEntity;
+use Population\Entities\QuestionResponseEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
 use TCG\Voyager\Models\Post;
 
 /**
- * Class QuestionReponse.
+ * Class QuestionResponse.
  *
  * @property int id
  * @property string value
  * @property Collection responses
  * @package App\Models
  */
-class QuestionReponse extends Base
+class QuestionResponse extends Base
 {
     /**
      * @inheritdoc
@@ -47,15 +47,15 @@ class QuestionReponse extends Base
     /**
      * @inheritdoc
      */
-    public function newEloquentBuilder($query): QuestionReponseBuilder
+    public function newEloquentBuilder($query): QuestionResponseBuilder
     {
-        return new QuestionReponseBuilder($query);
+        return new QuestionResponseBuilder($query);
     }
 
     /**
      * @inheritdoc
      */
-    public function newQuery(): QuestionReponseBuilder
+    public function newQuery(): QuestionResponseBuilder
     {
         return parent::newQuery();
     }
@@ -82,11 +82,11 @@ class QuestionReponse extends Base
     }
 
     /**
-     * @return QuestionReponseEntity
+     * @return QuestionResponseEntity
      */
-    public function toEntity(): QuestionReponseEntity
+    public function toEntity(): QuestionResponseEntity
     {
-        return new QuestionReponseEntity([
+        return new QuestionResponseEntity([
             'id' => $this->id,
             'value' => $this->value,
         ]);

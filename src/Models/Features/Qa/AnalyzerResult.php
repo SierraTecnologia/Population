@@ -330,11 +330,6 @@ class AnalyzerResult extends Base
         return $this->belongsTo('App\Models\Money');
     }
 
-    public function fraudAnalysi()
-    {
-        return $this->belongsTo('App\Models\FraudAnalysi', 'fraud_analysi_id', 'id');
-    }
-
     /**
      * Retorna o cliente do payment responsável pelo entrega de ingressos
      * dos organizadores (produtoras)
@@ -370,31 +365,6 @@ class AnalyzerResult extends Base
     // public function customer()
     // {
     //     return $this->belongsTo(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class));
-    // }
-
-    // /**
-    //  * Recupera o Consumidor (Usuário que recebe o produto da venda)
-    //  * Usuário que possui o cartão processado no pagamento
-    //  */
-    // public function customerToken()
-    // {
-    //     return $this->belongsTo('config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class)Token');
-    // }
-
-    // /**
-    //  * Cartão usado pelo consumidor
-    //  */
-    // public function creditCard()
-    // {
-    //     return $this->belongsTo('App\Models\CreditCard');
-    // }
-
-    // /**
-    //  * Recupera a instancia de cartão na  usado pelo consumidor
-    //  */
-    // public function creditToken()
-    // {
-    //     return $this->belongsTo('App\Models\CreditCardToken');
     // }
 
     // /**

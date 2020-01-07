@@ -56,7 +56,7 @@ class Category extends Base
 
 	public function pages()
 	{
-		return $this->hasMany('App\Page');
+		return $this->hasMany('Population\Models\Components\Book\Page');
 	}
 
 	// Events ======================================================================

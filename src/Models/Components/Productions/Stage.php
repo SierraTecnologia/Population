@@ -47,7 +47,7 @@ class Stage extends Item
      */
     public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'skillable');
+        return $this->morphedByMany(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'skillable');
     }
 
     /**

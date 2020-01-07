@@ -54,7 +54,7 @@ class Imagen extends ArchiveTrait
      */
     public function persons()
     {
-        return $this->morphedByMany('Population\Models\Identity\Actors\Person', 'imagenable');
+        return $this->morphedByMany(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'imagenable');
     }
 
     /**

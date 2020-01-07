@@ -102,7 +102,7 @@ class Photo extends Base
      */
     public function createdByUser()
     {
-        return $this->belongsTo(User::class, 'created_by_user_id');
+        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'created_by_user_id');
     }
 
     /**
@@ -138,7 +138,7 @@ class Photo extends Base
      */
     public function author()
     {
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'user_id');
     }
     /**
      * Get the gallery for pictures.

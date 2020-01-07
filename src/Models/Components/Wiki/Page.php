@@ -57,12 +57,12 @@ class Page extends Base
 
 	public function latestVersion()
 	{
-		return $this->hasOne('App\Version')->latest();
+		return $this->hasOne('Population\Models\Components\Wiki\Version')->latest();
 	}
 
 	public function versions()
 	{
-		return $this->hasMany('App\Version');
+		return $this->hasMany('Population\Models\Components\Wiki\Version');
 	}
 
 	// Events ======================================================================

@@ -15,7 +15,7 @@ class PageRevision extends Base
      */
     public function createdBy()
     {
-        return $this->belongsTo(User::class, 'created_by');
+        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'created_by');
     }
 
     /**
@@ -43,7 +43,7 @@ class PageRevision extends Base
 
     /**
      * Get the previous revision for the same page if existing
-     * @return \App\PageRevision|null
+     * @return \Population\Models\Components\Book\PageRevision|null
      */
     public function getPrevious()
     {

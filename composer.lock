@@ -3766,7 +3766,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "308ec1db057bed7c04c8b65556da44d5555cadcd"
+                "reference": "a0e2bd7b004df6eeaecee00d982cd8eca66f2337"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",

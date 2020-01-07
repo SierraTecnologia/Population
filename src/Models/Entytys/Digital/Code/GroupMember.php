@@ -1,6 +1,6 @@
 <?php
 /**
- * Group/Team Member
+ * Group/Team Member - @todo Fazer esse model aqui
  */
 
 namespace Population\Models\Entytys\Digital\Code;
@@ -67,11 +67,5 @@ class GroupMember extends Base
             $model->token = (string) Hash::make(str_random(8));
         });
 
-    }
-
-
-    public function creditCard()
-    {
-        return $this->belongsTo('App\Models\CreditCard', 'credit_card_id', 'id');
     }
 }

@@ -4,7 +4,7 @@ namespace Population\Models\Actions;
 
 use SiObjects\Manipule\Builders\QuestionBuilder;
 use Siravel\Contants\Tables;
-use Siravel\Features\Photos\Entities\QuestionEntity;
+use Population\Entities\QuestionEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
 use TCG\Voyager\Models\Post;

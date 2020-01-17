@@ -14,7 +14,7 @@ namespace Population\Models\Entytys\Digital\Bot;
 
 use Informate\Traits\ComplexRelationamentTrait;
 use Support\Models\Base;
-use SiInteractions\Actions\Action;
+use Finder\Actions\Action;
 use Log;
 
 class Runner extends Base

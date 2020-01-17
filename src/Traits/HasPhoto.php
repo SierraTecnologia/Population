@@ -37,4 +37,10 @@ trait HasPhoto
     {
         return $this->getMedia();
     }
+
+    public function getProfileUrl($altura = false, $largura = false)
+    {
+        return $this->getMedia('avatars')->first()->getUrl('thumb');
+    }
+
 }

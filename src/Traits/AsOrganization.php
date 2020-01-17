@@ -23,6 +23,8 @@ trait AsOrganization
     use CanFollow, CanLike, CanFavorite, CanSubscribe, CanVote, CanBookmark;
     use CanBeFollowed;
 
+    use HasPhoto;
+
     /**
      * Aparece em videos
      */

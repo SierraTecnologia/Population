@@ -4,8 +4,9 @@ namespace Population\Models\Identity\Actors;
 
 use Support\Models\Base;
 use Population\Traits\AsHuman;
+use Spatie\MediaLibrary\HasMedia\HasMedia;
 
-class Person extends Base
+class Person extends Base implements HasMedia
 {
     use AsHuman;
 

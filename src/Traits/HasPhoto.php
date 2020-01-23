@@ -40,8 +40,13 @@ trait HasPhoto
 
     public function getProfileUrl($altura = false, $largura = false)
     {
-        dd($this->getMedia('avatars'));
-        return $this->getMedia('avatars')->first()->getUrl('thumb');
+        $media = $this->getMedia('avatars')->first();
+
+        if (!$media) {
+            return ''; // @todo Botar imagem Padrao
+        }
+
+        return $media->getUrl('thumb');
     }
 
 }

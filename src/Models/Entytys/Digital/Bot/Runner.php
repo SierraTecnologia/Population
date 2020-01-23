@@ -50,7 +50,7 @@ class Runner extends Base
         return $this;
     }
 
-    public function usingTarget(Model $target)
+    public function usingTarget(Base $target)
     {
         $this->target = $target;
         return $this;

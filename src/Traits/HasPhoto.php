@@ -40,8 +40,11 @@ trait HasPhoto
 
     public function getProfileUrl($altura = false, $largura = false)
     {
-        dd($this->getMedia('avatars'));
-        return $this->getMedia('avatars')->first()->getUrl('thumb');
+        if ($avatar = $this->getMedia('avatars')->first()) {
+            return $avatar->getUrl('thumb');
+        }
+        // @todo diferenciar homem de mulher
+        return 'https://connectbuncombe.org/wp-content/uploads/2019/05/woman.png';
     }
 
 }

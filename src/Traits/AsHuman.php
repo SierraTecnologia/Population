@@ -9,14 +9,6 @@ trait AsHuman
     use AsOrganization;
 
     /**
-     * Construtores
-     */
-    public function diario($date, $comment)
-    {
-        // @todo 
-        return true;
-    }
-    /**
      * One To Many (Polymorphic) - Feature FA
      *
      * @return void
@@ -33,34 +25,6 @@ trait AsHuman
     {
         return $this->morphMany('Population\Models\Identity\Fisicos\Tatuage', 'tatuageable');
     }
-    
-    /**
-     * Projetos do Usuario - Refazer
-     *
-     * @param array $data
-     * @return void
-     */
-    public function addProject($data)
-    {
-        // @todo Refazer
-        return $this->infos()->create([
-            'text' => implode(';', $data)
-        ]);
-    }
-
-    /**
-     * DataInfo do Usuario - @todo Refazer
-     *
-     * @param array $data
-     * @return void
-     */
-    public function addDataInfo($data)
-    {
-        // @todo Refazer
-        return $this->infos()->create([
-            'text' => implode(';', $data)
-        ]);
-    }
 
     /**
      * Many To Many (Polymorphic)
@@ -74,17 +38,6 @@ trait AsHuman
         return $this->morphToMany('Population\Models\Market\Actors\Personagem', 'personagenable');
     }
     
-
-    /**
-     * Ajudantes que chamam outras funcoes
-     */
-    public function setDiario($date, $text)
-    {
-        $this->fatos()->create([
-            'date' => $date,
-            'text' => $text
-        ]);
-    }
 
     /**
      * Events

@@ -1,8 +1,8 @@
 <?php
 
-namespace Informate\Managers;
+namespace Population\Manipule\Managers;
 
-use SiObjects\Manipule\Entities\UserEntity;
+use Population\Manipule\Entities\UserEntity;
 
 /**
  * Interface UserManager.

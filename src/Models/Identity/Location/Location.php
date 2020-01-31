@@ -2,12 +2,12 @@
 
 namespace Population\Models\Identity\Location;
 
-use SiObjects\Manipule\Builders\LocationBuilder;
-use Informate\Contants\Tables;
+use Population\Manipule\Builders\LocationBuilder;
+use Siravel\Contants\Tables;
 use Informate\Features\Photos\Entities\LocationEntity;
-use Informate\ValueObjects\Coordinates;
-use Informate\ValueObjects\Latitude;
-use Informate\ValueObjects\Longitude;
+use Population\Manipule\ValueObjects\Coordinates;
+use Population\Manipule\ValueObjects\Latitude;
+use Population\Manipule\ValueObjects\Longitude;
 use Support\Models\Base;
 use Illuminate\Support\Str;
 

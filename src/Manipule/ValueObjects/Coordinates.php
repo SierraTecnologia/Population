@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\ValueObjects;
+namespace Population\Manipule\ValueObjects;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;

@@ -2,13 +2,15 @@
 
 namespace Population\Models\Entytys\Digital\Midia;
 
-use SiObjects\Manipule\Builders\PhotoBuilder;
-use Informate\Contants\Tables;
+use Population\Manipule\Builders\PhotoBuilder;
+use Siravel\Contants\Tables;
 use Carbon\Carbon;
 use Informate\Features\Photos\Entities\PhotoEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
 use TCG\Voyager\Models\Post;
+use Population\Models\Identity\Location\Location;
+use RicardoSierra\Translation\Models\Language;
 
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**

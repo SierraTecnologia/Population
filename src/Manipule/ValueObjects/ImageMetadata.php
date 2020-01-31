@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\ValueObjects;
+namespace Population\Manipule\ValueObjects;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;

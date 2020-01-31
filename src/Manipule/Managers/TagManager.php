@@ -1,6 +1,6 @@
 <?php
 
-namespace Informate\Managers;
+namespace Population\Manipule\Managers;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 

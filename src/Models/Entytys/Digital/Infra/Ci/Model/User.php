@@ -2,7 +2,7 @@
 
 namespace Population\Models\Entytys\Digital\Infra\Ci\Model;
 
-use SiUtils\Tools\Config;
+use Support\Services\ConfigService as Config;
 use Population\Models\Entytys\Digital\Infra\Ci\Base\User as BaseUser;
 
 /**

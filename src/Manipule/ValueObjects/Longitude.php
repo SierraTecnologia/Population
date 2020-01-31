@@ -1,20 +1,20 @@
 <?php
 
-namespace Informate\ValueObjects;
+namespace Population\Manipule\ValueObjects;
 
 use InvalidArgumentException;
 
 /**
- * Class Latitude.
+ * Class Longitude.
  *
  * @package Core\ValueObjects
  */
-final class Latitude
+final class Longitude
 {
     private $value;
 
     /**
-     * Latitude constructor.
+     * Longitude constructor.
      *
      * @param float $value
      */
@@ -32,8 +32,8 @@ final class Latitude
      */
     private function assertValue(float $value): void
     {
-        if ($value < -90 && $value > 90) {
-            throw new InvalidArgumentException('Invalid latitude value.');
+        if ($value < -180 && $value > 180) {
+            throw new InvalidArgumentException('Invalid longitude value.');
         }
     }
 

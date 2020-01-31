@@ -1,8 +1,8 @@
 <?php
 
-namespace Informate\Managers;
+namespace Population\Manipule\Managers;
 
-use SiObjects\Manipule\Entities\PhotoEntity;
+use Population\Manipule\Entities\PhotoEntity;
 
 /**
  * Interface PhotoManager.

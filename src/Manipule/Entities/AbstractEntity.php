@@ -1,6 +1,6 @@
 <?php
 
-namespace Population\Entities;
+namespace Population\Manipule\Entities;
 
 use Illuminate\Contracts\Support\Arrayable;
 use JsonSerializable;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Informate\Managers;
+namespace Population\Manipule\Managers;
 
-use SiObjects\Manipule\Entities\SubscriptionEntity;
+use Population\Manipule\Entities\SubscriptionEntity;
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 
 /**

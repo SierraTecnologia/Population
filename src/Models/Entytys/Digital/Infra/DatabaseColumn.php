@@ -52,6 +52,6 @@ class DatabaseColumn extends Base
 
     public function table()
     {
-        return $this->belongsTo('App\Models\DatabaseTable', 'table_id', 'id');
+        return $this->belongsTo('Population\Models\Entytys\Digital\Infra\DatabaseTable', 'table_id', 'id');
     }
 }

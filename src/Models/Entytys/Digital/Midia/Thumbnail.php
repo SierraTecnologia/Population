@@ -2,7 +2,7 @@
 
 namespace Population\Models\Entytys\Digital\Midia;
 
-use SiObjects\Manipule\Builders\ThumbnailBuilder;
+use Population\Manipule\Builders\ThumbnailBuilder;
 use Informate\Features\Photos\Entities\ThumbnailEntity;
 use Support\Models\Base;
 

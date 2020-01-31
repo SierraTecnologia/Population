@@ -2,9 +2,9 @@
 
 namespace Population\Models\Actions;
 
-use SiObjects\Manipule\Builders\QuestionBuilder;
+use Population\Manipule\Builders\QuestionBuilder;
 use Siravel\Contants\Tables;
-use Population\Entities\QuestionEntity;
+use Population\Manipule\Entities\QuestionEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
 use TCG\Voyager\Models\Post;

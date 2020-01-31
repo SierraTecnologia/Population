@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @todo Mt bom, analisar
+ */
 namespace Population\Traits;
 
 use InvalidArgumentException;

@@ -41,11 +41,6 @@ trait AsOrganization
         return $this->morphToMany('Population\Models\Entytys\Digital\Midia\Imagen', 'imagenable');
     }
 
-
-    public function fatos()
-    {
-        return $this->morphMany('Population\Models\Identity\Subjetivos\Fato', 'fatoable');
-    }
         
     /**
      * Get all of the owning personable models.
@@ -54,6 +49,23 @@ trait AsOrganization
     {
         // @todo Fazer
         return true;
+    }
+    /**
+     * 
+     */
+
+    /**
+     * Projetos do Usuario - Refazer
+     *
+     * @param array $data
+     * @return void
+     */
+    public function addProject($data)
+    {
+        // @todo Refazer
+        return $this->infos()->create([
+            'text' => implode(';', $data)
+        ]);
     }
 
     /**

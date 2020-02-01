@@ -5,6 +5,7 @@ namespace Population\Models\Entytys\Digital\Midia;
 use Support\Models\Base;
 use Illuminate\Support\Facades\URL;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use RicardoSierra\Translation\Models\Language;
 
 class PhotoAlbum extends Base
 {

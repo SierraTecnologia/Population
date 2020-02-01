@@ -3,7 +3,7 @@
 namespace Population\Models\Entytys\Digital\Midia;
 
 use Population\Manipule\Builders\ThumbnailBuilder;
-use Informate\Features\Photos\Entities\ThumbnailEntity;
+use Population\Manipule\Entities\ThumbnailEntity;
 use Support\Models\Base;
 
 /**

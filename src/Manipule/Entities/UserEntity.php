@@ -221,8 +221,8 @@ final class UserEntity extends AbstractEntity
             'name' => $this->getName(),
             'email' => $this->getEmail(),
             'role' => $this->getRole(),
-            'created_at' => $this->getCreatedAt()->toAtomString(),
-            'updated_at' => $this->getUpdatedAt()->toAtomString(),
+            'created_at' => $this->getCreatedAt() ? $this->getCreatedAt()->toAtomString() : null,
+            'updated_at' => $this->getUpdatedAt() ? $this->getUpdatedAt()->toAtomString() : null,
         ];
     }
 }

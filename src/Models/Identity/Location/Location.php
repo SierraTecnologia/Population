@@ -4,7 +4,7 @@ namespace Population\Models\Identity\Location;
 
 use Population\Manipule\Builders\LocationBuilder;
 use Siravel\Contants\Tables;
-use Informate\Features\Photos\Entities\LocationEntity;
+use Population\Manipule\Entities\LocationEntity;
 use Population\Manipule\ValueObjects\Coordinates;
 use Population\Manipule\ValueObjects\Latitude;
 use Population\Manipule\ValueObjects\Longitude;

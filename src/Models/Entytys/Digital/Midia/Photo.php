@@ -5,7 +5,7 @@ namespace Population\Models\Entytys\Digital\Midia;
 use Population\Manipule\Builders\PhotoBuilder;
 use Siravel\Contants\Tables;
 use Carbon\Carbon;
-use Informate\Features\Photos\Entities\PhotoEntity;
+use Population\Manipule\Entities\PhotoEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
 use TCG\Voyager\Models\Post;
@@ -193,8 +193,8 @@ class Photo extends Base
             'path' => $this->path,
             'avg_color' => $this->avg_color,
             'metadata' => $this->metadata,
-            'created_at' => $this->created_at->toAtomString(),
-            'updated_at' => $this->updated_at->toAtomString(),
+            'created_at' => $this->created_at ? $this->created_at->toAtomString() : null,
+            'updated_at' => $this->updated_at ? $this->updated_at->toAtomString() : null,
             'location' => $this->location ? $this->location->toArray() : null,
             'thumbnails' => $this->thumbnails->toArray(),
         ]);

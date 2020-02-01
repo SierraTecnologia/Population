@@ -245,8 +245,8 @@ final class PhotoEntity extends AbstractEntity
             'path' => $this->getPath(),
             'avg_color' => $this->getAvgColor(),
             'metadata' => $this->getMetadata()->toArray(),
-            'created_at' => $this->getCreatedAt()->toAtomString(),
-            'updated_at' => $this->getUpdatedAt()->toAtomString(),
+            'created_at' => $this->getCreatedAt() ? $this->getCreatedAt()->toAtomString() : null,
+            'updated_at' => $this->getUpdatedAt() ? $this->getUpdatedAt()->toAtomString() : null,
             'location' => $this->getLocation() ? $this->getLocation()->toArray() : null,
             'thumbnails' => $this->getThumbnails()->toArray(),
         ];

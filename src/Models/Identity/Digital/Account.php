@@ -52,6 +52,18 @@ class Account extends Base
             "analyzer" => "standard",
         ],
     );
+    
+    public function getUser()
+    {
+        return $this->username;
+        return $this->email; // @todo
+    }
+
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
 
     /**
      * Get all of the business that are assigned this tag.

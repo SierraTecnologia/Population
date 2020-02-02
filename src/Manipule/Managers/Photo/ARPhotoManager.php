@@ -3,7 +3,7 @@
 namespace Population\Manipule\Managers\Photo;
 
 use App\Models\Photo;
-use SiInteractions\Services\Image\Contracts\ImageProcessor;
+use Finder\Components\Services\Image\Contracts\ImageProcessor;
 use Population\Manipule\Managers\LocationManager;
 use Population\Manipule\Managers\PhotoManager;
 use Population\Manipule\Entities\PhotoEntity;

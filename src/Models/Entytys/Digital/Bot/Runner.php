@@ -76,6 +76,8 @@ class Runner extends Base
         }
         
         $this->worker = $this->action->getClassWithParams($this->target);
+
+        // dd($this->worker);
         $this->worker->execute();
         return $this;
     }

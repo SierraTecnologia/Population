@@ -15,7 +15,7 @@ class AnalyzerResult extends Base
      * Possui um relacionamento com a tabela Task
      */
     protected static $COMPLEX_RELATIONAMENT_IN_MODELS = [
-        \Population\Models\Entytys\Digital\Bot\Task::class
+        \Finder\Models\Digital\Bot\Task::class
     ];
 
     /**

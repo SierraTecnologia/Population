@@ -2,7 +2,7 @@
 
 namespace Population\Manipule\Builders;
 
-use Population\Models\Entytys\Digital\Midia\Photo;
+use Finder\Models\Digital\Midia\Photo;
 use App\Contants\Tables;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;

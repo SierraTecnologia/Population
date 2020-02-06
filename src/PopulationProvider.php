@@ -11,6 +11,7 @@ class PopulationProvider extends ServiceProvider
 {
     public static $providers = [
         \Informate\InformateProvider::class,
+        \Overtrue\LaravelFollow\FollowServiceProvider::class,
     ];
 
     /**

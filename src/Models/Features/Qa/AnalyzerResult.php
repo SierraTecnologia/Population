@@ -325,10 +325,10 @@ class AnalyzerResult extends Base
 
     }
 
-    public function money()
-    {
-        return $this->belongsTo('App\Models\Money');
-    }
+    // public function money()
+    // {
+    //     return $this->belongsTo('App\Models\Money');
+    // }
 
     /**
      * Retorna o cliente do payment responsável pelo entrega de ingressos

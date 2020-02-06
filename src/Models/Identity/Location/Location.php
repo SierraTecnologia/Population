@@ -11,6 +11,8 @@ use Population\Manipule\ValueObjects\Longitude;
 use Support\Models\Base;
 use Illuminate\Support\Str;
 
+use Finder\Models\Digital\Midia\Photo;
+
 /**
  * Class Location.
  *

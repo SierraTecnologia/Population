@@ -40,12 +40,4 @@ class Integration extends Base
         ]
     );
 
-    /**
-     * Get all of the slaves that are assigned this tag.
-     */
-    public function persons()
-    {
-        return $this->morphedByMany(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'personable');
-    }
-
 }

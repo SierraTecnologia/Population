@@ -7,7 +7,7 @@ use Siravel\Contants\Tables;
 use Population\Manipule\Entities\QuestionEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
-use TCG\Voyager\Models\Post;
+use Facilitador\Models\Post;
 
 /**
  * Class Question.

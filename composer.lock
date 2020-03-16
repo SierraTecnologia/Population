@@ -3820,16 +3820,10 @@
         {
             "name": "sierratecnologia/laravel-support",
             "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/SierraTecnologia/laravel-support.git",
-                "reference": "d905cb2184395638c5af1f8c5660dbb9e90987de"
-            },
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/SierraTecnologia/laravel-support/zipball/d905cb2184395638c5af1f8c5660dbb9e90987de",
-                "reference": "d905cb2184395638c5af1f8c5660dbb9e90987de",
-                "shasum": ""
+                "type": "path",
+                "url": "../LaravelSupport",
+                "reference": "c20d0b7493b3f73511f8417e963d365bb547697e"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",
@@ -3878,20 +3872,29 @@
                     "utils/funcs/helpers.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Support\\Tests\\": "tests"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "vendor/bin/phpunit"
+                ]
+            },
             "license": [
                 "MIT"
             ],
             "authors": [
                 {
                     "name": "SierraTecnologia LLC",
-                    "email": "help@sierratecnologia.com",
-                    "homepage": "https://sierratecnologia.com"
+                    "homepage": "https://sierratecnologia.com",
+                    "email": "help@sierratecnologia.com"
                 },
                 {
                     "name": "Abdelrahman Omran",
-                    "email": "me@omranic.com",
                     "homepage": "https://omranic.com",
+                    "email": "me@omranic.com",
                     "role": "Project Lead"
                 },
                 {
@@ -3902,17 +3905,25 @@
             "description": "SierraTecnologia common support helpers, contracts, and traits required by various SierraTecnologia packages. Validator functionality, and basic controller included out-of-the-box.",
             "homepage": "https://sierratecnologia.com/marketplace/sierratecnologia-support/",
             "keywords": [
-                "SierraTecnologia",
                 "contract",
                 "helper",
                 "laravel",
                 "mimetype",
+                "sierratecnologia",
                 "support",
                 "timezones",
                 "trait",
                 "validator"
             ],
-            "time": "2020-03-15T09:17:50+00:00"
+            "support": {
+                "email": "help@sierratecnologia.com",
+                "issues": "https://github.com/sierratecnologia/laravel-support/issues",
+                "source": "https://github.com/sierratecnologia/laravel-support",
+                "docs": "https://github.com/sierratecnologia/laravel-support/blob/master/README.md"
+            },
+            "transport-options": {
+                "symlink": true
+            }
         },
         {
             "name": "spatie/eloquent-sortable",

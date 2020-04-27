@@ -3559,7 +3559,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Translation",
-                "reference": "ed53238b4004778c871af2da46fd96933e67ec1d"
+                "reference": "48928399e4355295b7723de10363b516e5aa2a56"
             },
             "archive": {
                 "exclude": [
@@ -3783,7 +3783,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "bfb55fae60138029cddc6a767cbc17a22cae0059"
+                "reference": "857dc8c04b8e08adf5bcb5b56b3bceea1e650277"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -3828,7 +3828,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "32936bd72926c24831e7a3567e8c3253ba3bfd60"
+                "reference": "a1fa28aed36626470c005d53c7991221ca0fd5c2"
             },
             "require": {
                 "barryvdh/laravel-debugbar": "*",

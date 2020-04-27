@@ -84,6 +84,9 @@ class Location extends Base
      */
     public function getCoordinatesAttribute(): Coordinates
     {
+        if (!isset($this->attributes['coordinates'])) {
+            return null;
+        }
         $raw = Str::before(Str::after($this->attributes['coordinates'], 'POINT('), ')');
 
         [$latitude, $longitude] = explode(' ', $raw);

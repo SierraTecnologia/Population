@@ -5,6 +5,7 @@ namespace Population\Models\Identity\Actors;
 use Support\Models\Base;
 use Population\Traits\AsHuman;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
+use Support\ClassesHelpers\Modificators\StringModificator;
 
 class Person extends Base implements HasMedia
 {
@@ -61,9 +62,10 @@ class Person extends Base implements HasMedia
 
     public function save(array $options = [])
     {
+        // @todo repassar isso pro model base
         // If no author has been assigned, assign the current user's id as the author of the post
         if (!$this->name || empty($this->name)) {
-            $this->name = self::convertSlugToName($this->code);
+            $this->name = StringModificator::convertSlugToName($this->code);
         }
 
         parent::save();

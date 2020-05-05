@@ -5,7 +5,7 @@ namespace Population\Models\Identity\Actors;
 use Support\Models\Base;
 use Population\Traits\AsHuman;
 use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Support\ClassesHelpers\Modificators\StringModificator;
+use Support\Helpers\Modificators\StringModificator;
 
 class Person extends Base implements HasMedia
 {

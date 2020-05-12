@@ -80,9 +80,9 @@ class Location extends Base
     }
 
     /**
-     * @return Coordinates
+     * @return Coordinates|null
      */
-    public function getCoordinatesAttribute(): Coordinates
+    public function getCoordinatesAttribute() //: Coordinates
     {
         if (!isset($this->attributes['coordinates'])) {
             return null;

@@ -610,7 +610,7 @@ class EntityRepo
     {
         $content = $page->html;
 
-        if (!config('app.allow_content_scripts')) {
+        if (!\Illuminate\Support\Facades\Config::get('app.allow_content_scripts')) {
             $content = $this->escapeScripts($content);
         }
 

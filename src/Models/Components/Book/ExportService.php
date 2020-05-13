@@ -132,7 +132,7 @@ class ExportService
     protected function htmlToPdf($html)
     {
         $containedHtml = $this->containHtml($html);
-        $useWKHTML = config('snappy.pdf.binary') !== false;
+        $useWKHTML = \Illuminate\Support\Facades\Config::get('snappy.pdf.binary') !== false;
         if ($useWKHTML) {
             $pdf = \SnappyPDF::loadHTML($containedHtml);
             $pdf->setOption('print-media-type', true);

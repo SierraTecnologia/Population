@@ -14,6 +14,6 @@ class Payment  extends Base
 
     public function createByType()
     {
-        return $this->belongsTo(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'customer_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'customer_id', 'id');
     }
 }

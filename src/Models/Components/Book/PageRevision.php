@@ -15,7 +15,7 @@ class PageRevision extends Base
      */
     public function createdBy()
     {
-        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'created_by');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class), 'created_by');
     }
 
     /**

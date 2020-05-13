@@ -118,7 +118,7 @@ class PageRepo extends EntityRepo
         $revision->revision_number = $page->revision_count;
         $revision->save();
 
-        $revisionLimit = config('app.revision_limit');
+        $revisionLimit = \Illuminate\Support\Facades\Config::get('app.revision_limit');
         if ($revisionLimit !== false) {
             $revisionsToDelete = $this->entityProvider->pageRevision->where('page_id', '=', $page->id)
                 ->orderBy('created_at', 'desc')->skip(intval($revisionLimit))->take(10)->get(['id']);

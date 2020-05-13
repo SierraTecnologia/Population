@@ -70,6 +70,6 @@ class Product extends Base
      */
     public function users()
     {
-        return $this->morphedByMany(config('sitec.core.models.user', \App\Models\User::class), 'skillable');
+        return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class), 'skillable');
     }
 }

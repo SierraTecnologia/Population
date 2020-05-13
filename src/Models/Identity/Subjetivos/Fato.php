@@ -52,7 +52,7 @@ class Fato extends Base
     //  */
     // public function users()
     // {
-    //     return $this->morphToMany(config('sitec.core.models.user', \App\Models\User::class), 'videoable');
+    //     return $this->morphToMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class), 'videoable');
     // }
 
     // /**
@@ -60,7 +60,7 @@ class Fato extends Base
     //  */
     // public function persons()
     // {
-    //     return $this->morphToMany(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'videoable');
+    //     return $this->morphToMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'videoable');
     // }
 
     /**

@@ -337,7 +337,7 @@ class AnalyzerResult extends Base
      */
     public function user()
     {
-        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class));
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class));
     }
 
     /**
@@ -354,7 +354,7 @@ class AnalyzerResult extends Base
      */
     public function business()
     {
-        return $this->belongsTo(config('sitec.core.models.user', \App\Models\User::class), 'business_id', 'id');
+        return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class), 'business_id', 'id');
     }
 
     // @todo ver aqui
@@ -364,7 +364,7 @@ class AnalyzerResult extends Base
     //  */
     // public function customer()
     // {
-    //     return $this->belongsTo(config('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class));
+    //     return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class));
     // }
 
     // /**

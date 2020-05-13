@@ -14,7 +14,7 @@ class CreateEventsTables extends Migration
 	{
         
 
-        Schema::create(config('app.db-prefix', '').'events', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->date('start_date');
             $table->date('end_date');

@@ -36,7 +36,7 @@ class CreateIntegrationsTables extends Migration
         /**
          * Account
          */
-		Schema::create(config('app.db-prefix', '').'accounts', function (Blueprint $table) {
+		Schema::create('accounts', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->bigIncrements('id')->unsigned();
 			$table->string('username', 255);
@@ -49,14 +49,14 @@ class CreateIntegrationsTables extends Migration
 			$table->timestamps();
             $table->softDeletes();
 		});
-		Schema::table(config('app.db-prefix', '').'accounts', function (Blueprint $table) {
+		Schema::table('accounts', function (Blueprint $table) {
             $table->foreign('integration_id')->references('id')->on('integrations');
 		});
         
         /**
          * Accountables
          */
-		Schema::create(config('app.db-prefix', '').'accountables', function (Blueprint $table) {
+		Schema::create('accountables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->bigIncrements('id')->unsigned();
 			$table->bigInteger('account_id')->unsigned(); //->nullable();
@@ -66,7 +66,7 @@ class CreateIntegrationsTables extends Migration
 			$table->timestamps();
             $table->softDeletes();
         });
-		Schema::table(config('app.db-prefix', '').'accountables', function (Blueprint $table) {
+		Schema::table('accountables', function (Blueprint $table) {
             $table->foreign('account_id')->references('id')->on('accounts');
 		});
         

@@ -13,7 +13,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 	public function up()
 	{
         
-		Schema::create(config('app.db-prefix', '').'sitios', function (Blueprint $table) {
+		Schema::create('sitios', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
@@ -21,7 +21,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->timestamps();
             $table->softDeletes();
 		});
-		Schema::create(config('app.db-prefix', '').'sitioables', function (Blueprint $table) {
+		Schema::create('sitioables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->integer('sitio_id');
 			$table->string('sitioable_id');
@@ -31,7 +31,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		});
         
         
-		Schema::create(config('app.db-prefix', '').'infos', function (Blueprint $table) {
+		Schema::create('infos', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text', 255)->nullable();
@@ -42,7 +42,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		});
 		
         
-		Schema::create(config('app.db-prefix', '').'tatuages', function (Blueprint $table) {
+		Schema::create('tatuages', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text', 255)->nullable();
@@ -52,7 +52,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'pircings', function (Blueprint $table) {
+		Schema::create('pircings', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text', 255)->nullable();
@@ -62,7 +62,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'pintinhas', function (Blueprint $table) {
+		Schema::create('pintinhas', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->longText('text', 255)->nullable();
@@ -72,7 +72,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'itemables', function (Blueprint $table) {
+		Schema::create('itemables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->integer('item_id')->unsigned();
 			$table->string('itemable_id');
@@ -81,7 +81,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'emails', function (Blueprint $table) {
+		Schema::create('emails', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
             $table->string('email')->unique();
             $table->primary('email');
@@ -93,7 +93,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'emailables', function (Blueprint $table) {
+		Schema::create('emailables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->string('emailable_id');
 			$table->string('emailable_type', 255);
@@ -104,7 +104,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'phones', function (Blueprint $table) {
+		Schema::create('phones', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('country', 255)->default('55')->nullable();
@@ -115,7 +115,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             $table->softDeletes();
 		});
         
-		Schema::create(config('app.db-prefix', '').'phoneables', function (Blueprint $table) {
+		Schema::create('phoneables', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->integer('phone_id')->unsigned();
 			$table->string('phoneable_id');
@@ -129,7 +129,7 @@ class CreatePopulationSocialPessoasTables extends Migration
         
         
         // Ja tem essas tabelas no modulo home
-        // Schema::create(config('app.db-prefix', '').'links', function (Blueprint $table) {
+        // Schema::create('links', function (Blueprint $table) {
 		// 	$table->engine = 'InnoDB';
 		// 	$table->increments('id')->unsigned();
 		// 	$table->integer('toable_id')->nullable();
@@ -140,7 +140,7 @@ class CreatePopulationSocialPessoasTables extends Migration
         //     $table->softDeletes();
 		// });
         
-		// Schema::create(config('app.db-prefix', '').'urls', function (Blueprint $table) {
+		// Schema::create('urls', function (Blueprint $table) {
 		// 	$table->engine = 'InnoDB';
 		// 	$table->increments('id')->unsigned();
 		// 	$table->integer('server_id')->nullable();
@@ -150,7 +150,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		// });
 		
 		
-		Schema::create(config('app.db-prefix', '').'persons', function (Blueprint $table) {
+		Schema::create('persons', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
             $table->string('code')->unique();
             $table->primary('code');
@@ -180,7 +180,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		});
 
 		// @todo Tirar aqui
-		Schema::create(config('app.db-prefix', '').'identity_person_equipaments', function (Blueprint $table) {
+		Schema::create('identity_person_equipaments', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
@@ -188,28 +188,28 @@ class CreatePopulationSocialPessoasTables extends Migration
 			$table->timestamps();
             $table->softDeletes();
 		});
-		Schema::create(config('app.db-prefix', '').'identity_products', function (Blueprint $table) {
+		Schema::create('identity_products', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});
-		Schema::create(config('app.db-prefix', '').'identity_hability_equipaments', function (Blueprint $table) {
+		Schema::create('identity_hability_equipaments', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});
-		Schema::create(config('app.db-prefix', '').'identity_style_babys', function (Blueprint $table) {
+		Schema::create('identity_style_babys', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
 			$table->timestamps();
             $table->softDeletes();
 		});
-		Schema::create(config('app.db-prefix', '').'identity_style_slaves', function (Blueprint $table) {
+		Schema::create('identity_style_slaves', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('name', 255)->nullable();
@@ -221,7 +221,7 @@ class CreatePopulationSocialPessoasTables extends Migration
 		/**
 		 * Fatos e AContecimentos
 		 */
-		Schema::create(config('app.db-prefix', '').'fatos', function (Blueprint $table) {
+		Schema::create('fatos', function (Blueprint $table) {
 			$table->engine = 'InnoDB';
 			$table->increments('id')->unsigned();
 			$table->string('date', 255)->nullable();

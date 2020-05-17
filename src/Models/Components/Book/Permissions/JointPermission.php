@@ -10,6 +10,7 @@ class JointPermission extends Base
 
     /**
      * Get the role that this points to.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function role()
@@ -19,6 +20,7 @@ class JointPermission extends Base
 
     /**
      * Get the entity this points to.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphOne
      */
     public function entity()

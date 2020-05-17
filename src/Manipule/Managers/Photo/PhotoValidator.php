@@ -37,9 +37,9 @@ class PhotoValidator
     /**
      * PhotoValidator constructor.
      *
-     * @param Container $container
+     * @param Container        $container
      * @param ValidatorFactory $validatorFactory
-     * @param Config $config
+     * @param Config           $config
      */
     public function __construct(Container $container, ValidatorFactory $validatorFactory, Config $config)
     {
@@ -49,7 +49,7 @@ class PhotoValidator
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */
@@ -64,9 +64,11 @@ class PhotoValidator
                 'file',
                 'image',
                 'mimes:jpeg',
-                sprintf('dimensions:min_width=%s,min_height=%s',
+                sprintf(
+                    'dimensions:min_width=%s,min_height=%s',
                     $this->config->get('main.upload.min-image-width'),
-                    $this->config->get('main.upload.min-image-height')),
+                    $this->config->get('main.upload.min-image-height')
+                ),
                 sprintf('min:%s', $this->config->get('main.upload.min-size')),
                 sprintf('max:%s', $this->config->get('main.upload.max-size')),
             ],
@@ -81,7 +83,7 @@ class PhotoValidator
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */

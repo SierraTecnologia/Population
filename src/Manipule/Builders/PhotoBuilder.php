@@ -36,7 +36,7 @@ class PhotoBuilder extends Builder
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     public function whereIdEquals(int $id)
@@ -45,7 +45,7 @@ class PhotoBuilder extends Builder
     }
 
     /**
-     * @param int $createdByUserId
+     * @param  int $createdByUserId
      * @return $this
      */
     public function whereCreatedByUserIdEquals(int $createdByUserId)
@@ -54,7 +54,7 @@ class PhotoBuilder extends Builder
     }
 
     /**
-     * @param Carbon $date
+     * @param  Carbon $date
      * @return $this
      */
     public function whereCreatedAtLessThan(Carbon $date)
@@ -71,7 +71,7 @@ class PhotoBuilder extends Builder
     }
 
     /**
-     * @param Carbon $date
+     * @param  Carbon $date
      * @return $this
      */
     public function whereUpdatedAtLessThan(Carbon $date)

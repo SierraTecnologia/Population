@@ -28,7 +28,7 @@ final class CommentEntity extends AbstractEntity
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     private function setId(int $id): CommentEntity
@@ -47,7 +47,7 @@ final class CommentEntity extends AbstractEntity
     }
 
     /**
-     * @param string $value
+     * @param  string $value
      * @return $this
      */
     private function setValue(string $value): CommentEntity

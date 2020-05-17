@@ -32,7 +32,7 @@ class PostValidator
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */
@@ -57,8 +57,8 @@ class PostValidator
     }
 
     /**
-     * @param Post $post
-     * @param array $attributes
+     * @param  Post  $post
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */
@@ -81,7 +81,7 @@ class PostValidator
     }
 
     /**
-     * @param array $filters
+     * @param  array $filters
      * @return array
      * @throws ValidationException
      */

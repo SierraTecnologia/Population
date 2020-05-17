@@ -15,7 +15,8 @@ class RolePermission extends Base
 
     /**
      * Get the permission object by name.
-     * @param $name
+     *
+     * @param  $name
      * @return mixed
      */
     public static function getByName($name)

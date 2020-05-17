@@ -91,6 +91,7 @@ class Account extends Base
 
     /**
      * Relation for the user that created this entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function integration()

@@ -41,10 +41,11 @@ class EntityProvider
 
     /**
      * EntityProvider constructor.
-     * @param Bookshelf $bookshelf
-     * @param Book $book
-     * @param Chapter $chapter
-     * @param Page $page
+     *
+     * @param Bookshelf    $bookshelf
+     * @param Book         $book
+     * @param Chapter      $chapter
+     * @param Page         $page
      * @param PageRevision $pageRevision
      */
     public function __construct(
@@ -64,6 +65,7 @@ class EntityProvider
     /**
      * Fetch all core entity types as an associated array
      * with their basic names as the keys.
+     *
      * @return Entity[]
      */
     public function all()
@@ -78,7 +80,8 @@ class EntityProvider
 
     /**
      * Get an entity instance by it's basic name.
-     * @param string $type
+     *
+     * @param  string $type
      * @return Entity
      */
     public function get(string $type)

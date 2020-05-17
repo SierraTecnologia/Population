@@ -14,7 +14,7 @@ interface UserManager
     /**
      * Create a user.
      *
-     * @param array $attributes
+     * @param  array $attributes
      * @return UserEntity
      */
     public function create(array $attributes): UserEntity;
@@ -22,8 +22,8 @@ interface UserManager
     /**
      * Update the user by ID.
      *
-     * @param int $id
-     * @param array $attributes
+     * @param  int   $id
+     * @param  array $attributes
      * @return UserEntity
      */
     public function updateById(int $id, array $attributes): UserEntity;
@@ -31,7 +31,7 @@ interface UserManager
     /**
      * Get the user by ID.
      *
-     * @param int $id
+     * @param  int $id
      * @return UserEntity
      */
     public function getById(int $id): UserEntity;
@@ -39,7 +39,7 @@ interface UserManager
     /**
      * Get the user by name.
      *
-     * @param string $name
+     * @param  string $name
      * @return UserEntity
      */
     public function getByName(string $name): UserEntity;
@@ -47,7 +47,7 @@ interface UserManager
     /**
      * Delete the user by ID.
      *
-     * @param int $id
+     * @param  int $id
      * @return UserEntity
      */
     public function deleteById(int $id): UserEntity;

@@ -67,9 +67,11 @@ class PopulationProvider extends ServiceProvider
 
     private function setProviders()
     {
-        (new Collection(self::$providers))->map(function ($provider) {
-            $this->app->register($provider);
-        });
+        (new Collection(self::$providers))->map(
+            function ($provider) {
+                $this->app->register($provider);
+            }
+        );
     }
 
 }

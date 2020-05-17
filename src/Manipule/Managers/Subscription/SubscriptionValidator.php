@@ -31,7 +31,7 @@ class SubscriptionValidator
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */
@@ -53,7 +53,7 @@ class SubscriptionValidator
     }
 
     /**
-     * @param array $filters
+     * @param  array $filters
      * @return array
      * @throws ValidationException
      */

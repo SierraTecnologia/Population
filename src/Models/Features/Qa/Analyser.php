@@ -45,9 +45,11 @@ class Analyser extends Base
         parent::boot();
 
         // @todo Debito Tecnico. Transformar em Evento
-        self::creating(function($model){
-            // @todo Avisa Sistemas de Anti Roubo (Fraud Analysis)
-        });
+        self::creating(
+            function ($model) {
+                // @todo Avisa Sistemas de Anti Roubo (Fraud Analysis)
+            }
+        );
 
     }
 }

@@ -37,16 +37,20 @@ class ReCaptchaRule implements Rule
             return true;
         }
 
-        $context = stream_context_create([
+        $context = stream_context_create(
+            [
             'http' => [
                 'method' => 'POST',
                 'header' => 'Content-type: application/x-www-form-urlencoded',
-                'content' => http_build_query([
+                'content' => http_build_query(
+                    [
                     'secret' => $this->secretKey,
                     'response' => $value,
-                ]),
+                    ]
+                ),
             ],
-        ]);
+            ]
+        );
 
         $response = file_get_contents(static::API_ENDPOINT, false, $context);
         $result = json_decode($response);

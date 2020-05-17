@@ -10,6 +10,7 @@ class Chapter extends Entity
 
     /**
      * Get the morph class for this model.
+     *
      * @return string
      */
     public function getMorphClass()
@@ -19,6 +20,7 @@ class Chapter extends Entity
 
     /**
      * Get the book this chapter is within.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function book()
@@ -28,7 +30,8 @@ class Chapter extends Entity
 
     /**
      * Get the pages that this chapter contains.
-     * @param string $dir
+     *
+     * @param  string $dir
      * @return mixed
      */
     public function pages($dir = 'ASC')
@@ -38,7 +41,8 @@ class Chapter extends Entity
 
     /**
      * Get the url of this chapter.
-     * @param string|bool $path
+     *
+     * @param  string|bool $path
      * @return string
      */
     public function getUrl($path = false)
@@ -52,7 +56,8 @@ class Chapter extends Entity
 
     /**
      * Get an excerpt of this chapter's description to the specified length or less.
-     * @param int $length
+     *
+     * @param  int $length
      * @return string
      */
     public function getExcerpt($length = 100)
@@ -63,6 +68,7 @@ class Chapter extends Entity
 
     /**
      * Return a generalised, common raw query that can be 'unioned' across entities.
+     *
      * @return string
      */
     public function entityRawQuery()

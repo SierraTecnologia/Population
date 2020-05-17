@@ -35,7 +35,7 @@ class QuestionBuilder extends Builder
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     public function whereIdLessThan(int $id)
@@ -44,7 +44,7 @@ class QuestionBuilder extends Builder
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     public function whereIdGreaterThan(int $id)
@@ -69,7 +69,7 @@ class QuestionBuilder extends Builder
     }
 
     /**
-     * @param Carbon $date
+     * @param  Carbon $date
      * @return $this
      */
     public function wherePublishedAtGreaterThanOrEqualTo(Carbon $date)
@@ -78,18 +78,20 @@ class QuestionBuilder extends Builder
     }
 
     /**
-     * @param string $tagValue
+     * @param  string $tagValue
      * @return $this
      */
     public function whereTagValueEquals(string $tagValue)
     {
-        return $this->whereHas('tags', function (Builder $query) use ($tagValue) {
-            $query->where("{$this->tagsTable}.value", $tagValue);
-        });
+        return $this->whereHas(
+            'tags', function (Builder $query) use ($tagValue) {
+                $query->where("{$this->tagsTable}.value", $tagValue);
+            }
+        );
     }
 
     /**
-     * @param string $searchPhrase
+     * @param  string $searchPhrase
      * @return $this
      */
     public function searchByPhrase(string $searchPhrase)
@@ -97,29 +99,39 @@ class QuestionBuilder extends Builder
         $whereSearchPhraseScope = function (Builder $query, string $searchPhrase) {
             $query
                 ->where("{$this->postsTable}.description", 'like', "%{$searchPhrase}%")
-                ->orWhereHas('tags', function (Builder $query) use ($searchPhrase) {
-                    $query->where("{$this->tagsTable}.value", 'like', "%{$searchPhrase}%");
-                });
+                ->orWhereHas(
+                    'tags', function (Builder $query) use ($searchPhrase) {
+                        $query->where("{$this->tagsTable}.value", 'like', "%{$searchPhrase}%");
+                    }
+                );
         };
 
-        return $this->where(function (Builder $query) use ($whereSearchPhraseScope, $searchPhrase) {
-            // Search by whole search phrase.
-            $query->where(function (Builder $query) use ($whereSearchPhraseScope, $searchPhrase) {
-                $whereSearchPhraseScope($query, $searchPhrase);
-            });
-
-            $searchPhraseWords = explode(' ', $searchPhrase);
-            if (count($searchPhraseWords) > 1) {
-                $query->orWhere(function (Builder $query) use ($whereSearchPhraseScope, $searchPhraseWords) {
-                    // Search by each search phrase word separately.
-                    foreach ($searchPhraseWords as $searchPhrase) {
-                        $query->where(function (Builder $query) use ($whereSearchPhraseScope, $searchPhrase) {
-                            $whereSearchPhraseScope($query, $searchPhrase);
-                        });
+        return $this->where(
+            function (Builder $query) use ($whereSearchPhraseScope, $searchPhrase) {
+                // Search by whole search phrase.
+                $query->where(
+                    function (Builder $query) use ($whereSearchPhraseScope, $searchPhrase) {
+                        $whereSearchPhraseScope($query, $searchPhrase);
                     }
-                });
+                );
+
+                $searchPhraseWords = explode(' ', $searchPhrase);
+                if (count($searchPhraseWords) > 1) {
+                    $query->orWhere(
+                        function (Builder $query) use ($whereSearchPhraseScope, $searchPhraseWords) {
+                            // Search by each search phrase word separately.
+                            foreach ($searchPhraseWords as $searchPhrase) {
+                                $query->where(
+                                    function (Builder $query) use ($whereSearchPhraseScope, $searchPhrase) {
+                                        $whereSearchPhraseScope($query, $searchPhrase);
+                                    }
+                                );
+                            }
+                        }
+                    );
+                }
             }
-        });
+        );
     }
 
     /**

@@ -26,14 +26,16 @@ final class LocationEntity extends AbstractEntity
         if (!is_null($attributes['id'])) {
             $this->setId($attributes['id']);
         }
-        $this->setCoordinates(new Coordinates(
-            new Latitude($attributes['coordinates']['latitude'] ?? null),
-            new Longitude($attributes['coordinates']['longitude'] ?? null)
-        ));
+        $this->setCoordinates(
+            new Coordinates(
+                new Latitude($attributes['coordinates']['latitude'] ?? null),
+                new Longitude($attributes['coordinates']['longitude'] ?? null)
+            )
+        );
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     private function setId(int $id): LocationEntity
@@ -52,7 +54,7 @@ final class LocationEntity extends AbstractEntity
     }
 
     /**
-     * @param Coordinates $coordinates
+     * @param  Coordinates $coordinates
      * @return $this
      */
     private function setCoordinates(Coordinates $coordinates): LocationEntity

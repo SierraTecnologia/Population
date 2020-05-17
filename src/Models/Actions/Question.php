@@ -15,7 +15,7 @@ use Facilitador\Models\Post;
  * @property int id
  * @property string value
  * @property Collection responses
- * @package App\Models
+ * @package  App\Models
  */
 class Question extends Base
 {
@@ -76,9 +76,11 @@ class Question extends Base
     {
         parent::boot();
 
-        static::deleting(function (self $question) {
-            $question->responses()->detach();
-        });
+        static::deleting(
+            function (self $question) {
+                $question->responses()->detach();
+            }
+        );
     }
 
     /**
@@ -100,7 +102,7 @@ class Question extends Base
     /**
      * Setter for the 'value' attribute.
      *
-     * @param string $value
+     * @param  string $value
      * @return $this
      */
     public function setValueAttribute(string $value)
@@ -115,9 +117,11 @@ class Question extends Base
      */
     public function toEntity(): QuestionEntity
     {
-        return new QuestionEntity([
+        return new QuestionEntity(
+            [
             'id' => $this->id,
             'value' => $this->value,
-        ]);
+            ]
+        );
     }
 }

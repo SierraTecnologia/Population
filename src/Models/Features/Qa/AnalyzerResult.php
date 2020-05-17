@@ -313,15 +313,17 @@ class AnalyzerResult extends Base
     {
         parent::boot();
 
-        self::creating(function($model){
-            if ($model->status=='') {
-                $model->status = 0;
+        self::creating(
+            function ($model) {
+                if ($model->status=='') {
+                    $model->status = 0;
+                }
+                if ($model->is_active=='') {
+                    $model->is_active = 0;
+                }
+                $model->tid = (string) Hash::make(str_random(8));
             }
-            if ($model->is_active=='') {
-                $model->is_active = 0;
-            }
-            $model->tid = (string) Hash::make(str_random(8));
-        });
+        );
 
     }
 

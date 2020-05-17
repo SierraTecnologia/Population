@@ -18,7 +18,7 @@ final class Coordinates implements Arrayable, JsonSerializable
     /**
      * Coordinates constructor.
      *
-     * @param Latitude $latitude
+     * @param Latitude  $latitude
      * @param Longitude $longitude
      */
     public function __construct(Latitude $latitude, Longitude $longitude)

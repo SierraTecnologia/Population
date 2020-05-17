@@ -29,7 +29,7 @@ class LocationValidator
     /**
      * LocationValidator constructor.
      *
-     * @param Container $container
+     * @param Container        $container
      * @param ValidatorFactory $validatorFactory
      */
     public function __construct(Container $container, ValidatorFactory $validatorFactory)
@@ -39,7 +39,7 @@ class LocationValidator
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */

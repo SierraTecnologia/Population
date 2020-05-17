@@ -46,11 +46,11 @@ class ARPhotoManager implements PhotoManager
     /**
      * ARPhotoManager constructor.
      *
-     * @param Database $database
-     * @param Storage $storage
+     * @param Database        $database
+     * @param Storage         $storage
      * @param LocationManager $locationManager
-     * @param ImageProcessor $imageProcessor
-     * @param PhotoValidator $validator
+     * @param ImageProcessor  $imageProcessor
+     * @param PhotoValidator  $validator
      */
     public function __construct(
         Database $database,
@@ -58,8 +58,7 @@ class ARPhotoManager implements PhotoManager
         LocationManager $locationManager,
         ImageProcessor $imageProcessor,
         PhotoValidator $validator
-    )
-    {
+    ) {
         $this->database = $database;
         $this->storage = $storage;
         $this->locationManager = $locationManager;
@@ -84,16 +83,20 @@ class ARPhotoManager implements PhotoManager
         $thumbnails = $this->imageProcessor->createThumbnails();
         $this->imageProcessor->close();
 
-        $this->database->transaction(function () use ($photo, $attributes, $thumbnails) {
-            if (isset($attributes['location'])) {
-                $photo->location_id = $this->locationManager->create($attributes['location'])->getId();
+        $this->database->transaction(
+            function () use ($photo, $attributes, $thumbnails) {
+                if (isset($attributes['location'])) {
+                    $photo->location_id = $this->locationManager->create($attributes['location'])->getId();
+                }
+                $photo->save();
+                $photo->thumbnails()->detach();
+                collect($thumbnails)->each(
+                    function (array $attributes) use ($photo) {
+                        $photo->thumbnails()->create($attributes);
+                    }
+                );
             }
-            $photo->save();
-            $photo->thumbnails()->detach();
-            collect($thumbnails)->each(function (array $attributes) use ($photo) {
-                $photo->thumbnails()->create($attributes);
-            });
-        });
+        );
 
         return $photo->loadEntityRelations()->toEntity();
     }
@@ -105,16 +108,20 @@ class ARPhotoManager implements PhotoManager
     {
         $attributes = $this->validator->validateForUpdate($attributes);
 
-        /** @var Photo $photo */
+        /**
+ * @var Photo $photo 
+*/
         $photo = (new Photo)
             ->newQuery()
             ->findOrFail($id)
             ->fill($attributes);
 
-        $this->database->transaction(function () use ($photo, $attributes) {
-            $photo->location_id = $this->locationManager->create($attributes['location'])->getId();
-            $photo->save();
-        });
+        $this->database->transaction(
+            function () use ($photo, $attributes) {
+                $photo->location_id = $this->locationManager->create($attributes['location'])->getId();
+                $photo->save();
+            }
+        );
 
         return $photo->loadEntityRelations()->toEntity();
     }
@@ -124,7 +131,9 @@ class ARPhotoManager implements PhotoManager
      */
     public function getById(int $id): PhotoEntity
     {
-        /** @var Photo $photo */
+        /**
+ * @var Photo $photo 
+*/
         $photo = (new Photo)
             ->newQuery()
             ->withEntityRelations()
@@ -138,16 +147,20 @@ class ARPhotoManager implements PhotoManager
      */
     public function deleteById(int $id): PhotoEntity
     {
-        /** @var Photo $photo */
+        /**
+ * @var Photo $photo 
+*/
         $photo = (new Photo)
             ->newQuery()
             ->withEntityRelations()
             ->findOrFail($id);
 
-        $this->database->transaction(function () use ($photo) {
-            $photo->delete();
-            $this->storage->deleteDirectory($photo->toEntity()->getDirPath());
-        });
+        $this->database->transaction(
+            function () use ($photo) {
+                $photo->delete();
+                $this->storage->deleteDirectory($photo->toEntity()->getDirPath());
+            }
+        );
 
         return $photo->toEntity();
     }

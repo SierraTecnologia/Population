@@ -26,7 +26,7 @@ final class Latitude
     }
 
     /**
-     * @param $value
+     * @param  $value
      * @return void
      * @throws InvalidArgumentException
      */

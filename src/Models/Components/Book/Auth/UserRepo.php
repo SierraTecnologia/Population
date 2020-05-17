@@ -25,8 +25,9 @@ class UserRepo
 
     /**
      * UserRepo constructor.
-     * @param User $user
-     * @param Role $role
+     *
+     * @param User       $user
+     * @param Role       $role
      * @param EntityRepo $entityRepo
      */
     public function __construct(User $user, Role $role, EntityRepo $entityRepo)
@@ -37,7 +38,7 @@ class UserRepo
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return User|null
      */
     public function getByEmail($email)
@@ -46,7 +47,7 @@ class UserRepo
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return User
      */
     public function getById($id)
@@ -56,6 +57,7 @@ class UserRepo
 
     /**
      * Get all the users with their permissions.
+     *
      * @return Builder|static
      */
     public function getAllUsers()
@@ -65,8 +67,9 @@ class UserRepo
 
     /**
      * Get all the users with their permissions in a paginated format.
-     * @param int $count
-     * @param $sortData
+     *
+     * @param  int $count
+     * @param  $sortData
      * @return Builder|static
      */
     public function getAllUsersPaginatedAndSorted($count, $sortData)
@@ -75,21 +78,24 @@ class UserRepo
 
         if ($sortData['search']) {
             $term = '%' . $sortData['search'] . '%';
-            $query->where(function ($query) use ($term) {
-                $query->where('name', 'like', $term)
-                    ->orWhere('email', 'like', $term);
-            });
+            $query->where(
+                function ($query) use ($term) {
+                    $query->where('name', 'like', $term)
+                        ->orWhere('email', 'like', $term);
+                }
+            );
         }
 
         return $query->paginate($count);
     }
 
      /**
-     * Creates a new user and attaches a role to them.
-     * @param array $data
-     * @param boolean $verifyEmail
-     * @return \BookStack\Auth\User
-     */
+      * Creates a new user and attaches a role to them.
+      *
+      * @param  array   $data
+      * @param  boolean $verifyEmail
+      * @return \BookStack\Auth\User
+      */
     public function registerNew(array $data, $verifyEmail = false)
     {
         $user = $this->create($data, $verifyEmail);
@@ -101,6 +107,7 @@ class UserRepo
 
     /**
      * Give a user the default role. Used when creating a new user.
+     *
      * @param User $user
      */
     public function attachDefaultRole(User $user)
@@ -113,8 +120,9 @@ class UserRepo
 
     /**
      * Assign a user to a system-level role.
-     * @param User $user
-     * @param $systemRoleName
+     *
+     * @param  User $user
+     * @param  $systemRoleName
      * @throws NotFoundException
      */
     public function attachSystemRole(User $user, $systemRoleName)
@@ -128,7 +136,8 @@ class UserRepo
 
     /**
      * Checks if the give user is the only admin.
-     * @param \BookStack\Auth\User $user
+     *
+     * @param  \BookStack\Auth\User $user
      * @return bool
      */
     public function isOnlyAdmin(User $user)
@@ -146,8 +155,9 @@ class UserRepo
 
     /**
      * Set the assigned user roles via an array of role IDs.
-     * @param User $user
-     * @param array $roles
+     *
+     * @param  User  $user
+     * @param  array $roles
      * @throws UserUpdateException
      */
     public function setUserRoles(User $user, array $roles)
@@ -162,8 +172,9 @@ class UserRepo
     /**
      * Check if the given user is the last admin and their new roles no longer
      * contains the admin role.
-     * @param User $user
-     * @param array $newRoles
+     *
+     * @param  User  $user
+     * @param  array $newRoles
      * @return bool
      */
     protected function demotingLastAdmin(User $user, array $newRoles) : bool
@@ -180,23 +191,27 @@ class UserRepo
 
     /**
      * Create a new basic instance of user.
-     * @param array $data
-     * @param boolean $verifyEmail
+     *
+     * @param  array   $data
+     * @param  boolean $verifyEmail
      * @return \BookStack\Auth\User
      */
     public function create(array $data, $verifyEmail = false)
     {
-        return $this->user->forceCreate([
+        return $this->user->forceCreate(
+            [
             'name'     => $data['name'],
             'email'    => $data['email'],
             'password' => bcrypt($data['password']),
             'email_confirmed' => $verifyEmail
-        ]);
+            ]
+        );
     }
 
     /**
      * Remove the given user from storage, Delete all related content.
-     * @param \BookStack\Auth\User $user
+     *
+     * @param  \BookStack\Auth\User $user
      * @throws Exception
      */
     public function destroy(User $user)
@@ -213,9 +228,10 @@ class UserRepo
 
     /**
      * Get the latest activity for a user.
-     * @param \BookStack\Auth\User $user
-     * @param int $count
-     * @param int $page
+     *
+     * @param  \BookStack\Auth\User $user
+     * @param  int                  $count
+     * @param  int                  $page
      * @return array
      */
     public function getActivity(User $user, $count = 20, $page = 0)
@@ -225,8 +241,9 @@ class UserRepo
 
     /**
      * Get the recently created content for this given user.
-     * @param \BookStack\Auth\User $user
-     * @param int $count
+     *
+     * @param  \BookStack\Auth\User $user
+     * @param  int                  $count
      * @return mixed
      */
     public function getRecentlyCreated(User $user, $count = 20)
@@ -245,7 +262,8 @@ class UserRepo
 
     /**
      * Get asset created counts for the give user.
-     * @param \BookStack\Auth\User $user
+     *
+     * @param  \BookStack\Auth\User $user
      * @return array
      */
     public function getAssetCounts(User $user)
@@ -260,6 +278,7 @@ class UserRepo
 
     /**
      * Get the roles in the system that are assignable to a user.
+     *
      * @return mixed
      */
     public function getAllRoles()
@@ -270,6 +289,7 @@ class UserRepo
     /**
      * Get all the roles which can be given restricted access to
      * other entities in the system.
+     *
      * @return mixed
      */
     public function getRestrictableRoles()
@@ -280,7 +300,8 @@ class UserRepo
     /**
      * Get an avatar image for a user and set it as their avatar.
      * Returns early if avatars disabled or not set in config.
-     * @param User $user
+     *
+     * @param  User $user
      * @return bool
      */
     public function downloadAndAssignUserAvatar(User $user)

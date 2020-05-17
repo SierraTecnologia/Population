@@ -12,6 +12,7 @@ class EntityPermission extends Base
 
     /**
      * Get all this restriction's attached entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function restrictable()

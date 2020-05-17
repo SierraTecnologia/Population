@@ -15,7 +15,7 @@ interface SubscriptionManager
     /**
      * Create a subscription by email.
      *
-     * @param array $attributes
+     * @param  array $attributes
      * @return SubscriptionEntity
      */
     public function create(array $attributes): SubscriptionEntity;
@@ -23,7 +23,7 @@ interface SubscriptionManager
     /**
      * Get the subscription by token.
      *
-     * @param string $token
+     * @param  string $token
      * @return SubscriptionEntity
      */
     public function getByToken(string $token): SubscriptionEntity;
@@ -31,9 +31,9 @@ interface SubscriptionManager
     /**
      * Paginate over subscriptions.
      *
-     * @param int $page
-     * @param int $perPage
-     * @param array $filters
+     * @param  int   $page
+     * @param  int   $perPage
+     * @param  array $filters
      * @return LengthAwarePaginator
      */
     public function paginate(int $page, int $perPage, array $filters = []): LengthAwarePaginator;
@@ -41,7 +41,7 @@ interface SubscriptionManager
     /**
      * Delete the subscription by token.
      *
-     * @param string $token
+     * @param  string $token
      * @return SubscriptionEntity
      */
     public function deleteByToken(string $token): SubscriptionEntity;

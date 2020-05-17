@@ -14,7 +14,7 @@ interface LocationManager
     /**
      * Create a location.
      *
-     * @param array $attributes
+     * @param  array $attributes
      * @return LocationEntity
      */
     public function create(array $attributes): LocationEntity;

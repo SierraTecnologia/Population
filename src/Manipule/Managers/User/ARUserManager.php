@@ -34,8 +34,8 @@ class ARUserManager implements UserManager
     /**
      * ARUserManager constructor.
      *
-     * @param Database $database
-     * @param Hasher $hasher
+     * @param Database      $database
+     * @param Hasher        $hasher
      * @param UserValidator $validator
      */
     public function __construct(Database $database, Hasher $hasher, UserValidator $validator)
@@ -61,9 +61,11 @@ class ARUserManager implements UserManager
 
         $user->password = $this->hasher->make($attributes['password']);
 
-        $this->database->transaction(function () use ($user) {
-            $user->save();
-        });
+        $this->database->transaction(
+            function () use ($user) {
+                $user->save();
+            }
+        );
 
         return $user->toEntity();
     }
@@ -83,9 +85,11 @@ class ARUserManager implements UserManager
             $user->password = $this->hasher->make($attributes['password']);
         }
 
-        $this->database->transaction(function () use ($user) {
-            $user->save();
-        });
+        $this->database->transaction(
+            function () use ($user) {
+                $user->save();
+            }
+        );
 
         return $user->toEntity();
     }
@@ -124,9 +128,11 @@ class ARUserManager implements UserManager
             ->newQuery()
             ->findOrFail($id);
 
-        $this->database->transaction(function () use ($user) {
-            $user->delete();
-        });
+        $this->database->transaction(
+            function () use ($user) {
+                $user->delete();
+            }
+        );
 
         return $user->toEntity();
     }

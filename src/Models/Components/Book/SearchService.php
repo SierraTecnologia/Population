@@ -34,15 +34,17 @@ class SearchService
 
     /**
      * Acceptable operators to be used in a query
+     *
      * @var array
      */
     protected $queryOperators = ['<=', '>=', '=', '<', '>', 'like', '!='];
 
     /**
      * SearchService constructor.
-     * @param SearchTerm $searchTerm
-     * @param EntityProvider $entityProvider
-     * @param Connection $db
+     *
+     * @param SearchTerm        $searchTerm
+     * @param EntityProvider    $entityProvider
+     * @param Connection        $db
      * @param PermissionService $permissionService
      */
     public function __construct(SearchTerm $searchTerm, EntityProvider $entityProvider, Connection $db, PermissionService $permissionService)
@@ -55,6 +57,7 @@ class SearchService
 
     /**
      * Set the database connection
+     *
      * @param Connection $connection
      */
     public function setConnection(Connection $connection)
@@ -64,11 +67,12 @@ class SearchService
 
     /**
      * Search all entities in the system.
-     * @param string $searchString
-     * @param string $entityType
-     * @param int $page
-     * @param int $count - Count of each entity to search, Total returned could can be larger and not guaranteed.
-     * @param string $action
+     *
+     * @param  string $searchString
+     * @param  string $entityType
+     * @param  int    $page
+     * @param  int    $count        - Count of each entity to search, Total returned could can be larger and not guaranteed.
+     * @param  string $action
      * @return array[int, Collection];
      */
     public function searchEntities($searchString, $entityType = 'all', $page = 1, $count = 20, $action = 'view')
@@ -111,8 +115,9 @@ class SearchService
 
     /**
      * Search a book for entities
-     * @param integer $bookId
-     * @param string $searchString
+     *
+     * @param  integer $bookId
+     * @param  string  $searchString
      * @return Collection
      */
     public function searchBook($bookId, $searchString)
@@ -134,8 +139,9 @@ class SearchService
 
     /**
      * Search a book for entities
-     * @param integer $chapterId
-     * @param string $searchString
+     *
+     * @param  integer $chapterId
+     * @param  string  $searchString
      * @return Collection
      */
     public function searchChapter($chapterId, $searchString)
@@ -147,12 +153,13 @@ class SearchService
 
     /**
      * Search across a particular entity type.
-     * @param array $terms
-     * @param string $entityType
-     * @param int $page
-     * @param int $count
-     * @param string $action
-     * @param bool $getCount Return the total count of the search
+     *
+     * @param  array  $terms
+     * @param  string $entityType
+     * @param  int    $page
+     * @param  int    $count
+     * @param  string $action
+     * @param  bool   $getCount   Return the total count of the search
      * @return \Illuminate\Database\Eloquent\Collection|int|static[]
      */
     public function searchEntityTable($terms, $entityType = 'page', $page = 1, $count = 20, $action = 'view', $getCount = false)
@@ -168,9 +175,10 @@ class SearchService
 
     /**
      * Create a search query for an entity
-     * @param array $terms
-     * @param string $entityType
-     * @param string $action
+     *
+     * @param  array  $terms
+     * @param  string $entityType
+     * @param  string $action
      * @return EloquentBuilder
      */
     protected function buildEntitySearchQuery($terms, $entityType = 'page', $action = 'view')
@@ -182,27 +190,35 @@ class SearchService
         if (count($terms['search']) > 0) {
             $subQuery = $this->db->table('search_terms')->select('entity_id', 'entity_type', \DB::raw('SUM(score) as score'));
             $subQuery->where('entity_type', '=', $entity->getMorphClass());
-            $subQuery->where(function (Builder $query) use ($terms) {
-                foreach ($terms['search'] as $inputTerm) {
-                    $query->orWhere('term', 'like', $inputTerm .'%');
+            $subQuery->where(
+                function (Builder $query) use ($terms) {
+                    foreach ($terms['search'] as $inputTerm) {
+                        $query->orWhere('term', 'like', $inputTerm .'%');
+                    }
                 }
-            })->groupBy('entity_type', 'entity_id');
-            $entitySelect->join(\DB::raw('(' . $subQuery->toSql() . ') as s'), function (JoinClause $join) {
-                $join->on('id', '=', 'entity_id');
-            })->selectRaw($entity->getTable().'.*, s.score')->orderBy('score', 'desc');
+            )->groupBy('entity_type', 'entity_id');
+            $entitySelect->join(
+                \DB::raw('(' . $subQuery->toSql() . ') as s'), function (JoinClause $join) {
+                    $join->on('id', '=', 'entity_id');
+                }
+            )->selectRaw($entity->getTable().'.*, s.score')->orderBy('score', 'desc');
             $entitySelect->mergeBindings($subQuery);
         }
 
         // Handle exact term matching
         if (count($terms['exact']) > 0) {
-            $entitySelect->where(function (EloquentBuilder $query) use ($terms, $entity) {
-                foreach ($terms['exact'] as $inputTerm) {
-                    $query->where(function (EloquentBuilder $query) use ($inputTerm, $entity) {
-                        $query->where('name', 'like', '%'.$inputTerm .'%')
-                            ->orWhere($entity->textField, 'like', '%'.$inputTerm .'%');
-                    });
+            $entitySelect->where(
+                function (EloquentBuilder $query) use ($terms, $entity) {
+                    foreach ($terms['exact'] as $inputTerm) {
+                        $query->where(
+                            function (EloquentBuilder $query) use ($inputTerm, $entity) {
+                                $query->where('name', 'like', '%'.$inputTerm .'%')
+                                    ->orWhere($entity->textField, 'like', '%'.$inputTerm .'%');
+                            }
+                        );
+                    }
                 }
-            });
+            );
         }
 
         // Handle tag searches
@@ -224,7 +240,8 @@ class SearchService
 
     /**
      * Parse a search string into components.
-     * @param $searchString
+     *
+     * @param  $searchString
      * @return array
      */
     protected function parseSearchString($searchString)
@@ -272,6 +289,7 @@ class SearchService
 
     /**
      * Get the available query operators as a regex escaped list.
+     *
      * @return mixed
      */
     protected function getRegexEscapedOperators()
@@ -285,40 +303,44 @@ class SearchService
 
     /**
      * Apply a tag search term onto a entity query.
-     * @param EloquentBuilder $query
-     * @param string $tagTerm
+     *
+     * @param  EloquentBuilder $query
+     * @param  string          $tagTerm
      * @return mixed
      */
     protected function applyTagSearch(EloquentBuilder $query, $tagTerm)
     {
         preg_match("/^(.*?)((".$this->getRegexEscapedOperators().")(.*?))?$/", $tagTerm, $tagSplit);
-        $query->whereHas('tags', function (EloquentBuilder $query) use ($tagSplit) {
-            $tagName = $tagSplit[1];
-            $tagOperator = count($tagSplit) > 2 ? $tagSplit[3] : '';
-            $tagValue = count($tagSplit) > 3 ? $tagSplit[4] : '';
-            $validOperator = in_array($tagOperator, $this->queryOperators);
-            if (!empty($tagOperator) && !empty($tagValue) && $validOperator) {
-                if (!empty($tagName)) {
+        $query->whereHas(
+            'tags', function (EloquentBuilder $query) use ($tagSplit) {
+                $tagName = $tagSplit[1];
+                $tagOperator = count($tagSplit) > 2 ? $tagSplit[3] : '';
+                $tagValue = count($tagSplit) > 3 ? $tagSplit[4] : '';
+                $validOperator = in_array($tagOperator, $this->queryOperators);
+                if (!empty($tagOperator) && !empty($tagValue) && $validOperator) {
+                    if (!empty($tagName)) {
+                        $query->where('name', '=', $tagName);
+                    }
+                    if (is_numeric($tagValue) && $tagOperator !== 'like') {
+                        // We have to do a raw sql query for this since otherwise PDO will quote the value and MySQL will
+                        // search the value as a string which prevents being able to do number-based operations
+                        // on the tag values. We ensure it has a numeric value and then cast it just to be sure.
+                        $tagValue = (float) trim($query->getConnection()->getPdo()->quote($tagValue), "'");
+                        $query->whereRaw("value ${tagOperator} ${tagValue}");
+                    } else {
+                        $query->where('value', $tagOperator, $tagValue);
+                    }
+                } else {
                     $query->where('name', '=', $tagName);
                 }
-                if (is_numeric($tagValue) && $tagOperator !== 'like') {
-                    // We have to do a raw sql query for this since otherwise PDO will quote the value and MySQL will
-                    // search the value as a string which prevents being able to do number-based operations
-                    // on the tag values. We ensure it has a numeric value and then cast it just to be sure.
-                    $tagValue = (float) trim($query->getConnection()->getPdo()->quote($tagValue), "'");
-                    $query->whereRaw("value ${tagOperator} ${tagValue}");
-                } else {
-                    $query->where('value', $tagOperator, $tagValue);
-                }
-            } else {
-                $query->where('name', '=', $tagName);
             }
-        });
+        );
         return $query;
     }
 
     /**
      * Index the given entity.
+     *
      * @param Entity $entity
      */
     public function indexEntity(Entity $entity)
@@ -336,6 +358,7 @@ class SearchService
 
     /**
      * Index multiple Entities at once
+     *
      * @param \Population\Models\Components\Book\Entity[] $entities
      */
     protected function indexEntities($entities)
@@ -366,14 +389,17 @@ class SearchService
 
         foreach ($this->entityProvider->all() as $entityModel) {
             $selectFields = ['id', 'name', $entityModel->textField];
-            $entityModel->newQuery()->select($selectFields)->chunk(1000, function ($entities) {
-                $this->indexEntities($entities);
-            });
+            $entityModel->newQuery()->select($selectFields)->chunk(
+                1000, function ($entities) {
+                    $this->indexEntities($entities);
+                }
+            );
         }
     }
 
     /**
      * Delete related Entity search terms.
+     *
      * @param Entity $entity
      */
     public function deleteEntityTerms(Entity $entity)
@@ -383,8 +409,9 @@ class SearchService
 
     /**
      * Create a scored term array from the given text.
-     * @param $text
-     * @param float|int $scoreAdjustment
+     *
+     * @param  $text
+     * @param  float|int $scoreAdjustment
      * @return array
      */
     protected function generateTermArrayFromText($text, $scoreAdjustment = 1)
@@ -502,16 +529,20 @@ class SearchService
 
     protected function filterViewedByMe(EloquentBuilder $query, Entity $model, $input)
     {
-        $query->whereHas('views', function ($query) {
-            $query->where('user_id', '=', user()->id);
-        });
+        $query->whereHas(
+            'views', function ($query) {
+                $query->where('user_id', '=', user()->id);
+            }
+        );
     }
 
     protected function filterNotViewedByMe(EloquentBuilder $query, Entity $model, $input)
     {
-        $query->whereDoesntHave('views', function ($query) {
-            $query->where('user_id', '=', user()->id);
-        });
+        $query->whereDoesntHave(
+            'views', function ($query) {
+                $query->where('user_id', '=', user()->id);
+            }
+        );
     }
 
     protected function filterSortBy(EloquentBuilder $query, Entity $model, $input)

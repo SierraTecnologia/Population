@@ -50,11 +50,12 @@ class EntityRepo
 
     /**
      * EntityRepo constructor.
-     * @param EntityProvider $entityProvider
-     * @param ViewService $viewService
+     *
+     * @param EntityProvider    $entityProvider
+     * @param ViewService       $viewService
      * @param PermissionService $permissionService
-     * @param TagRepo $tagRepo
-     * @param SearchService $searchService
+     * @param TagRepo           $tagRepo
+     * @param SearchService     $searchService
      */
     public function __construct(
         EntityProvider $entityProvider,
@@ -72,9 +73,10 @@ class EntityRepo
 
     /**
      * Base query for searching entities via permission system
-     * @param string $type
-     * @param bool $allowDrafts
-     * @param string $permission
+     *
+     * @param  string $type
+     * @param  bool   $allowDrafts
+     * @param  string $permission
      * @return \Illuminate\Database\Query\Builder
      */
     protected function entityQuery($type, $allowDrafts = false, $permission = 'view')
@@ -88,8 +90,9 @@ class EntityRepo
 
     /**
      * Check if an entity with the given id exists.
-     * @param $type
-     * @param $id
+     *
+     * @param  $type
+     * @param  $id
      * @return bool
      */
     public function exists($type, $id)
@@ -99,10 +102,11 @@ class EntityRepo
 
     /**
      * Get an entity by ID
-     * @param string $type
-     * @param integer $id
-     * @param bool $allowDrafts
-     * @param bool $ignorePermissions
+     *
+     * @param  string  $type
+     * @param  integer $id
+     * @param  bool    $allowDrafts
+     * @param  bool    $ignorePermissions
      * @return \Population\Models\Components\Book\Entity
      */
     public function getById($type, $id, $allowDrafts = false, $ignorePermissions = false)
@@ -117,10 +121,10 @@ class EntityRepo
     }
 
     /**
-     * @param string $type
-     * @param []int $ids
-     * @param bool $allowDrafts
-     * @param bool $ignorePermissions
+     * @param  string $type
+     * @param  []int  $ids
+     * @param  bool   $allowDrafts
+     * @param  bool   $ignorePermissions
      * @return \Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Collection
      */
     public function getManyById($type, $ids, $allowDrafts = false, $ignorePermissions = false)
@@ -136,9 +140,10 @@ class EntityRepo
 
     /**
      * Get an entity by its url slug.
-     * @param string $type
-     * @param string $slug
-     * @param string|bool $bookSlug
+     *
+     * @param  string      $type
+     * @param  string      $slug
+     * @param  string|bool $bookSlug
      * @return \Population\Models\Components\Book\Entity
      * @throws NotFoundException
      */
@@ -147,11 +152,13 @@ class EntityRepo
         $q = $this->entityQuery($type)->where('slug', '=', $slug);
 
         if (strtolower($type) === 'chapter' || strtolower($type) === 'page') {
-            $q = $q->where('book_id', '=', function ($query) use ($bookSlug) {
-                $query->select('id')
-                    ->from($this->entityProvider->book->getTable())
-                    ->where('slug', '=', $bookSlug)->limit(1);
-            });
+            $q = $q->where(
+                'book_id', '=', function ($query) use ($bookSlug) {
+                    $query->select('id')
+                        ->from($this->entityProvider->book->getTable())
+                        ->where('slug', '=', $bookSlug)->limit(1);
+                }
+            );
         }
         $entity = $q->first();
         if ($entity === null) {
@@ -163,9 +170,10 @@ class EntityRepo
 
     /**
      * Get all entities of a type with the given permission, limited by count unless count is false.
-     * @param string $type
-     * @param integer|bool $count
-     * @param string $permission
+     *
+     * @param  string       $type
+     * @param  integer|bool $count
+     * @param  string       $permission
      * @return Collection
      */
     public function getAll($type, $count = 20, $permission = 'view')
@@ -179,8 +187,9 @@ class EntityRepo
 
     /**
      * Get all entities in a paginated format
-     * @param $type
-     * @param int $count
+     *
+     * @param  $type
+     * @param  int $count
      * @return \Illuminate\Contracts\Pagination\LengthAwarePaginator
      */
     public function getAllPaginated($type, $count = 10)
@@ -190,10 +199,11 @@ class EntityRepo
 
     /**
      * Get the most recently created entities of the given type.
-     * @param string $type
-     * @param int $count
-     * @param int $page
-     * @param bool|callable $additionalQuery
+     *
+     * @param  string        $type
+     * @param  int           $count
+     * @param  int           $page
+     * @param  bool|callable $additionalQuery
      * @return Collection
      */
     public function getRecentlyCreated($type, $count = 20, $page = 0, $additionalQuery = false)
@@ -211,10 +221,11 @@ class EntityRepo
 
     /**
      * Get the most recently updated entities of the given type.
-     * @param string $type
-     * @param int $count
-     * @param int $page
-     * @param bool|callable $additionalQuery
+     *
+     * @param  string        $type
+     * @param  int           $count
+     * @param  int           $page
+     * @param  bool|callable $additionalQuery
      * @return Collection
      */
     public function getRecentlyUpdated($type, $count = 20, $page = 0, $additionalQuery = false)
@@ -232,9 +243,10 @@ class EntityRepo
 
     /**
      * Get the most recently viewed entities.
-     * @param string|bool $type
-     * @param int $count
-     * @param int $page
+     *
+     * @param  string|bool $type
+     * @param  int         $count
+     * @param  int         $page
      * @return mixed
      */
     public function getRecentlyViewed($type, $count = 10, $page = 0)
@@ -245,8 +257,9 @@ class EntityRepo
 
     /**
      * Get the latest pages added to the system with pagination.
-     * @param string $type
-     * @param int $count
+     *
+     * @param  string $type
+     * @param  int    $count
      * @return mixed
      */
     public function getRecentlyCreatedPaginated($type, $count = 20)
@@ -256,8 +269,9 @@ class EntityRepo
 
     /**
      * Get the latest pages added to the system with pagination.
-     * @param string $type
-     * @param int $count
+     *
+     * @param  string $type
+     * @param  int    $count
      * @return mixed
      */
     public function getRecentlyUpdatedPaginated($type, $count = 20)
@@ -267,9 +281,10 @@ class EntityRepo
 
     /**
      * Get the most popular entities base on all views.
-     * @param string|bool $type
-     * @param int $count
-     * @param int $page
+     *
+     * @param  string|bool $type
+     * @param  int         $count
+     * @param  int         $page
      * @return mixed
      */
     public function getPopular($type, $count = 10, $page = 0)
@@ -280,8 +295,9 @@ class EntityRepo
 
     /**
      * Get draft pages owned by the current user.
-     * @param int $count
-     * @param int $page
+     *
+     * @param  int $count
+     * @param  int $page
      * @return Collection
      */
     public function getUserDraftPages($count = 20, $page = 0)
@@ -294,8 +310,9 @@ class EntityRepo
 
     /**
      * Get the number of entities the given user has created.
-     * @param string $type
-     * @param User $user
+     *
+     * @param  string $type
+     * @param  User   $user
      * @return int
      */
     public function getUserTotalCreated(string $type, User $user)
@@ -307,7 +324,8 @@ class EntityRepo
     /**
      * Get the child items for a chapter sorted by priority but
      * with draft items floated to the top.
-     * @param \Population\Models\Components\Book\Bookshelf $bookshelf
+     *
+     * @param  \Population\Models\Components\Book\Bookshelf $bookshelf
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getBookshelfChildren(Bookshelf $bookshelf)
@@ -319,9 +337,10 @@ class EntityRepo
      * Get all child objects of a book.
      * Returns a sorted collection of Pages and Chapters.
      * Loads the book slug onto child elements to prevent access database access for getting the slug.
-     * @param \Population\Models\Components\Book\Book $book
-     * @param bool $filterDrafts
-     * @param bool $renderPages
+     *
+     * @param  \Population\Models\Components\Book\Book $book
+     * @param  bool                                    $filterDrafts
+     * @param  bool                                    $renderPages
      * @return mixed
      */
     public function getBookChildren(Book $book, $filterDrafts = false, $renderPages = false)
@@ -369,7 +388,8 @@ class EntityRepo
     /**
      * Get the child items for a chapter sorted by priority but
      * with draft items floated to the top.
-     * @param \Population\Models\Components\Book\Chapter $chapter
+     *
+     * @param  \Population\Models\Components\Book\Chapter $chapter
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getChapterChildren(Chapter $chapter)
@@ -381,7 +401,8 @@ class EntityRepo
 
     /**
      * Get the next sequential priority for a new child element in the given book.
-     * @param \Population\Models\Components\Book\Book $book
+     *
+     * @param  \Population\Models\Components\Book\Book $book
      * @return int
      */
     public function getNewBookPriority(Book $book)
@@ -392,7 +413,8 @@ class EntityRepo
 
     /**
      * Get a new priority for a new page to be added to the given chapter.
-     * @param \Population\Models\Components\Book\Chapter $chapter
+     *
+     * @param  \Population\Models\Components\Book\Chapter $chapter
      * @return int
      */
     public function getNewChapterPriority(Chapter $chapter)
@@ -403,10 +425,11 @@ class EntityRepo
 
     /**
      * Find a suitable slug for an entity.
-     * @param string $type
-     * @param string $name
-     * @param bool|integer $currentId
-     * @param bool|integer $bookId Only pass if type is not a book
+     *
+     * @param  string       $type
+     * @param  string       $name
+     * @param  bool|integer $currentId
+     * @param  bool|integer $bookId    Only pass if type is not a book
      * @return string
      */
     public function findSuitableSlug($type, $name, $currentId = false, $bookId = false)
@@ -420,10 +443,11 @@ class EntityRepo
 
     /**
      * Check if a slug already exists in the database.
-     * @param string $type
-     * @param string $slug
-     * @param bool|integer $currentId
-     * @param bool|integer $bookId
+     *
+     * @param  string       $type
+     * @param  string       $slug
+     * @param  bool|integer $currentId
+     * @param  bool|integer $bookId
      * @return bool
      */
     protected function slugExists($type, $slug, $currentId = false, $bookId = false)
@@ -440,8 +464,9 @@ class EntityRepo
 
     /**
      * Updates entity restrictions from a request
-     * @param Request $request
-     * @param \Population\Models\Components\Book\Entity $entity
+     *
+     * @param  Request                                   $request
+     * @param  \Population\Models\Components\Book\Entity $entity
      * @throws \Throwable
      */
     public function updateEntityPermissionsFromRequest(Request $request, Entity $entity)
@@ -452,10 +477,12 @@ class EntityRepo
         if ($request->filled('restrictions')) {
             foreach ($request->get('restrictions') as $roleId => $restrictions) {
                 foreach ($restrictions as $action => $value) {
-                    $entity->permissions()->create([
+                    $entity->permissions()->create(
+                        [
                         'role_id' => $roleId,
                         'action'  => strtolower($action)
-                    ]);
+                        ]
+                    );
                 }
             }
         }
@@ -469,9 +496,10 @@ class EntityRepo
     /**
      * Create a new entity from request input.
      * Used for books and chapters.
-     * @param string $type
-     * @param array $input
-     * @param bool|Book $book
+     *
+     * @param  string    $type
+     * @param  array     $input
+     * @param  bool|Book $book
      * @return \Population\Models\Components\Book\Entity
      */
     public function createFromInput($type, $input = [], $book = false)
@@ -495,9 +523,10 @@ class EntityRepo
     /**
      * Update entity details from request input.
      * Used for books and chapters
-     * @param string $type
-     * @param \Population\Models\Components\Book\Entity $entityModel
-     * @param array $input
+     *
+     * @param  string                                    $type
+     * @param  \Population\Models\Components\Book\Entity $entityModel
+     * @param  array                                     $input
      * @return \Population\Models\Components\Book\Entity
      */
     public function updateFromInput($type, Entity $entityModel, $input = [])
@@ -521,8 +550,9 @@ class EntityRepo
     /**
      * Sync the books assigned to a shelf from a comma-separated list
      * of book IDs.
+     *
      * @param \Population\Models\Components\Book\Bookshelf $shelf
-     * @param string $books
+     * @param string                                       $books
      */
     public function updateShelfBooks(Bookshelf $shelf, string $books)
     {
@@ -542,10 +572,11 @@ class EntityRepo
 
     /**
      * Change the book that an entity belongs to.
-     * @param string $type
-     * @param integer $newBookId
-     * @param Entity $entity
-     * @param bool $rebuildPermissions
+     *
+     * @param  string  $type
+     * @param  integer $newBookId
+     * @param  Entity  $entity
+     * @param  bool    $rebuildPermissions
      * @return \Population\Models\Components\Book\Entity
      */
     public function changeBook($type, $newBookId, Entity $entity, $rebuildPermissions = false)
@@ -577,6 +608,7 @@ class EntityRepo
 
     /**
      * Alias method to update the book jointPermissions in the PermissionService.
+     *
      * @param Book $book
      */
     public function buildJointPermissionsForBook(Book $book)
@@ -586,7 +618,8 @@ class EntityRepo
 
     /**
      * Format a name as a url slug.
-     * @param $name
+     *
+     * @param  $name
      * @return string
      */
     protected function nameToSlug($name)
@@ -602,8 +635,9 @@ class EntityRepo
 
     /**
      * Render the page for viewing
-     * @param Page $page
-     * @param bool $blankIncludes
+     *
+     * @param  Page $page
+     * @param  bool $blankIncludes
      * @return string
      */
     public function renderPage(Page $page, bool $blankIncludes = false) : string
@@ -625,7 +659,8 @@ class EntityRepo
 
     /**
      * Remove any page include tags within the given HTML.
-     * @param string $html
+     *
+     * @param  string $html
      * @return string
      */
     protected function blankPageIncludes(string $html) : string
@@ -635,7 +670,8 @@ class EntityRepo
 
     /**
      * Parse any include tags "{{@<page_id>#section}}" to be part of the page.
-     * @param string $html
+     *
+     * @param  string $html
      * @return mixed|string
      */
     protected function parsePageIncludes(string $html) : string
@@ -686,7 +722,8 @@ class EntityRepo
 
     /**
      * Escape script tags within HTML content.
-     * @param string $html
+     *
+     * @param  string $html
      * @return string
      */
     protected function escapeScripts(string $html) : string
@@ -703,7 +740,8 @@ class EntityRepo
 
     /**
      * Search for image usage within page content.
-     * @param $imageString
+     *
+     * @param  $imageString
      * @return mixed
      */
     public function searchForImage($imageString)
@@ -719,7 +757,8 @@ class EntityRepo
 
     /**
      * Destroy a bookshelf instance
-     * @param \Population\Models\Components\Book\Bookshelf $shelf
+     *
+     * @param  \Population\Models\Components\Book\Bookshelf $shelf
      * @throws \Throwable
      */
     public function destroyBookshelf(Bookshelf $shelf)
@@ -730,7 +769,8 @@ class EntityRepo
 
     /**
      * Destroy the provided book and all its child entities.
-     * @param \Population\Models\Components\Book\Book $book
+     *
+     * @param  \Population\Models\Components\Book\Book $book
      * @throws NotifyException
      * @throws \Throwable
      */
@@ -748,7 +788,8 @@ class EntityRepo
 
     /**
      * Destroy a chapter and its relations.
-     * @param \Population\Models\Components\Book\Chapter $chapter
+     *
+     * @param  \Population\Models\Components\Book\Chapter $chapter
      * @throws \Throwable
      */
     public function destroyChapter(Chapter $chapter)
@@ -765,7 +806,8 @@ class EntityRepo
 
     /**
      * Destroy a given page along with its dependencies.
-     * @param Page $page
+     *
+     * @param  Page $page
      * @throws NotifyException
      * @throws \Throwable
      */
@@ -790,7 +832,8 @@ class EntityRepo
 
     /**
      * Destroy or handle the common relations connected to an entity.
-     * @param \Population\Models\Components\Book\Entity $entity
+     *
+     * @param  \Population\Models\Components\Book\Entity $entity
      * @throws \Throwable
      */
     protected function destroyEntityCommonRelations(Entity $entity)
@@ -807,7 +850,8 @@ class EntityRepo
     /**
      * Copy the permissions of a bookshelf to all child books.
      * Returns the number of books that had permissions updated.
-     * @param \Population\Models\Components\Book\Bookshelf $bookshelf
+     *
+     * @param  \Population\Models\Components\Book\Bookshelf $bookshelf
      * @return int
      * @throws \Throwable
      */

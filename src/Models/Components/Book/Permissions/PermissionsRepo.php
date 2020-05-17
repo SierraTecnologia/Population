@@ -15,8 +15,9 @@ class PermissionsRepo
 
     /**
      * PermissionsRepo constructor.
-     * @param RolePermission $permission
-     * @param Role $role
+     *
+     * @param RolePermission                                                   $permission
+     * @param Role                                                             $role
      * @param \Population\Models\Components\Book\Permissions\PermissionService $permissionService
      */
     public function __construct(RolePermission $permission, Role $role, Permissions\PermissionService $permissionService)
@@ -28,6 +29,7 @@ class PermissionsRepo
 
     /**
      * Get all the user roles from the system.
+     *
      * @return \Illuminate\Database\Eloquent\Collection|static[]
      */
     public function getAllRoles()
@@ -37,7 +39,8 @@ class PermissionsRepo
 
     /**
      * Get all the roles except for the provided one.
-     * @param Role $role
+     *
+     * @param  Role $role
      * @return mixed
      */
     public function getAllRolesExcept(Role $role)
@@ -47,7 +50,8 @@ class PermissionsRepo
 
     /**
      * Get a role via its ID.
-     * @param $id
+     *
+     * @param  $id
      * @return mixed
      */
     public function getRoleById($id)
@@ -57,7 +61,8 @@ class PermissionsRepo
 
     /**
      * Save a new role into the system.
-     * @param array $roleData
+     *
+     * @param  array $roleData
      * @return Role
      */
     public function saveNewRole($roleData)
@@ -79,8 +84,9 @@ class PermissionsRepo
     /**
      * Updates an existing role.
      * Ensure Admin role always have core permissions.
-     * @param $roleId
-     * @param $roleData
+     *
+     * @param  $roleId
+     * @param  $roleData
      * @throws PermissionsException
      */
     public function updateRole($roleId, $roleData)
@@ -89,13 +95,15 @@ class PermissionsRepo
 
         $permissions = isset($roleData['permissions']) ? array_keys($roleData['permissions']) : [];
         if ($role->system_name === 'admin') {
-            $permissions = array_merge($permissions, [
+            $permissions = array_merge(
+                $permissions, [
                 'users-manage',
                 'user-roles-manage',
                 'restrictions-manage-all',
                 'restrictions-manage-own',
                 'settings-manage',
-            ]);
+                ]
+            );
         }
 
         $this->assignRolePermissions($role, $permissions);
@@ -107,7 +115,8 @@ class PermissionsRepo
 
     /**
      * Assign an list of permission names to an role.
-     * @param Role $role
+     *
+     * @param Role  $role
      * @param array $permissionNameArray
      */
     public function assignRolePermissions(Role $role, $permissionNameArray = [])
@@ -125,8 +134,9 @@ class PermissionsRepo
      * Check it's not an admin role or set as default before deleting.
      * If an migration Role ID is specified the users assign to the current role
      * will be added to the role of the specified id.
-     * @param $roleId
-     * @param $migrateRoleId
+     *
+     * @param  $roleId
+     * @param  $migrateRoleId
      * @throws PermissionsException
      */
     public function deleteRole($roleId, $migrateRoleId)

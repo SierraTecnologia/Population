@@ -14,7 +14,7 @@ interface PhotoManager
     /**
      * Create a photo.
      *
-     * @param array $attributes
+     * @param  array $attributes
      * @return PhotoEntity
      */
     public function create(array $attributes): PhotoEntity;
@@ -22,8 +22,8 @@ interface PhotoManager
     /**
      * Update the photo by ID.
      *
-     * @param int $id
-     * @param array $attributes
+     * @param  int   $id
+     * @param  array $attributes
      * @return PhotoEntity
      */
     public function updateById($id, array $attributes): PhotoEntity;
@@ -31,7 +31,7 @@ interface PhotoManager
     /**
      * Get the photo by ID.
      *
-     * @param int $id
+     * @param  int $id
      * @return PhotoEntity
      */
     public function getById(int $id): PhotoEntity;
@@ -39,7 +39,7 @@ interface PhotoManager
     /**
      * Delete the photo by ID.
      *
-     * @param int $id
+     * @param  int $id
      * @return PhotoEntity
      */
     public function deleteById(int $id): PhotoEntity;

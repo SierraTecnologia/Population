@@ -7,88 +7,90 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Base
 {
-	use SoftDeletes;
+    use SoftDeletes;
 
-	// Meta ========================================================================
+    // Meta ========================================================================
 
-	/**
-	 * The attributes that are not mass-assignable.
-	 *
-	 * @var array
-	 */
-	protected $guarded = ['id', 'markup', 'created_at', 'updated_at', 'deleted_at'];
+    /**
+     * The attributes that are not mass-assignable.
+     *
+     * @var array
+     */
+    protected $guarded = ['id', 'markup', 'created_at', 'updated_at', 'deleted_at'];
 
-	/**
-	 * What should be returned when this model is converted to string.
-	 *
-	 * @return string
-	 */
-	public function __toString()
-	{
-		return (string) $this->name;
-	}
+    /**
+     * What should be returned when this model is converted to string.
+     *
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
 
-	/**
-	 * Get the human-friendly singular name of the resource.
-	 *
-	 * @return string
-	 */
-	protected function getSingularAttribute()
-	{
-		return _('Page');
-	}
+    /**
+     * Get the human-friendly singular name of the resource.
+     *
+     * @return string
+     */
+    protected function getSingularAttribute()
+    {
+        return _('Page');
+    }
 
-	/**
-	 * Get the human-friendly plural name of the resource.
-	 *
-	 * @return string
-	 */
-	protected function getPluralAttribute()
-	{
-		return _('Pages');
-	}
+    /**
+     * Get the human-friendly plural name of the resource.
+     *
+     * @return string
+     */
+    protected function getPluralAttribute()
+    {
+        return _('Pages');
+    }
 
-	// Relationships ===============================================================
+    // Relationships ===============================================================
 
-	public function category()
-	{
-		return $this->belongsTo('App\Models\Category');
-	}
+    public function category()
+    {
+        return $this->belongsTo('App\Models\Category');
+    }
 
-	public function latestVersion()
-	{
-		return $this->hasOne('Population\Models\Components\Wiki\Version')->latest();
-	}
+    public function latestVersion()
+    {
+        return $this->hasOne('Population\Models\Components\Wiki\Version')->latest();
+    }
 
-	public function versions()
-	{
-		return $this->hasMany('Population\Models\Components\Wiki\Version');
-	}
+    public function versions()
+    {
+        return $this->hasMany('Population\Models\Components\Wiki\Version');
+    }
 
-	// Events ======================================================================
+    // Events ======================================================================
 
-	public static function boot()
-	{
-		// NOTE events cycle is as follows:
-		// saving   -> creating -> created   -> saved
-		// saving   -> updating -> updated   -> saved
-		// deleting -> deleted  -> restoring -> restored
+    public static function boot()
+    {
+        // NOTE events cycle is as follows:
+        // saving   -> creating -> created   -> saved
+        // saving   -> updating -> updated   -> saved
+        // deleting -> deleted  -> restoring -> restored
 
-		parent::boot();
+        parent::boot();
 
-		static::saved(function ($page) {
-			// Build markup
-			$markup = markup($page->source);
-			self::where([$page->getKeyName() => $page->getKey()])->limit(1)->update(['markup' => $markup]);
+        static::saved(
+            function ($page) {
+                // Build markup
+                $markup = markup($page->source);
+                self::where([$page->getKeyName() => $page->getKey()])->limit(1)->update(['markup' => $markup]);
 
-			// Backup version
-			return Version::createFromPage($page);
-		});
-	}
+                // Backup version
+                return Version::createFromPage($page);
+            }
+        );
+    }
 
-	// Accessors / Mutators ========================================================
+    // Accessors / Mutators ========================================================
 
-	// Static Methods ==============================================================
+    // Static Methods ==============================================================
 
-	// Bussiness logic =============================================================
+    // Bussiness logic =============================================================
 }

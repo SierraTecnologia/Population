@@ -20,19 +20,23 @@ trait HasTask
 
     public static function bootHasTask()
     {
-        static::created(function (Model $taskableModel) {
-            if (count($taskableModel->queuedTask) > 0) {
-                $taskableModel->attachTask($taskableModel->queuedTask);
+        static::created(
+            function (Model $taskableModel) {
+                if (count($taskableModel->queuedTask) > 0) {
+                    $taskableModel->attachTask($taskableModel->queuedTask);
 
-                $taskableModel->queuedTask = [];
+                    $taskableModel->queuedTask = [];
+                }
             }
-        });
+        );
 
-        static::deleted(function (Model $deletedModel) {
-            $tasks = $deletedModel->tasks()->get();
+        static::deleted(
+            function (Model $deletedModel) {
+                $tasks = $deletedModel->tasks()->get();
 
-            $deletedModel->detachTask($tasks);
-        });
+                $deletedModel->detachTask($tasks);
+            }
+        );
     }
 
     public function tasks(): MorphToMany
@@ -73,7 +77,7 @@ trait HasTask
 
     /**
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param array|\ArrayAccess|\\App\Models\Task $tasks
+     * @param array|\ArrayAccess|\\App\Models\Task  $tasks
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -81,18 +85,22 @@ trait HasTask
     {
         $tasks = static::convertToTask($tasks, $type);
 
-        collect($tasks)->each(function ($task) use ($query) {
-            $query->whereHas('tasks', function (Builder $query) use ($task) {
-                $query->where('tasks.id', $task ? $task->id : 0);
-            });
-        });
+        collect($tasks)->each(
+            function ($task) use ($query) {
+                $query->whereHas(
+                    'tasks', function (Builder $query) use ($task) {
+                        $query->where('tasks.id', $task ? $task->id : 0);
+                    }
+                );
+            }
+        );
 
         return $query;
     }
 
     /**
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param array|\ArrayAccess|\\App\Models\Task $tasks
+     * @param array|\ArrayAccess|\\App\Models\Task  $tasks
      *
      * @return \Illuminate\Database\Eloquent\Builder
      */
@@ -100,22 +108,28 @@ trait HasTask
     {
         $tasks = static::convertToTask($tasks, $type);
 
-        return $query->whereHas('tasks', function (Builder $query) use ($tasks) {
-            $taskIds = collect($tasks)->pluck('id');
+        return $query->whereHas(
+            'tasks', function (Builder $query) use ($tasks) {
+                $taskIds = collect($tasks)->pluck('id');
 
-            $query->whereIn('tasks.id', $taskIds);
-        });
+                $query->whereIn('tasks.id', $taskIds);
+            }
+        );
     }
 
     public function scopeWithAllTaskOfAnyType(Builder $query, $tasks): Builder
     {
         $tasks = static::convertToTaskOfAnyType($tasks);
 
-        collect($tasks)->each(function ($task) use ($query) {
-            $query->whereHas('tasks', function (Builder $query) use ($task) {
-                $query->where('tasks.id', $task ? $task->id : 0);
-            });
-        });
+        collect($tasks)->each(
+            function ($task) use ($query) {
+                $query->whereHas(
+                    'tasks', function (Builder $query) use ($task) {
+                        $query->where('tasks.id', $task ? $task->id : 0);
+                    }
+                );
+            }
+        );
 
         return $query;
     }
@@ -124,18 +138,22 @@ trait HasTask
     {
         $tasks = static::convertToTaskOfAnyType($tasks);
 
-        return $query->whereHas('tasks', function (Builder $query) use ($tasks) {
-            $taskIds = collect($tasks)->pluck('id');
+        return $query->whereHas(
+            'tasks', function (Builder $query) use ($tasks) {
+                $taskIds = collect($tasks)->pluck('id');
 
-            $query->whereIn('tasks.id', $taskIds);
-        });
+                $query->whereIn('tasks.id', $taskIds);
+            }
+        );
     }
 
     public function tasksWithType(string $type = null): Collection
     {
-        return $this->tasks->filter(function (Task $task) use ($type) {
-            return $task->type === $type;
-        });
+        return $this->tasks->filter(
+            function (Task $task) use ($type) {
+                return $task->type === $type;
+            }
+        );
     }
 
     /**
@@ -165,9 +183,11 @@ trait HasTask
 
         collect($tasks)
             ->filter()
-            ->each(function (Task $task) {
-                $this->tasks()->detach($task);
-            });
+            ->each(
+                function (Task $task) {
+                    $this->tasks()->detach($task);
+                }
+            );
 
         return $this;
     }
@@ -190,7 +210,7 @@ trait HasTask
 
     /**
      * @param array|\ArrayAccess $tasks
-     * @param string|null $type
+     * @param string|null        $type
      *
      * @return $this
      */
@@ -207,32 +227,36 @@ trait HasTask
 
     protected static function convertToTask($values, $type = null, $locale = null)
     {
-        return collect($values)->map(function ($value) use ($type, $locale) {
-            if ($value instanceof Task) {
-                if (isset($type) && $value->type != $type) {
-                    throw new InvalidArgumentException("Type was set to {$type} but task is of type {$value->type}");
+        return collect($values)->map(
+            function ($value) use ($type, $locale) {
+                if ($value instanceof Task) {
+                    if (isset($type) && $value->type != $type) {
+                        throw new InvalidArgumentException("Type was set to {$type} but task is of type {$value->type}");
+                    }
+
+                    return $value;
                 }
 
-                return $value;
+                $className = static::getTaskClassName();
+
+                return $className::findFromString($value, $type, $locale);
             }
-
-            $className = static::getTaskClassName();
-
-            return $className::findFromString($value, $type, $locale);
-        });
+        );
     }
 
     protected static function convertToRoutineOfAnyType($values, $locale = null)
     {
-        return collect($values)->map(function ($value) use ($locale) {
-            if ($value instanceof Routine) {
-                return $value;
+        return collect($values)->map(
+            function ($value) use ($locale) {
+                if ($value instanceof Routine) {
+                    return $value;
+                }
+
+                $className = static::getRoutineClassName();
+
+                return $className::findFromStringOfAnyType($value, $locale);
             }
-
-            $className = static::getRoutineClassName();
-
-            return $className::findFromStringOfAnyType($value, $locale);
-        });
+        );
     }
 
     /**
@@ -240,7 +264,7 @@ trait HasTask
      *
      * @param $ids
      * @param string|null $type
-     * @param bool $detaching
+     * @param bool        $detaching
      */
     protected function syncRoutineIds($ids, string $type = null, $detaching = true)
     {
@@ -251,17 +275,19 @@ trait HasTask
             ->newPivotStatement()
             ->where('taskable_id', $this->getKey())
             ->where('taskable_type', $this->getMorphClass())
-            ->when($type !== null, function ($query) use ($type) {
-                $taskModel = $this->tasks()->getRelated();
+            ->when(
+                $type !== null, function ($query) use ($type) {
+                    $taskModel = $this->tasks()->getRelated();
 
-                return $query->join(
-                    $taskModel->getTable(),
-                    'taskables.task_id',
-                    '=',
-                    $taskModel->getTable().'.'.$taskModel->getKeyName()
-                )
-                    ->where('tasks.type', $type);
-            })
+                    return $query->join(
+                        $taskModel->getTable(),
+                        'taskables.task_id',
+                        '=',
+                        $taskModel->getTable().'.'.$taskModel->getKeyName()
+                    )
+                        ->where('tasks.type', $type);
+                }
+            )
             ->pluck('task_id')
             ->all();
 
@@ -275,9 +301,11 @@ trait HasTask
         // Attach any new ids
         $attach = array_diff($ids, $current);
         if (count($attach) > 0) {
-            collect($attach)->each(function ($id) {
-                $this->tasks()->attach($id, []);
-            });
+            collect($attach)->each(
+                function ($id) {
+                    $this->tasks()->attach($id, []);
+                }
+            );
             $isUpdated = true;
         }
 

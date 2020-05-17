@@ -45,6 +45,7 @@ class Entity extends Ownable
      * Get the morph class for this model.
      * Set here since, due to folder changes, the namespace used
      * in the database no longer matches the class namespace.
+     *
      * @return string
      */
     public function getMorphClass()
@@ -55,7 +56,8 @@ class Entity extends Ownable
     /**
      * Compares this entity to another given entity.
      * Matches by comparing class and id.
-     * @param $entity
+     *
+     * @param  $entity
      * @return bool
      */
     public function matches($entity)
@@ -65,7 +67,8 @@ class Entity extends Ownable
 
     /**
      * Checks if an entity matches or contains another given entity.
-     * @param Entity $entity
+     *
+     * @param  Entity $entity
      * @return bool
      */
     public function matchesOrContains(Entity $entity)
@@ -89,6 +92,7 @@ class Entity extends Ownable
 
     /**
      * Gets the activity objects for this entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function activity()
@@ -106,6 +110,7 @@ class Entity extends Ownable
 
     /**
      * Get the Tag models that have been user assigned to this entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function tags()
@@ -115,7 +120,8 @@ class Entity extends Ownable
 
     /**
      * Get the comments for an entity
-     * @param bool $orderByCreated
+     *
+     * @param  bool $orderByCreated
      * @return MorphMany
      */
     public function comments($orderByCreated = true)
@@ -126,6 +132,7 @@ class Entity extends Ownable
 
     /**
      * Get the related search terms.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function searchTerms()
@@ -143,8 +150,9 @@ class Entity extends Ownable
 
     /**
      * Check if this entity has a specific restriction set against it.
-     * @param $role_id
-     * @param $action
+     *
+     * @param  $role_id
+     * @param  $action
      * @return bool
      */
     public function hasRestriction($role_id, $action)
@@ -155,6 +163,7 @@ class Entity extends Ownable
 
     /**
      * Get the entity jointPermissions this is connected to.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
     public function jointPermissions()
@@ -165,7 +174,8 @@ class Entity extends Ownable
     /**
      * Allows checking of the exact class, Used to check entity type.
      * Cleaner method for is_a.
-     * @param $type
+     *
+     * @param  $type
      * @return bool
      */
     public static function isA($type)
@@ -175,6 +185,7 @@ class Entity extends Ownable
 
     /**
      * Get entity type.
+     *
      * @return mixed
      */
     public static function getType()
@@ -184,7 +195,8 @@ class Entity extends Ownable
 
     /**
      * Get an instance of an entity of the given type.
-     * @param $type
+     *
+     * @param  $type
      * @return Entity
      */
     public static function getEntityInstance($type)
@@ -200,7 +212,8 @@ class Entity extends Ownable
 
     /**
      * Gets a limited-length version of the entities name.
-     * @param int $length
+     *
+     * @param  int $length
      * @return string
      */
     public function getShortName($length = 25)
@@ -213,6 +226,7 @@ class Entity extends Ownable
 
     /**
      * Get the body text of this entity.
+     *
      * @return mixed
      */
     public function getText()
@@ -222,6 +236,7 @@ class Entity extends Ownable
 
     /**
      * Return a generalised, common raw query that can be 'unioned' across entities.
+     *
      * @return string
      */
     public function entityRawQuery()
@@ -231,7 +246,8 @@ class Entity extends Ownable
 
     /**
      * Get the url of this entity
-     * @param $path
+     *
+     * @param  $path
      * @return string
      */
     public function getUrl($path = '/')

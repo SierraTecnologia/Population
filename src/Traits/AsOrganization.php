@@ -57,15 +57,17 @@ trait AsOrganization
     /**
      * Projetos do Usuario - Refazer
      *
-     * @param array $data
+     * @param  array $data
      * @return void
      */
     public function addProject($data)
     {
         // @todo Refazer
-        return $this->infos()->create([
+        return $this->infos()->create(
+            [
             'text' => implode(';', $data)
-        ]);
+            ]
+        );
     }
 
     /**

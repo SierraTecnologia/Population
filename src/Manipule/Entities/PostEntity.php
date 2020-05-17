@@ -34,16 +34,20 @@ final class PostEntity extends AbstractEntity
         $this->setCreatedByUserId($attributes['created_by_user_id'] ?? null);
         $this->setDescription($attributes['description'] ?? null);
         $this->setPhoto(new PhotoEntity($attributes['photo'] ?? null));
-        $this->setTags(collect($attributes['tags'])->map(function (array $attributes) {
-            return new TagEntity($attributes);
-        }));
+        $this->setTags(
+            collect($attributes['tags'])->map(
+                function (array $attributes) {
+                    return new TagEntity($attributes);
+                }
+            )
+        );
         $this->setCreatedAt(isset($attributes['created_at']) ? new Carbon($attributes['created_at']) : null);
         $this->setUpdatedAt(isset($attributes['updated_at']) ? new Carbon($attributes['updated_at']) : null);
         $this->setPublishedAt(isset($attributes['published_at']) ? new Carbon($attributes['published_at']) : null);
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     private function setId(int $id): PostEntity
@@ -62,7 +66,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param int $createdByUserId
+     * @param  int $createdByUserId
      * @return $this
      */
     private function setCreatedByUserId(int $createdByUserId): PostEntity
@@ -81,7 +85,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param string $path
+     * @param  string $path
      * @return $this
      */
     private function setDescription(string $path): PostEntity
@@ -100,7 +104,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param PhotoEntity $photo
+     * @param  PhotoEntity $photo
      * @return $this
      */
     private function setPhoto(PhotoEntity $photo): PostEntity
@@ -119,7 +123,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param Collection $tags
+     * @param  Collection $tags
      * @return $this
      */
     public function setTags(Collection $tags): PostEntity
@@ -138,7 +142,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon $createdAt
+     * @param  Carbon $createdAt
      * @return $this
      */
     private function setCreatedAt(Carbon $createdAt): PostEntity
@@ -157,7 +161,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon $updatedAt
+     * @param  Carbon $updatedAt
      * @return $this
      */
     private function setUpdatedAt(Carbon $updatedAt): PostEntity
@@ -176,7 +180,7 @@ final class PostEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon|null $publishedAt
+     * @param  Carbon|null $publishedAt
      * @return $this
      */
     private function setPublishedAt(?Carbon $publishedAt): PostEntity

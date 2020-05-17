@@ -26,7 +26,7 @@ final class QuestionEntity extends AbstractEntity
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     private function setId(int $id): QuestionEntity

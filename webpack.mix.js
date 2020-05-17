@@ -40,7 +40,8 @@ mix.js(
 //         processCssUrls: false
 //     });
 
-mix.styles([
+mix.styles(
+    [
         'resources/assets/bootstrap/css/bootstrap.min.css',
         'resources/assets/fonts/linear-fonts.css',
         'resources/assets/owlcarousel/css/owl.carousel.css',
@@ -49,7 +50,8 @@ mix.styles([
         'resources/assets/css/animate.min.css',
         'resources/assets/css/style.css',
         'resources/assets/css/responsive.css'
-    ], 'public/css/app.css');
+    ], 'public/css/app.css'
+);
 //     .options({
 //         processCssUrls: false
 // });

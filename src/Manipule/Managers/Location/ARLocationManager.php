@@ -30,7 +30,7 @@ class ARLocationManager implements LocationManager
     /**
      * ARLocationManager constructor.
      *
-     * @param Database $database
+     * @param Database          $database
      * @param LocationValidator $validator
      */
     public function __construct(Database $database, LocationValidator $validator)

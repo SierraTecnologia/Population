@@ -41,9 +41,11 @@ class ARTagManager implements TagManager
 
         $paginator = $query->paginate($perPage, ['*'], 'page', $page)->appends($filters);
 
-        $paginator->getCollection()->transform(function (Tag $tag) {
-            return $tag->toEntity();
-        });
+        $paginator->getCollection()->transform(
+            function (Tag $tag) {
+                return $tag->toEntity();
+            }
+        );
 
         return $paginator;
     }

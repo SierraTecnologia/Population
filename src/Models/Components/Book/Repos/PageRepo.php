@@ -16,8 +16,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Get page by slug.
-     * @param string $pageSlug
-     * @param string $bookSlug
+     *
+     * @param  string $pageSlug
+     * @param  string $bookSlug
      * @return Page
      * @throws \SiUtils\Exceptions\NotFoundException
      */
@@ -29,16 +30,19 @@ class PageRepo extends EntityRepo
     /**
      * Search through page revisions and retrieve the last page in the
      * current book that has a slug equal to the one given.
-     * @param string $pageSlug
-     * @param string $bookSlug
+     *
+     * @param  string $pageSlug
+     * @param  string $bookSlug
      * @return null|Page
      */
     public function getPageByOldSlug(string $pageSlug, string $bookSlug)
     {
         $revision = $this->entityProvider->pageRevision->where('slug', '=', $pageSlug)
-            ->whereHas('page', function ($query) {
-                $this->permissionService->enforceEntityRestrictions('page', $query);
-            })
+            ->whereHas(
+                'page', function ($query) {
+                    $this->permissionService->enforceEntityRestrictions('page', $query);
+                }
+            )
             ->where('type', '=', 'version')
             ->where('book_slug', '=', $bookSlug)
             ->orderBy('created_at', 'desc')
@@ -48,9 +52,10 @@ class PageRepo extends EntityRepo
 
     /**
      * Updates a page with any fillable data and saves it into the database.
-     * @param Page $page
-     * @param int $book_id
-     * @param array $input
+     *
+     * @param  Page  $page
+     * @param  int   $book_id
+     * @param  array $input
      * @return Page
      * @throws \Exception
      */
@@ -97,8 +102,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Saves a page revision into the system.
-     * @param Page $page
-     * @param null|string $summary
+     *
+     * @param  Page        $page
+     * @param  null|string $summary
      * @return PageRevision
      * @throws \Exception
      */
@@ -133,7 +139,8 @@ class PageRepo extends EntityRepo
     /**
      * Formats a page's html to be tagged correctly
      * within the system.
-     * @param string $htmlText
+     *
+     * @param  string $htmlText
      * @return string
      */
     protected function formatHtml(string $htmlText)
@@ -153,7 +160,9 @@ class PageRepo extends EntityRepo
         $idArray = [];
 
         foreach ($childNodes as $index => $childNode) {
-            /** @var \DOMElement $childNode */
+            /**
+ * @var \DOMElement $childNode 
+*/
             if (get_class($childNode) !== 'DOMElement') {
                 continue;
             }
@@ -193,7 +202,8 @@ class PageRepo extends EntityRepo
 
     /**
      * Get the plain text version of a page's content.
-     * @param \Population\Models\Components\Book\Page $page
+     *
+     * @param  \Population\Models\Components\Book\Page $page
      * @return string
      */
     protected function pageToPlainText(Page $page) : string
@@ -204,8 +214,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Get a new draft page instance.
-     * @param Book $book
-     * @param Chapter|null $chapter
+     *
+     * @param  Book         $book
+     * @param  Chapter|null $chapter
      * @return \Population\Models\Components\Book\Page
      * @throws \Throwable
      */
@@ -229,8 +240,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Save a page update draft.
-     * @param Page $page
-     * @param array $data
+     *
+     * @param  Page  $page
+     * @param  array $data
      * @return PageRevision|Page
      */
     public function updatePageDraft(Page $page, array $data = [])
@@ -272,8 +284,9 @@ class PageRepo extends EntityRepo
     /**
      * Publish a draft page to make it a normal page.
      * Sets the slug and updates the content.
-     * @param Page $draftPage
-     * @param array $input
+     *
+     * @param  Page  $draftPage
+     * @param  array $input
      * @return Page
      * @throws \Exception
      */
@@ -300,8 +313,9 @@ class PageRepo extends EntityRepo
 
     /**
      * The base query for getting user update drafts.
-     * @param Page $page
-     * @param $userId
+     *
+     * @param  Page $page
+     * @param  $userId
      * @return mixed
      */
     protected function userUpdatePageDraftsQuery(Page $page, int $userId)
@@ -314,8 +328,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Get the latest updated draft revision for a particular page and user.
-     * @param Page $page
-     * @param $userId
+     *
+     * @param  Page $page
+     * @param  $userId
      * @return PageRevision|null
      */
     public function getUserPageDraft(Page $page, int $userId)
@@ -325,7 +340,8 @@ class PageRepo extends EntityRepo
 
     /**
      * Get the notification message that informs the user that they are editing a draft page.
-     * @param PageRevision $draft
+     *
+     * @param  PageRevision $draft
      * @return string
      */
     public function getUserPageDraftMessage(PageRevision $draft)
@@ -339,8 +355,9 @@ class PageRepo extends EntityRepo
 
     /**
      * A query to check for active update drafts on a particular page.
-     * @param Page $page
-     * @param int $minRange
+     *
+     * @param  Page $page
+     * @param  int  $minRange
      * @return mixed
      */
     protected function activePageEditingQuery(Page $page, int $minRange = null)
@@ -363,8 +380,9 @@ class PageRepo extends EntityRepo
      * Checks for edits since last page updated.
      * Passing in a minuted range will check for edits
      * within the last x minutes.
-     * @param Page $page
-     * @param int $minRange
+     *
+     * @param  Page $page
+     * @param  int  $minRange
      * @return bool
      */
     public function isPageEditingActive(Page $page, int $minRange = null)
@@ -375,8 +393,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Get a notification message concerning the editing activity on a particular page.
-     * @param Page $page
-     * @param int $minRange
+     *
+     * @param  Page $page
+     * @param  int  $minRange
      * @return string
      */
     public function getPageEditingActiveMessage(Page $page, int $minRange = null)
@@ -390,7 +409,8 @@ class PageRepo extends EntityRepo
 
     /**
      * Parse the headers on the page to get a navigation menu
-     * @param string $pageContent
+     *
+     * @param  string $pageContent
      * @return array
      */
     public function getPageNav(string $pageContent)
@@ -411,30 +431,35 @@ class PageRepo extends EntityRepo
         $tree = collect([]);
         foreach ($headers as $header) {
             $text = $header->nodeValue;
-            $tree->push([
+            $tree->push(
+                [
                 'nodeName' => strtolower($header->nodeName),
                 'level' => intval(str_replace('h', '', $header->nodeName)),
                 'link' => '#' . $header->getAttribute('id'),
                 'text' => strlen($text) > 30 ? substr($text, 0, 27) . '...' : $text
-            ]);
+                ]
+            );
         }
 
         // Normalise headers if only smaller headers have been used
         if (count($tree) > 0) {
             $minLevel = $tree->pluck('level')->min();
-            $tree = $tree->map(function ($header) use ($minLevel) {
-                $header['level'] -= ($minLevel - 2);
-                return $header;
-            });
+            $tree = $tree->map(
+                function ($header) use ($minLevel) {
+                    $header['level'] -= ($minLevel - 2);
+                    return $header;
+                }
+            );
         }
         return $tree->toArray();
     }
 
     /**
      * Restores a revision's content back into a page.
-     * @param Page $page
-     * @param Book $book
-     * @param  int $revisionId
+     *
+     * @param  Page $page
+     * @param  Book $book
+     * @param  int  $revisionId
      * @return Page
      * @throws \Exception
      */
@@ -454,8 +479,9 @@ class PageRepo extends EntityRepo
 
     /**
      * Change the page's parent to the given entity.
-     * @param Page $page
-     * @param Entity $parent
+     *
+     * @param  Page   $page
+     * @param  Entity $parent
      * @throws \Throwable
      */
     public function changePageParent(Page $page, Entity $parent)
@@ -472,9 +498,10 @@ class PageRepo extends EntityRepo
 
     /**
      * Create a copy of a page in a new location with a new name.
-     * @param \Population\Models\Components\Book\Page $page
-     * @param \Population\Models\Components\Book\Entity $newParent
-     * @param string $newName
+     *
+     * @param  \Population\Models\Components\Book\Page   $page
+     * @param  \Population\Models\Components\Book\Entity $newParent
+     * @param  string                                    $newName
      * @return \Population\Models\Components\Book\Page
      * @throws \Throwable
      */

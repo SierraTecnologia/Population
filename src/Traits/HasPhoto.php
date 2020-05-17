@@ -16,11 +16,15 @@ trait HasPhoto
     public static function bootHasPhoto()                                                                                                                                                             
     {
 
-        static::deleting(function (self $user) {
-            optional($user->photos)->each(function (Photo $photo) {
-                $photo->delete();
-            });
-        });
+        static::deleting(
+            function (self $user) {
+                optional($user->photos)->each(
+                    function (Photo $photo) {
+                        $photo->delete();
+                    }
+                );
+            }
+        );
     }
     
     public function registerMediaConversions(Media $media = null)

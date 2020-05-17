@@ -12,6 +12,7 @@ class SearchTerm extends Base
 
     /**
      * Get the entity that this term belongs to
+     *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo
      */
     public function entity()

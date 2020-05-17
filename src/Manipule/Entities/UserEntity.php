@@ -51,7 +51,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     private function setId(int $id): UserEntity
@@ -70,7 +70,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return $this
      */
     private function setName(string $name): UserEntity
@@ -89,7 +89,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return $this
      */
     private function setEmail(string $email): UserEntity
@@ -108,7 +108,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param string $passwordHash
+     * @param  string $passwordHash
      * @return $this
      */
     private function setPasswordHash(string $passwordHash): UserEntity
@@ -127,7 +127,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param string $role
+     * @param  string $role
      * @return $this
      */
     private function setRole(string $role): UserEntity
@@ -150,7 +150,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon $createdAt
+     * @param  Carbon $createdAt
      * @return $this
      */
     private function setCreatedAt(Carbon $createdAt): UserEntity
@@ -169,7 +169,7 @@ final class UserEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon $updatedAt
+     * @param  Carbon $updatedAt
      * @return $this
      */
     private function setUpdatedAt(Carbon $updatedAt): UserEntity

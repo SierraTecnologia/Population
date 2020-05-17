@@ -11,6 +11,7 @@ class PageRevision extends Base
 
     /**
      * Get the user that created the page revision
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function createdBy()
@@ -20,6 +21,7 @@ class PageRevision extends Base
 
     /**
      * Get the page this revision originates from.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function page()
@@ -29,7 +31,8 @@ class PageRevision extends Base
 
     /**
      * Get the url for this revision.
-     * @param null|string $path
+     *
+     * @param  null|string $path
      * @return string
      */
     public function getUrl($path = null)
@@ -43,6 +46,7 @@ class PageRevision extends Base
 
     /**
      * Get the previous revision for the same page if existing
+     *
      * @return \Population\Models\Components\Book\PageRevision|null
      */
     public function getPrevious()
@@ -57,7 +61,8 @@ class PageRevision extends Base
      * Allows checking of the exact class, Used to check entity type.
      * Included here to align with entities in similar use cases.
      * (Yup, Bit of an awkward hack)
-     * @param $type
+     *
+     * @param  $type
      * @return bool
      */
     public static function isA($type)

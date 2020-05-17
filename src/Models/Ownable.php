@@ -10,6 +10,7 @@ abstract class Ownable extends Base
 {
     /**
      * Relation for the user that created this entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function createdBy()
@@ -19,6 +20,7 @@ abstract class Ownable extends Base
 
     /**
      * Relation for the user that updated this entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function updatedBy()
@@ -28,6 +30,7 @@ abstract class Ownable extends Base
 
     /**
      * Gets the class name.
+     *
      * @return string
      */
     public static function getClassName()

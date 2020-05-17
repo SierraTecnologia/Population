@@ -18,7 +18,7 @@ class SubscriptionBuilder extends Builder
     private $subscriptionsTable = Tables::TABLE_SUBSCRIPTIONS;
 
     /**
-     * @param string $ids
+     * @param  string $ids
      * @return $this
      */
     public function whereIds(string $ids)
@@ -27,7 +27,7 @@ class SubscriptionBuilder extends Builder
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return $this
      */
     public function whereEmailLike(string $email)
@@ -36,7 +36,7 @@ class SubscriptionBuilder extends Builder
     }
 
     /**
-     * @param array $emails
+     * @param  array $emails
      * @return $this
      */
     public function whereEmailIn(array $emails)
@@ -45,7 +45,7 @@ class SubscriptionBuilder extends Builder
     }
 
     /**
-     * @param string $token
+     * @param  string $token
      * @return $this
      */
     public function whereTokenEquals(string $token)

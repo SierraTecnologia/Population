@@ -26,7 +26,7 @@ class UserBuilder extends Builder
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     public function whereIdEquals(int $id)
@@ -35,7 +35,7 @@ class UserBuilder extends Builder
     }
 
     /**
-     * @param string $name
+     * @param  string $name
      * @return $this
      */
     public function whereNameEquals(string $name)
@@ -44,7 +44,7 @@ class UserBuilder extends Builder
     }
 
     /**
-     * @param string $email
+     * @param  string $email
      * @return $this
      */
     public function whereEmailEquals(string $email)

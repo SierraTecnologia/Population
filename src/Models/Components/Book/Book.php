@@ -12,6 +12,7 @@ class Book extends Entity
 
     /**
      * Get the morph class for this model.
+     *
      * @return string
      */
     public function getMorphClass()
@@ -21,7 +22,8 @@ class Book extends Entity
 
     /**
      * Get the url for this book.
-     * @param string|bool $path
+     *
+     * @param  string|bool $path
      * @return string
      */
     public function getUrl($path = false)
@@ -34,8 +36,9 @@ class Book extends Entity
 
     /**
      * Returns book cover image, if book cover not exists return default cover image.
-     * @param int $width - Width of the image
-     * @param int $height - Height of the image
+     *
+     * @param  int $width  - Width of the image
+     * @param  int $height - Height of the image
      * @return string
      */
     public function getBookCover($width = 440, $height = 250)
@@ -55,6 +58,7 @@ class Book extends Entity
 
     /**
      * Get the cover image of the book
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function cover()
@@ -64,6 +68,7 @@ class Book extends Entity
 
     /**
      * Get all pages within this book.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function pages()
@@ -73,6 +78,7 @@ class Book extends Entity
 
     /**
      * Get all chapters within this book.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function chapters()
@@ -82,6 +88,7 @@ class Book extends Entity
 
     /**
      * Get the shelves this book is contained within.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function shelves()
@@ -91,7 +98,8 @@ class Book extends Entity
 
     /**
      * Get an excerpt of this book's description to the specified length or less.
-     * @param int $length
+     *
+     * @param  int $length
      * @return string
      */
     public function getExcerpt($length = 100)
@@ -102,6 +110,7 @@ class Book extends Entity
 
     /**
      * Return a generalised, common raw query that can be 'unioned' across entities.
+     *
      * @return string
      */
     public function entityRawQuery()

@@ -23,19 +23,23 @@ trait HasRoutine
 
     public static function bootHasRoutine()
     {
-        static::created(function (Model $routineableModel) {
-            if (count($routineableModel->queuedRoutine) > 0) {
-                $routineableModel->attachRoutine($routineableModel->queuedRoutine);
+        static::created(
+            function (Model $routineableModel) {
+                if (count($routineableModel->queuedRoutine) > 0) {
+                    $routineableModel->attachRoutine($routineableModel->queuedRoutine);
 
-                $routineableModel->queuedRoutine = [];
+                    $routineableModel->queuedRoutine = [];
+                }
             }
-        });
+        );
 
-        static::deleted(function (Model $deletedModel) {
-            $routines = $deletedModel->routines()->get();
+        static::deleted(
+            function (Model $deletedModel) {
+                $routines = $deletedModel->routines()->get();
 
-            $deletedModel->detachRoutine($routines);
-        });
+                $deletedModel->detachRoutine($routines);
+            }
+        );
     }
 
     public function routines(): MorphToMany
@@ -75,7 +79,7 @@ trait HasRoutine
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder   $query
      * @param array|\ArrayAccess|\\App\Models\Routine $routines
      *
      * @return \Illuminate\Database\Eloquent\Builder
@@ -84,17 +88,21 @@ trait HasRoutine
     {
         $routines = static::convertToRoutine($routines, $type);
 
-        collect($routines)->each(function ($routine) use ($query) {
-            $query->whereHas('routines', function (Builder $query) use ($routine) {
-                $query->where('routines.id', $routine ? $routine->id : 0);
-            });
-        });
+        collect($routines)->each(
+            function ($routine) use ($query) {
+                $query->whereHas(
+                    'routines', function (Builder $query) use ($routine) {
+                        $query->where('routines.id', $routine ? $routine->id : 0);
+                    }
+                );
+            }
+        );
 
         return $query;
     }
 
     /**
-     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param \Illuminate\Database\Eloquent\Builder   $query
      * @param array|\ArrayAccess|\\App\Models\Routine $routines
      *
      * @return \Illuminate\Database\Eloquent\Builder
@@ -103,22 +111,28 @@ trait HasRoutine
     {
         $routines = static::convertToRoutine($routines, $type);
 
-        return $query->whereHas('routines', function (Builder $query) use ($routines) {
-            $routineIds = collect($routines)->pluck('id');
+        return $query->whereHas(
+            'routines', function (Builder $query) use ($routines) {
+                $routineIds = collect($routines)->pluck('id');
 
-            $query->whereIn('routines.id', $routineIds);
-        });
+                $query->whereIn('routines.id', $routineIds);
+            }
+        );
     }
 
     public function scopeWithAllRoutineOfAnyType(Builder $query, $routines): Builder
     {
         $routines = static::convertToRoutineOfAnyType($routines);
 
-        collect($routines)->each(function ($routine) use ($query) {
-            $query->whereHas('routines', function (Builder $query) use ($routine) {
-                $query->where('routines.id', $routine ? $routine->id : 0);
-            });
-        });
+        collect($routines)->each(
+            function ($routine) use ($query) {
+                $query->whereHas(
+                    'routines', function (Builder $query) use ($routine) {
+                        $query->where('routines.id', $routine ? $routine->id : 0);
+                    }
+                );
+            }
+        );
 
         return $query;
     }
@@ -127,18 +141,22 @@ trait HasRoutine
     {
         $routines = static::convertToRoutineOfAnyType($routines);
 
-        return $query->whereHas('routines', function (Builder $query) use ($routines) {
-            $routineIds = collect($routines)->pluck('id');
+        return $query->whereHas(
+            'routines', function (Builder $query) use ($routines) {
+                $routineIds = collect($routines)->pluck('id');
 
-            $query->whereIn('routines.id', $routineIds);
-        });
+                $query->whereIn('routines.id', $routineIds);
+            }
+        );
     }
 
     public function routinesWithType(string $type = null): Collection
     {
-        return $this->routines->filter(function (Routine $routine) use ($type) {
-            return $routine->type === $type;
-        });
+        return $this->routines->filter(
+            function (Routine $routine) use ($type) {
+                return $routine->type === $type;
+            }
+        );
     }
 
     /**
@@ -185,7 +203,7 @@ trait HasRoutine
 
     /**
      * @param array|\ArrayAccess $routines
-     * @param string|null $type
+     * @param string|null        $type
      *
      * @return $this
      */
@@ -202,32 +220,36 @@ trait HasRoutine
 
     protected static function convertToRoutine($values, $type = null, $locale = null)
     {
-        return collect($values)->map(function ($value) use ($type, $locale) {
-            if ($value instanceof Routine) {
-                if (isset($type) && $value->type != $type) {
-                    throw new InvalidArgumentException("Type was set to {$type} but routine is of type {$value->type}");
+        return collect($values)->map(
+            function ($value) use ($type, $locale) {
+                if ($value instanceof Routine) {
+                    if (isset($type) && $value->type != $type) {
+                        throw new InvalidArgumentException("Type was set to {$type} but routine is of type {$value->type}");
+                    }
+
+                    return $value;
                 }
 
-                return $value;
+                $className = static::getRoutineClassName();
+
+                return $className::findFromString($value, $type, $locale);
             }
-
-            $className = static::getRoutineClassName();
-
-            return $className::findFromString($value, $type, $locale);
-        });
+        );
     }
 
     protected static function convertToRoutineOfAnyType($values, $locale = null)
     {
-        return collect($values)->map(function ($value) use ($locale) {
-            if ($value instanceof Routine) {
-                return $value;
+        return collect($values)->map(
+            function ($value) use ($locale) {
+                if ($value instanceof Routine) {
+                    return $value;
+                }
+
+                $className = static::getRoutineClassName();
+
+                return $className::findFromStringOfAnyType($value, $locale);
             }
-
-            $className = static::getRoutineClassName();
-
-            return $className::findFromStringOfAnyType($value, $locale);
-        });
+        );
     }
 
     /**
@@ -235,7 +257,7 @@ trait HasRoutine
      *
      * @param $ids
      * @param string|null $type
-     * @param bool $detaching
+     * @param bool        $detaching
      */
     protected function syncRoutineIds($ids, string $type = null, $detaching = true)
     {
@@ -246,17 +268,19 @@ trait HasRoutine
             ->newPivotStatement()
             ->where('routineable_id', $this->getKey())
             ->where('routineable_type', $this->getMorphClass())
-            ->when($type !== null, function ($query) use ($type) {
-                $routineModel = $this->routines()->getRelated();
+            ->when(
+                $type !== null, function ($query) use ($type) {
+                    $routineModel = $this->routines()->getRelated();
 
-                return $query->join(
-                    $routineModel->getTable(),
-                    'routineables.routine_id',
-                    '=',
-                    $routineModel->getTable().'.'.$routineModel->getKeyName()
-                )
-                    ->where('routines.type', $type);
-            })
+                    return $query->join(
+                        $routineModel->getTable(),
+                        'routineables.routine_id',
+                        '=',
+                        $routineModel->getTable().'.'.$routineModel->getKeyName()
+                    )
+                        ->where('routines.type', $type);
+                }
+            )
             ->pluck('routine_id')
             ->all();
 
@@ -270,9 +294,11 @@ trait HasRoutine
         // Attach any new ids
         $attach = array_diff($ids, $current);
         if (count($attach) > 0) {
-            collect($attach)->each(function ($id) {
-                $this->routines()->attach($id, []);
-            });
+            collect($attach)->each(
+                function ($id) {
+                    $this->routines()->attach($id, []);
+                }
+            );
             $isUpdated = true;
         }
 

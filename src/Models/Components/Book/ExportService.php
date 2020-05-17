@@ -13,7 +13,8 @@ class ExportService
 
     /**
      * ExportService constructor.
-     * @param EntityRepo $entityRepo
+     *
+     * @param EntityRepo   $entityRepo
      * @param ImageService $imageService
      */
     public function __construct(EntityRepo $entityRepo, ImageService $imageService)
@@ -25,107 +26,130 @@ class ExportService
     /**
      * Convert a page to a self-contained HTML file.
      * Includes required CSS & image content. Images are base64 encoded into the HTML.
-     * @param \Population\Models\Components\Book\Page $page
+     *
+     * @param  \Population\Models\Components\Book\Page $page
      * @return mixed|string
      * @throws \Throwable
      */
     public function pageToContainedHtml(Page $page)
     {
         $this->entityRepo->renderPage($page);
-        $pageHtml = view('pages/export', [
+        $pageHtml = view(
+            'pages/export', [
             'page' => $page
-        ])->render();
+            ]
+        )->render();
         return $this->containHtml($pageHtml);
     }
 
     /**
      * Convert a chapter to a self-contained HTML file.
-     * @param \Population\Models\Components\Book\Chapter $chapter
+     *
+     * @param  \Population\Models\Components\Book\Chapter $chapter
      * @return mixed|string
      * @throws \Throwable
      */
     public function chapterToContainedHtml(Chapter $chapter)
     {
         $pages = $this->entityRepo->getChapterChildren($chapter);
-        $pages->each(function ($page) {
-            $page->html = $this->entityRepo->renderPage($page);
-        });
-        $html = view('chapters/export', [
+        $pages->each(
+            function ($page) {
+                $page->html = $this->entityRepo->renderPage($page);
+            }
+        );
+        $html = view(
+            'chapters/export', [
             'chapter' => $chapter,
             'pages' => $pages
-        ])->render();
+            ]
+        )->render();
         return $this->containHtml($html);
     }
 
     /**
      * Convert a book to a self-contained HTML file.
-     * @param Book $book
+     *
+     * @param  Book $book
      * @return mixed|string
      * @throws \Throwable
      */
     public function bookToContainedHtml(Book $book)
     {
         $bookTree = $this->entityRepo->getBookChildren($book, true, true);
-        $html = view('books/export', [
+        $html = view(
+            'books/export', [
             'book' => $book,
             'bookChildren' => $bookTree
-        ])->render();
+            ]
+        )->render();
         return $this->containHtml($html);
     }
 
     /**
      * Convert a page to a PDF file.
-     * @param Page $page
+     *
+     * @param  Page $page
      * @return mixed|string
      * @throws \Throwable
      */
     public function pageToPdf(Page $page)
     {
         $this->entityRepo->renderPage($page);
-        $html = view('pages/pdf', [
+        $html = view(
+            'pages/pdf', [
             'page' => $page
-        ])->render();
+            ]
+        )->render();
         return $this->htmlToPdf($html);
     }
 
     /**
      * Convert a chapter to a PDF file.
-     * @param \Population\Models\Components\Book\Chapter $chapter
+     *
+     * @param  \Population\Models\Components\Book\Chapter $chapter
      * @return mixed|string
      * @throws \Throwable
      */
     public function chapterToPdf(Chapter $chapter)
     {
         $pages = $this->entityRepo->getChapterChildren($chapter);
-        $pages->each(function ($page) {
-            $page->html = $this->entityRepo->renderPage($page);
-        });
-        $html = view('chapters/export', [
+        $pages->each(
+            function ($page) {
+                $page->html = $this->entityRepo->renderPage($page);
+            }
+        );
+        $html = view(
+            'chapters/export', [
             'chapter' => $chapter,
             'pages' => $pages
-        ])->render();
+            ]
+        )->render();
         return $this->htmlToPdf($html);
     }
 
     /**
      * Convert a book to a PDF file
-     * @param \Population\Models\Components\Book\Book $book
+     *
+     * @param  \Population\Models\Components\Book\Book $book
      * @return string
      * @throws \Throwable
      */
     public function bookToPdf(Book $book)
     {
         $bookTree = $this->entityRepo->getBookChildren($book, true, true);
-        $html = view('books/export', [
+        $html = view(
+            'books/export', [
             'book' => $book,
             'bookChildren' => $bookTree
-        ])->render();
+            ]
+        )->render();
         return $this->htmlToPdf($html);
     }
 
     /**
      * Convert normal webpage HTML to a PDF.
-     * @param $html
+     *
+     * @param  $html
      * @return string
      * @throws \Exception
      */
@@ -144,7 +168,8 @@ class ExportService
 
     /**
      * Bundle of the contents of a html file to be self-contained.
-     * @param $htmlContent
+     *
+     * @param  $htmlContent
      * @return mixed|string
      * @throws \Exception
      */
@@ -190,7 +215,8 @@ class ExportService
     /**
      * Converts the page contents into simple plain text.
      * This method filters any bad looking content to provide a nice final output.
-     * @param Page $page
+     *
+     * @param  Page $page
      * @return mixed
      */
     public function pageToPlainText(Page $page)
@@ -209,7 +235,8 @@ class ExportService
 
     /**
      * Convert a chapter into a plain text string.
-     * @param \Population\Models\Components\Book\Chapter $chapter
+     *
+     * @param  \Population\Models\Components\Book\Chapter $chapter
      * @return string
      */
     public function chapterToPlainText(Chapter $chapter)
@@ -224,7 +251,8 @@ class ExportService
 
     /**
      * Convert a book into a plain text string.
-     * @param Book $book
+     *
+     * @param  Book $book
      * @return string
      */
     public function bookToPlainText(Book $book)

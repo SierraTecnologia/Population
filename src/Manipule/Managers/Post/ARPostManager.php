@@ -37,8 +37,8 @@ class ARPostManager implements PostManager
     /**
      * ARPostManager constructor.
      *
-     * @param Database $database
-     * @param Auth $auth
+     * @param Database      $database
+     * @param Auth          $auth
      * @param PostValidator $validator
      */
     public function __construct(Database $database, Auth $auth, PostValidator $validator)
@@ -51,17 +51,19 @@ class ARPostManager implements PostManager
     /**
      * Synchronize tags relation records.
      *
-     * @param Post $post
-     * @param array $rawTags
+     * @param  Post  $post
+     * @param  array $rawTags
      * @return void
      */
     private function syncTags(Post $post, array $rawTags): void
     {
         $post->tags()->sync(
             collect($rawTags)
-                ->map(function (array $attributes) {
-                    return (new Tag)->newQuery()->firstOrCreate(['value' => $attributes['value']]);
-                })
+                ->map(
+                    function (array $attributes) {
+                        return (new Tag)->newQuery()->firstOrCreate(['value' => $attributes['value']]);
+                    }
+                )
                 ->pluck('id')
                 ->toArray()
         );
@@ -70,17 +72,19 @@ class ARPostManager implements PostManager
     /**
      * Synchronize photos relation records.
      *
-     * @param Post $post
-     * @param array $rawPhotos
+     * @param  Post  $post
+     * @param  array $rawPhotos
      * @return void
      */
     private function syncPhotos(Post $post, array $rawPhotos): void
     {
         $post->photos()->sync(
             collect($rawPhotos)
-                ->filter(function (array $attributes) {
-                    return (new Photo)->newQuery()->find($attributes['id']);
-                })
+                ->filter(
+                    function (array $attributes) {
+                        return (new Photo)->newQuery()->find($attributes['id']);
+                    }
+                )
                 ->pluck('id')
                 ->toArray()
         );
@@ -99,15 +103,17 @@ class ARPostManager implements PostManager
 
         $post = (new Post)->fill($attributes);
 
-        $this->database->transaction(function () use ($post, $attributes) {
-            $post->save();
-            if (isset($attributes['tags'])) {
-                $this->syncTags($post, $attributes['tags']);
+        $this->database->transaction(
+            function () use ($post, $attributes) {
+                $post->save();
+                if (isset($attributes['tags'])) {
+                    $this->syncTags($post, $attributes['tags']);
+                }
+                if (isset($attributes['photo'])) {
+                    $this->syncPhotos($post, [$attributes['photo']]);
+                }
             }
-            if (isset($attributes['photo'])) {
-                $this->syncPhotos($post, [$attributes['photo']]);
-            }
-        });
+        );
 
         return $post->loadEntityRelations()->toEntity();
     }
@@ -117,7 +123,9 @@ class ARPostManager implements PostManager
      */
     public function updateById(int $id, array $attributes): PostEntity
     {
-        /** @var Post $post */
+        /**
+ * @var Post $post 
+*/
         $post = (new Post)
             ->newQuery()
             ->withEntityRelations()
@@ -127,15 +135,17 @@ class ARPostManager implements PostManager
 
         $post->fill($attributes);
 
-        $this->database->transaction(function () use ($post, $attributes) {
-            $post->save();
-            if (isset($attributes['tags'])) {
-                $this->syncTags($post, $attributes['tags']);
+        $this->database->transaction(
+            function () use ($post, $attributes) {
+                $post->save();
+                if (isset($attributes['tags'])) {
+                    $this->syncTags($post, $attributes['tags']);
+                }
+                if (isset($attributes['photo'])) {
+                    $this->syncPhotos($post, [$attributes['photo']]);
+                }
             }
-            if (isset($attributes['photo'])) {
-                $this->syncPhotos($post, [$attributes['photo']]);
-            }
-        });
+        );
 
         return $post->loadEntityRelations()->toEntity();
     }
@@ -147,19 +157,27 @@ class ARPostManager implements PostManager
     {
         $filters = $this->validator->validateForFiltering($filters);
 
-        /** @var Post $post */
+        /**
+ * @var Post $post 
+*/
         $post = (new Post)
             ->newQuery()
             ->withEntityRelations()
-            ->when(isset($filters['tag']), function (PostBuilder $query) use ($filters) {
-                return $query->whereTagValueEquals($filters['tag']);
-            })
-            ->when(isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
-                return $query->searchByPhrase($filters['search_phrase']);
-            })
-            ->when(!$this->auth->user() || !$this->auth->user()->can('view-unpublished-posts'), function (PostBuilder $query) {
-                return $query->whereIsPublished();
-            })
+            ->when(
+                isset($filters['tag']), function (PostBuilder $query) use ($filters) {
+                    return $query->whereTagValueEquals($filters['tag']);
+                }
+            )
+            ->when(
+                isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
+                    return $query->searchByPhrase($filters['search_phrase']);
+                }
+            )
+            ->when(
+                !$this->auth->user() || !$this->auth->user()->can('view-unpublished-posts'), function (PostBuilder $query) {
+                    return $query->whereIsPublished();
+                }
+            )
             ->findOrFail($id);
 
         return $post->toEntity();
@@ -172,21 +190,29 @@ class ARPostManager implements PostManager
     {
         $filters = $this->validator->validateForFiltering($filters);
 
-        /** @var Post $post */
+        /**
+ * @var Post $post 
+*/
         $post = (new Post)
             ->newQuery()
             ->withEntityRelations()
             ->whereIdLessThan($id)
             ->orderByIdDesc()
-            ->when(isset($filters['tag']), function (PostBuilder $query) use ($filters) {
-                return $query->whereTagValueEquals($filters['tag']);
-            })
-            ->when(isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
-                return $query->searchByPhrase($filters['search_phrase']);
-            })
-            ->when(!$this->auth->user() || !$this->auth->user()->can('view-unpublished-posts'), function (PostBuilder $query) {
-                return $query->whereIsPublished();
-            })
+            ->when(
+                isset($filters['tag']), function (PostBuilder $query) use ($filters) {
+                    return $query->whereTagValueEquals($filters['tag']);
+                }
+            )
+            ->when(
+                isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
+                    return $query->searchByPhrase($filters['search_phrase']);
+                }
+            )
+            ->when(
+                !$this->auth->user() || !$this->auth->user()->can('view-unpublished-posts'), function (PostBuilder $query) {
+                    return $query->whereIsPublished();
+                }
+            )
             ->firstOrFail();
 
         return $post->toEntity();
@@ -199,21 +225,29 @@ class ARPostManager implements PostManager
     {
         $filters = $this->validator->validateForFiltering($filters);
 
-        /** @var Post $post */
+        /**
+ * @var Post $post 
+*/
         $post = (new Post)
             ->newQuery()
             ->withEntityRelations()
             ->whereIdGreaterThan($id)
             ->orderByIdAsc()
-            ->when(isset($filters['tag']), function (PostBuilder $query) use ($filters) {
-                return $query->whereTagValueEquals($filters['tag']);
-            })
-            ->when(isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
-                return $query->searchByPhrase($filters['search_phrase']);
-            })
-            ->when(!$this->auth->user() || !$this->auth->user()->can('view-unpublished-posts'), function (PostBuilder $query) {
-                return $query->whereIsPublished();
-            })
+            ->when(
+                isset($filters['tag']), function (PostBuilder $query) use ($filters) {
+                    return $query->whereTagValueEquals($filters['tag']);
+                }
+            )
+            ->when(
+                isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
+                    return $query->searchByPhrase($filters['search_phrase']);
+                }
+            )
+            ->when(
+                !$this->auth->user() || !$this->auth->user()->can('view-unpublished-posts'), function (PostBuilder $query) {
+                    return $query->whereIsPublished();
+                }
+            )
             ->firstOrFail();
 
         return $post->toEntity();
@@ -230,21 +264,29 @@ class ARPostManager implements PostManager
             ->newQuery()
             ->withEntityRelations()
             ->orderByCreatedAtDesc()
-            ->when(isset($filters['tag']), function (PostBuilder $query) use ($filters) {
-                return $query->whereTagValueEquals($filters['tag']);
-            })
-            ->when(isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
-                return $query->searchByPhrase($filters['search_phrase']);
-            })
-            ->when(!optional($this->auth->user())->can('view-unpublished-posts'), function (PostBuilder $query) {
-                return $query->whereIsPublished();
-            });
+            ->when(
+                isset($filters['tag']), function (PostBuilder $query) use ($filters) {
+                    return $query->whereTagValueEquals($filters['tag']);
+                }
+            )
+            ->when(
+                isset($filters['search_phrase']), function (PostBuilder $query) use ($filters) {
+                    return $query->searchByPhrase($filters['search_phrase']);
+                }
+            )
+            ->when(
+                !optional($this->auth->user())->can('view-unpublished-posts'), function (PostBuilder $query) {
+                    return $query->whereIsPublished();
+                }
+            );
 
         $paginator = $query->paginate($perPage, ['*'], 'page', $page)->appends($filters);
 
-        $paginator->getCollection()->transform(function (Post $subscription) {
-            return $subscription->toEntity();
-        });
+        $paginator->getCollection()->transform(
+            function (Post $subscription) {
+                return $subscription->toEntity();
+            }
+        );
 
         return $paginator;
     }
@@ -254,15 +296,19 @@ class ARPostManager implements PostManager
      */
     public function deleteById(int $id): PostEntity
     {
-        /** @var Post $post */
+        /**
+ * @var Post $post 
+*/
         $post = (new Post)
             ->newQuery()
             ->withEntityRelations()
             ->findOrFail($id);
 
-        $this->database->transaction(function () use ($post) {
-            $post->delete();
-        });
+        $this->database->transaction(
+            function () use ($post) {
+                $post->delete();
+            }
+        );
 
         return $post->toEntity();
     }

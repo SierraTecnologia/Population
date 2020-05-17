@@ -32,7 +32,7 @@ class UserValidator
     }
 
     /**
-     * @param array $attributes
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */
@@ -54,8 +54,8 @@ class UserValidator
     }
 
     /**
-     * @param User $user
-     * @param array $attributes
+     * @param  User  $user
+     * @param  array $attributes
      * @return array
      * @throws ValidationException
      */

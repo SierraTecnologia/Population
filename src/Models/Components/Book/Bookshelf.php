@@ -14,6 +14,7 @@ class Bookshelf extends Entity
 
     /**
      * Get the morph class for this model.
+     *
      * @return string
      */
     public function getMorphClass()
@@ -24,6 +25,7 @@ class Bookshelf extends Entity
     /**
      * Get the books in this shelf.
      * Should not be used directly since does not take into account permissions.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
     public function books()
@@ -33,7 +35,8 @@ class Bookshelf extends Entity
 
     /**
      * Get the url for this bookshelf.
-     * @param string|bool $path
+     *
+     * @param  string|bool $path
      * @return string
      */
     public function getUrl($path = false)
@@ -46,8 +49,9 @@ class Bookshelf extends Entity
 
     /**
      * Returns BookShelf cover image, if cover does not exists return default cover image.
-     * @param int $width - Width of the image
-     * @param int $height - Height of the image
+     *
+     * @param  int $width  - Width of the image
+     * @param  int $height - Height of the image
      * @return string
      */
     public function getBookCover($width = 440, $height = 250)
@@ -67,6 +71,7 @@ class Bookshelf extends Entity
 
     /**
      * Get the cover image of the book
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function cover()
@@ -76,7 +81,8 @@ class Bookshelf extends Entity
 
     /**
      * Get an excerpt of this book's description to the specified length or less.
-     * @param int $length
+     *
+     * @param  int $length
      * @return string
      */
     public function getExcerpt($length = 100)
@@ -87,6 +93,7 @@ class Bookshelf extends Entity
 
     /**
      * Return a generalised, common raw query that can be 'unioned' across entities.
+     *
      * @return string
      */
     public function entityRawQuery()

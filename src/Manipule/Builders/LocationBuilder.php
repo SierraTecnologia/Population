@@ -32,8 +32,8 @@ class LocationBuilder extends Builder
     }
 
     /**
-     * @param Coordinates $southWest
-     * @param Coordinates $northEast
+     * @param  Coordinates $southWest
+     * @param  Coordinates $northEast
      * @return $this
      */
     public function whereInArea(Coordinates $southWest, Coordinates $northEast)

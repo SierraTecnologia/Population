@@ -14,6 +14,7 @@ class Page extends Entity
 
     /**
      * Get the morph class for this model.
+     *
      * @return string
      */
     public function getMorphClass()
@@ -23,6 +24,7 @@ class Page extends Entity
 
     /**
      * Converts this page into a simplified array.
+     *
      * @return mixed
      */
     public function toSimpleArray()
@@ -34,6 +36,7 @@ class Page extends Entity
 
     /**
      * Get the book this page sits in.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function book()
@@ -43,6 +46,7 @@ class Page extends Entity
 
     /**
      * Get the parent item
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function parent()
@@ -52,6 +56,7 @@ class Page extends Entity
 
     /**
      * Get the chapter that this page is in, If applicable.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function chapter()
@@ -61,6 +66,7 @@ class Page extends Entity
 
     /**
      * Check if this page has a chapter.
+     *
      * @return bool
      */
     public function hasChapter()
@@ -70,6 +76,7 @@ class Page extends Entity
 
     /**
      * Get the associated page revisions, ordered by created date.
+     *
      * @return mixed
      */
     public function revisions()
@@ -79,6 +86,7 @@ class Page extends Entity
 
     /**
      * Get the attachments assigned to this page.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function attachments()
@@ -88,7 +96,8 @@ class Page extends Entity
 
     /**
      * Get the url for this page.
-     * @param string|bool $path
+     *
+     * @param  string|bool $path
      * @return string
      */
     public function getUrl($path = false)
@@ -106,7 +115,8 @@ class Page extends Entity
 
     /**
      * Get an excerpt of this page's content to the specified length.
-     * @param int $length
+     *
+     * @param  int $length
      * @return mixed
      */
     public function getExcerpt($length = 100)
@@ -117,7 +127,8 @@ class Page extends Entity
 
     /**
      * Return a generalised, common raw query that can be 'unioned' across entities.
-     * @param bool $withContent
+     *
+     * @param  bool $withContent
      * @return string
      */
     public function entityRawQuery($withContent = false)
@@ -128,6 +139,7 @@ class Page extends Entity
 
     /**
      * Get the current revision for the page if existing
+     *
      * @return \Population\Models\Components\Book\PageRevision|null
      */
     public function getCurrentRevision()

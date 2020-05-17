@@ -38,7 +38,7 @@ class Models
     /**
      * Set the model to be used for participants.
      *
-     * @param  string $model
+     * @param string $model
      */
     public static function setParticipantModel($model)
     {
@@ -48,7 +48,7 @@ class Models
     /**
      * Set the model to be used for threads.
      *
-     * @param  string $model
+     * @param string $model
      */
     public static function setThreadModel($model)
     {
@@ -58,7 +58,7 @@ class Models
     /**
      * Set the model to be used for users.
      *
-     * @param  string  $model
+     * @param string $model
      */
     public static function setUserModel($model)
     {
@@ -68,7 +68,7 @@ class Models
     /**
      * Set custom table names.
      *
-     * @param  array $map
+     * @param array $map
      */
     public static function setTables(array $map)
     {
@@ -133,7 +133,7 @@ class Models
     /**
      * Get an instance of the user model.
      *
-     * @param  array  $attributes
+     * @param  array $attributes
      * @return \Illuminate\Database\Eloquent\Model
      */
     public static function user(array $attributes = [])
@@ -145,7 +145,7 @@ class Models
      * Get an instance of the given model.
      *
      * @param  string $model
-     * @param  array $attributes
+     * @param  array  $attributes
      * @return \Illuminate\Database\Eloquent\Model
      */
     protected static function make($model, array $attributes = [])

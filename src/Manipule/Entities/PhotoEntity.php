@@ -39,16 +39,20 @@ final class PhotoEntity extends AbstractEntity
         $this->setMetadata(new ImageMetadata($attributes['metadata'] ?? []));
         $this->setCreatedAt(isset($attributes['created_at']) ? new Carbon($attributes['created_at']) : null);
         $this->setUpdatedAt(isset($attributes['updated_at']) ? new Carbon($attributes['updated_at']) : null);
-        $this->setThumbnails(collect($attributes['thumbnails'] ?? [])->map(function (array $attributes) {
-            return new ThumbnailEntity($attributes);
-        }));
+        $this->setThumbnails(
+            collect($attributes['thumbnails'] ?? [])->map(
+                function (array $attributes) {
+                    return new ThumbnailEntity($attributes);
+                }
+            )
+        );
         if (isset($attributes['location'])) {
             $this->setLocation(new LocationEntity($attributes['location']));
         }
     }
 
     /**
-     * @param int $id
+     * @param  int $id
      * @return $this
      */
     private function setId(int $id): PhotoEntity
@@ -67,7 +71,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param int $createdByUserId
+     * @param  int $createdByUserId
      * @return $this
      */
     private function setCreatedByUserId(int $createdByUserId): PhotoEntity
@@ -86,7 +90,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param string $path
+     * @param  string $path
      * @return $this
      */
     private function setPath(string $path): PhotoEntity
@@ -113,7 +117,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param string $avgColor
+     * @param  string $avgColor
      * @return $this
      */
     private function setAvgColor(string $avgColor): PhotoEntity
@@ -132,7 +136,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param ImageMetadata $metadata
+     * @param  ImageMetadata $metadata
      * @return $this
      */
     private function setMetadata(ImageMetadata $metadata): PhotoEntity
@@ -151,7 +155,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon $createdAt
+     * @param  Carbon $createdAt
      * @return $this
      */
     private function setCreatedAt(Carbon $createdAt): PhotoEntity
@@ -170,7 +174,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param Carbon $updatedAt
+     * @param  Carbon $updatedAt
      * @return $this
      */
     private function setUpdatedAt(Carbon $updatedAt): PhotoEntity
@@ -189,7 +193,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param Collection $thumbnails
+     * @param  Collection $thumbnails
      * @return $this
      */
     public function setThumbnails(Collection $thumbnails): PhotoEntity
@@ -208,7 +212,7 @@ final class PhotoEntity extends AbstractEntity
     }
 
     /**
-     * @param LocationEntity|null $location
+     * @param  LocationEntity|null $location
      * @return $this
      */
     private function setLocation(?LocationEntity $location): PhotoEntity

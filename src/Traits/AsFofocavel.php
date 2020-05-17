@@ -28,10 +28,12 @@ trait AsFofocavel
      */
     public function setDiario($date, $text)
     {
-        $this->fatos()->create([
+        $this->fatos()->create(
+            [
             'date' => $date,
             'text' => $text
-        ]);
+            ]
+        );
     }
     /**
      * Construtores
@@ -46,15 +48,17 @@ trait AsFofocavel
     /**
      * DataInfo do Usuario - @todo Refazer
      *
-     * @param array $data
+     * @param  array $data
      * @return void
      */
     public function addDataInfo($data)
     {
         // @todo Refazer
-        return $this->infos()->create([
+        return $this->infos()->create(
+            [
             'text' => implode(';', $data)
-        ]);
+            ]
+        );
     }
 
     /**

@@ -32,10 +32,10 @@ class Token extends Base
     ];
 
      /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
+      * The attributes that should be cast to native types.
+      *
+      * @var array
+      */
     protected $casts = [
         'scopes' => 'json',
     ];
@@ -55,6 +55,7 @@ class Token extends Base
 
     /**
      * Relation for the user that created this entity.
+     *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
     public function account()

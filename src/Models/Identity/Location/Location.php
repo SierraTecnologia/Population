@@ -21,7 +21,7 @@ use Finder\Models\Digital\Midia\Photo;
  *
  * @property int id
  * @property Coordinates coordinates
- * @package App\Models
+ * @package  App\Models
  */
 class Location extends Base
 {
@@ -67,7 +67,7 @@ class Location extends Base
     }
 
     /**
-     * @param Coordinates $coordinates
+     * @param  Coordinates $coordinates
      * @return $this
      */
     public function setCoordinatesAttribute(Coordinates $coordinates)
@@ -99,9 +99,11 @@ class Location extends Base
      */
     public function toEntity(): LocationEntity
     {
-        return new LocationEntity([
+        return new LocationEntity(
+            [
             'id' => $this->id,
             'coordinates' => $this->coordinates->toArray(),
-        ]);
+            ]
+        );
     }
 }

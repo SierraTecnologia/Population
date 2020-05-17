@@ -30,7 +30,7 @@ class ARSubscriptionManager implements SubscriptionManager
     /**
      * ARSubscriptionManager constructor.
      *
-     * @param Database $database
+     * @param Database              $database
      * @param SubscriptionValidator $validator
      */
     public function __construct(Database $database, SubscriptionValidator $validator)
@@ -60,7 +60,9 @@ class ARSubscriptionManager implements SubscriptionManager
      */
     public function getByToken(string $token): SubscriptionEntity
     {
-        /** @var Subscription $subscription */
+        /**
+ * @var Subscription $subscription 
+*/
         $subscription = (new Subscription)
             ->newQuery()
             ->whereTokenEquals($token)
@@ -81,22 +83,30 @@ class ARSubscriptionManager implements SubscriptionManager
 
         $query = (new Subscription)
             ->newQuery()
-            ->when(isset($filters['id']), function (SubscriptionBuilder $query) use ($filters) {
-                return $query->whereIds($filters['id']);
-            })
-            ->when(isset($filters['email']), function (SubscriptionBuilder $query) use ($filters) {
-                return $query->whereEmailLike($filters['email'] . '%');
-            })
-            ->when(isset($filters['token']), function (SubscriptionBuilder $query) use ($filters) {
-                return $query->whereTokenEquals($filters['token']);
-            })
+            ->when(
+                isset($filters['id']), function (SubscriptionBuilder $query) use ($filters) {
+                    return $query->whereIds($filters['id']);
+                }
+            )
+            ->when(
+                isset($filters['email']), function (SubscriptionBuilder $query) use ($filters) {
+                    return $query->whereEmailLike($filters['email'] . '%');
+                }
+            )
+            ->when(
+                isset($filters['token']), function (SubscriptionBuilder $query) use ($filters) {
+                    return $query->whereTokenEquals($filters['token']);
+                }
+            )
             ->orderBy($sortAttribute, $sortOrder);
 
         $paginator = $query->paginate($perPage, ['*'], 'page', $page)->appends($filters);
 
-        $paginator->getCollection()->transform(function (Subscription $subscription) {
-            return $subscription->toEntity();
-        });
+        $paginator->getCollection()->transform(
+            function (Subscription $subscription) {
+                return $subscription->toEntity();
+            }
+        );
 
         return $paginator;
     }
@@ -106,7 +116,9 @@ class ARSubscriptionManager implements SubscriptionManager
      */
     public function deleteByToken(string $token): SubscriptionEntity
     {
-        /** @var Subscription $subscription */
+        /**
+ * @var Subscription $subscription 
+*/
         $subscription = (new Subscription)
             ->newQuery()
             ->whereTokenEquals($token)

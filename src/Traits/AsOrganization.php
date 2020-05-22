@@ -14,10 +14,14 @@ use Overtrue\LaravelFollow\Traits\CanBookmark;
 use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
 use Informate\Traits\HasPersonality;
+use Casa\Traits\MakeEconomicActions;
+use Casa\Traits\HasTask;
+use Casa\Traits\HasRoutine;
 
 trait AsOrganization
 {
-    use MakeEconomicActions, HasPersonality;
+    use HasPersonality;
+    use MakeEconomicActions, HasTask, HasRoutine;
     use HasServicesAndAccounts, HasContacts, AsFofocavel;
 
     use CanFollow, CanLike, CanFavorite, CanSubscribe, CanVote, CanBookmark;

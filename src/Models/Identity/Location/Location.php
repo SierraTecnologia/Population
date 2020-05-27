@@ -25,6 +25,9 @@ use Finder\Models\Digital\Midia\Photo;
  */
 class Location extends Base
 {
+
+    public static $classeBuilder = LocationBuilder::class;
+
     /**
      * @inheritdoc
      */

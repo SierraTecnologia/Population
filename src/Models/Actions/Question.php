@@ -19,6 +19,7 @@ use Facilitador\Models\Post;
  */
 class Question extends Base
 {
+    public static $classeBuilder = QuestionBuilder::class;
     /**
      * @inheritdoc
      */

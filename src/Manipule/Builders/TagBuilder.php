@@ -3,7 +3,7 @@
 namespace Population\Manipule\Builders;
 
 use App\Contants\Tables;
-use Illuminate\Database\Eloquent\Builder;
+use Facilitador\Models\Builder;
 use Illuminate\Database\Query\Expression;
 
 /**

@@ -70,7 +70,15 @@ class Account extends Base
      */
     public function business()
     {
-        return $this->morphedByMany(Business::class, 'accountable');
+        return $this->businesses();
+    }
+
+    /**
+     * Get all of the businesses that are assigned this item.
+     */
+    public function businesses()
+    {
+        return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec-tools.models.business', \Population\Models\Identity\Actors\Business::class), 'accountable');
     }
 
     /**

@@ -53,13 +53,21 @@ class Feature extends Base
             "analyzer" => "standard",
         ],
     );
-    
+
     /**
-     * Get all of the girls that are assigned this tag.
+     * Get all of the business that are assigned this tag.
      */
-    public function girls()
+    public function business()
     {
-        return $this->morphedByMany('Population\Models\Market\Actors\Girl', 'featureable');
+        return $this->businesses();
+    }
+
+    /**
+     * Get all of the businesses that are assigned this item.
+     */
+    public function businesses()
+    {
+        return $this->morphedByMany('Population\Models\Identity\Actors\Business', 'featureable');
     }
 
     /**

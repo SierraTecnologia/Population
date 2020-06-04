@@ -356,6 +356,14 @@ class AnalyzerResult extends Base
      */
     public function business()
     {
+        return $this->businesses();
+    }
+
+    /**
+     * Get all of the businesses that are assigned this item.
+     */
+    public function businesses()
+    {
         return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class), 'business_id', 'id');
     }
 

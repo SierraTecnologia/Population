@@ -283,7 +283,7 @@ class CreatePopulationSocialPessoasTables extends Migration
                 $table->string('password')->nullable();
                 $table->string('url')->nullable();
                 $table->string('is_active')->nullable();
-                $table->integer('passwordable_id')->nullable();
+                $table->string('passwordable_id')->nullable();
                 $table->string('passwordable_type')->nullable();
                 $table->timestamps();
             }
@@ -292,8 +292,8 @@ class CreatePopulationSocialPessoasTables extends Migration
         Schema::create(
             'comments', function (Blueprint $table) {
                 $table->increments('id');
-                $table->string('content');
-                $table->integer('commentable_id');
+                $table->longtext('content');
+                $table->string('commentable_id');
                 $table->string('commentable_type');
                 $table->timestamps();
             }

@@ -321,7 +321,7 @@ class AnalyzerResult extends Base
                 if ($model->is_active=='') {
                     $model->is_active = 0;
                 }
-                $model->tid = (string) Hash::make(str_random(8));
+                $model->tid = (string) Hash::make(\Illuminate\Support\Str::random(8));
             }
         );
 

@@ -71,7 +71,7 @@ class PermissionsRepo
         $role->name = str_replace(' ', '-', strtolower($roleData['display_name']));
         // Prevent duplicate names
         while ($this->role->where('name', '=', $role->name)->count() > 0) {
-            $role->name .= strtolower(str_random(2));
+            $role->name .= strtolower(\Illuminate\Support\Str::random(2));
         }
         $role->save();
 

@@ -1953,16 +1953,16 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "6.5.4",
+            "version": "6.5.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d"
+                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
-                "reference": "a4a1b6930528a8f7ee03518e6442ec7a44155d9d",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
+                "reference": "9d4290de1cfd701f38099ef7e183b64b4b7b0c5e",
                 "shasum": ""
             },
             "require": {
@@ -1970,7 +1970,7 @@
                 "guzzlehttp/promises": "^1.0",
                 "guzzlehttp/psr7": "^1.6.1",
                 "php": ">=5.5",
-                "symfony/polyfill-intl-idn": "1.17.0"
+                "symfony/polyfill-intl-idn": "^1.17.0"
             },
             "require-dev": {
                 "ext-curl": "*",
@@ -2016,7 +2016,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2020-05-25T19:35:05+00:00"
+            "time": "2020-06-16T21:01:06+00:00"
         },
         {
             "name": "guzzlehttp/promises",
@@ -5385,7 +5385,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Informate",
-                "reference": "f68301124b2854072b7a0f0101352242e40ad10d"
+                "reference": "65f16e0342363ca5270d5d82938d0f74fcd931e7"
             },
             "require": {
                 "php": ">=7.2.0",
@@ -5431,7 +5431,7 @@
             "dist": {
                 "type": "path",
                 "url": "../LaravelSupport",
-                "reference": "12c60b04ff8ae2dc2c91ebae4f4e4c864834204c"
+                "reference": "4afeda4b3e31dcfca020c3327f8abd759c539b45"
             },
             "require": {
                 "anahkiasen/html-object": ">=1.4",
@@ -5557,7 +5557,7 @@
             "dist": {
                 "type": "path",
                 "url": "../Locaravel",
-                "reference": "4bd139979daa664ffe8f30538f23633c2a243edb"
+                "reference": "0a49d08836c7276347da755dea01d246a5c667fb"
             },
             "require": {
                 "doctrine/dbal": "^2.0",

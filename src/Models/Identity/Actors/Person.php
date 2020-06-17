@@ -60,17 +60,6 @@ class Person extends Base implements HasMedia
         ],
     );
 
-    public function save(array $options = [])
-    {
-        // @todo repassar isso pro model base
-        // If no author has been assigned, assign the current user's id as the author of the post
-        if (!$this->name || empty($this->name)) {
-            $this->name = StringModificator::convertSlugToName($this->code);
-        }
-
-        parent::save();
-    }
-
     public function users()
     {
         return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.user', \App\Models\User::class), 'personable'); //, 'businessable_type', 'businessable_code');

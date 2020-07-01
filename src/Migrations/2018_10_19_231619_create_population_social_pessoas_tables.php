@@ -288,16 +288,6 @@ class CreatePopulationSocialPessoasTables extends Migration
                 $table->timestamps();
             }
         );
-        
-        Schema::create(
-            'comments', function (Blueprint $table) {
-                $table->increments('id');
-                $table->longtext('content');
-                $table->string('commentable_id');
-                $table->string('commentable_type');
-                $table->timestamps();
-            }
-        );
     }
 
     /**

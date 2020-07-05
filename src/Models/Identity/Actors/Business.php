@@ -97,7 +97,7 @@ class Business extends Base
     //  */
     // public function widgets()
     // {
-    //     return $this->morphToMany('App\Models\Negocios\Widget', 'widgetable');
+    //     return $this->morphToMany('Siravel\Models\Negocios\Widget', 'widgetable');
     // }
 
     /**
@@ -113,7 +113,7 @@ class Business extends Base
     //  */
     // public function subscriptions()
     // {
-    //     return $this->hasMany('App\Models\Negocios\Subscription');
+    //     return $this->hasMany('Siravel\Models\Negocios\Subscription');
     // }
 
 

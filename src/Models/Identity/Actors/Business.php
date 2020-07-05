@@ -105,7 +105,7 @@ class Business extends Base
      */
     public function settings()
     {
-        return $this->hasMany('Informate\Models\System\Setting');
+        return $this->hasMany('Facilitador\Models\Setting');
     }
 
     // /**

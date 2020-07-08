@@ -6,6 +6,9 @@ use SiObjects\Entitys\Uploads\Attachment;
 
 class Page extends Entity
 {
+
+    public $table = "book_pages";
+
     protected $fillable = ['name', 'html', 'priority', 'markdown'];
 
     protected $simpleAttributes = ['name', 'id', 'slug'];

@@ -14,7 +14,7 @@ class Relatorio extends Base
 
     protected $organizationPerspective = true;
 
-    protected $table = 'statistics';     
+    protected $table = 'relatorios';     
 
     protected static $COMPLEX_RELATIONAMENT_MODELS = [
         'model' => [

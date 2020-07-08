@@ -10,8 +10,8 @@ class Product extends Base
     use ComplexRelationamentTrait;
     
     protected static $COMPLEX_RELATIONAMENT_MODELS = [
-        \Finder\Models\Digital\Midia\Photo::class,
-        \Finder\Models\Digital\Midia\Video::class
+        \Artista\Models\Photo::class,
+        \Artista\Models\Video::class
     ];
 
     /**

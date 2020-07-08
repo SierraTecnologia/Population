@@ -62,6 +62,6 @@ class Sitio extends Base
      */
     public function videos()
     {
-        return $this->morphedByMany('Artista\Models\Video', 'sitioable');
+        return $this->morphedByMany('Stalker\Models\Video', 'sitioable');
     }
 }

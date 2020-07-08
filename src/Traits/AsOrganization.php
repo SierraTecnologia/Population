@@ -34,7 +34,7 @@ trait AsOrganization
      */
     public function videos()
     {
-        return $this->morphToMany('Artista\Models\Video', 'videoable');
+        return $this->morphToMany('Stalker\Models\Video', 'videoable');
     }
 
     /**
@@ -42,7 +42,7 @@ trait AsOrganization
      */
     public function imagens()
     {
-        return $this->morphToMany('Artista\Models\Imagen', 'imagenable');
+        return $this->morphToMany('Stalker\Models\Imagen', 'imagenable');
     }
 
         

@@ -17,6 +17,7 @@ use Informate\Traits\HasPersonality;
 use Casa\Traits\MakeEconomicActions;
 use Casa\Traits\HasTask;
 use Casa\Traits\HasRoutine;
+use Stalker\Traits\HasPhoto;
 
 trait AsOrganization
 {

@@ -3,7 +3,7 @@
 namespace Population\Models\Actions;
 
 use Population\Manipule\Builders\QuestionBuilder;
-use Siravel\Contants\Tables;
+use App\Contants\Tables;
 use Population\Manipule\Entities\QuestionEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;

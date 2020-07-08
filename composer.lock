@@ -4909,22 +4909,22 @@
             "extra": {
                 "laravel": {
                     "providers": [
-                        "RicardoSierra\\Translation\\TranslationServiceProvider"
+                        "Translation\\TranslationServiceProvider"
                     ],
                     "aliases": {
-                        "Translation": "RicardoSierra\\Translation\\Facades\\Translation"
+                        "Translation": "Translation\\Facades\\Translation"
                     }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "RicardoSierra\\Translation\\": "src/",
+                    "Translation\\": "src/",
                     "Waavi\\Translation\\": "src/"
                 }
             },
             "autoload-dev": {
                 "psr-4": {
-                    "RicardoSierra\\Translation\\Tests\\": "tests/",
+                    "Translation\\Tests\\": "tests/",
                     "Waavi\\Translation\\Tests\\": "tests/"
                 }
             },

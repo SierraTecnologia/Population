@@ -14,9 +14,9 @@ use Overtrue\LaravelFollow\Traits\CanBookmark;
 use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
 use Informate\Traits\HasPersonality;
-use Casa\Traits\MakeEconomicActions;
-use Casa\Traits\HasTask;
-use Casa\Traits\HasRoutine;
+use Population\Traits\MakeEconomicActions;
+use Population\Traits\HasTask;
+use Population\Traits\HasRoutine;
 use Stalker\Traits\HasPhoto;
 
 trait AsOrganization

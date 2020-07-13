@@ -9,6 +9,14 @@ use Illuminate\Support\Collection;
 
 class PopulationProvider extends ServiceProvider
 {
+    public static $menuItens = [
+
+    ];
+
+    public static $aliasProviders = [
+
+    ];
+    
     public static $providers = [
         \Informate\InformateProvider::class,
         \Overtrue\LaravelFollow\FollowServiceProvider::class,

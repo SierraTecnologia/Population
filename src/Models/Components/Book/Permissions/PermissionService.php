@@ -8,7 +8,7 @@ use Population\Models\Components\Book\Chapter;
 use Population\Models\Components\Book\Entity;
 use Population\Models\Components\Book\EntityProvider;
 use Population\Models\Components\Book\Page;
-use Population\Models\Ownable;
+use Support\Models\Ownable;
 use Illuminate\Database\Connection;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Query\Builder as QueryBuilder;

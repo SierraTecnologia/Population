@@ -8,7 +8,7 @@ use SiObjects\Components\Book\Tag;
 use SiObjects\Components\Book\View;
 use Population\Models\Components\Book\Permissions\EntityPermission;
 use Population\Models\Components\Book\Permissions\JointPermission;
-use Population\Models\Ownable;
+use Support\Models\Ownable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 

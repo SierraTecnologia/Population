@@ -13,7 +13,7 @@ use Overtrue\LaravelFollow\Traits\CanBookmark;
 // Podem Serem Seguidos
 use Overtrue\LaravelFollow\Traits\CanBeFollowed;
 
-use Informate\Traits\HasPersonality;
+use Support\Traits\Models\HasPersonality;
 use Population\Traits\MakeEconomicActions;
 use Population\Traits\HasTask;
 use Population\Traits\HasRoutine;

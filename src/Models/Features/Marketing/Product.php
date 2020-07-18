@@ -3,7 +3,7 @@
 namespace Population\Models\Features\Marketing;
 
 use Support\Models\Base;
-use Informate\Traits\ComplexRelationamentTrait;
+use Support\Traits\Models\ComplexRelationamentTrait;
 
 class Product extends Base
 {

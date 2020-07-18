@@ -3,7 +3,7 @@
 namespace Population\Models\Identity\Digital;
 
 use Support\Models\Base;
-use Informate\Traits\ComplexRelationamentTrait;
+use Support\Traits\Models\ComplexRelationamentTrait;
 use Population\Models\Components\Integrations\Integration;
 use Population\Models\Identity\Actors\Business;
 

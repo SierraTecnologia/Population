@@ -55,7 +55,7 @@ class Variable extends Production
      */
     public function persons()
     {
-        return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'variaable');
+        return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Telefonica\Models\Actors\Person::class), 'variaable');
     }
 
     /**

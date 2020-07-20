@@ -374,7 +374,7 @@ class AnalyzerResult extends Base
     //  */
     // public function customer()
     // {
-    //     return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class));
+    //     return $this->belongsTo(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Telefonica\Models\Actors\Person::class));
     // }
 
     // /**

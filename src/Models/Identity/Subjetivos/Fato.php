@@ -44,7 +44,7 @@ class Fato extends Base
 
     // public function sitios()
     // {
-    //     return $this->morphToMany('Population\Models\Identity\Digital\Sitio', 'videoable');
+    //     return $this->morphToMany('Telefonica\Models\Digital\Sitio', 'videoable');
     // }
 
     // /**
@@ -60,7 +60,7 @@ class Fato extends Base
     //  */
     // public function persons()
     // {
-    //     return $this->morphToMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'videoable');
+    //     return $this->morphToMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Telefonica\Models\Actors\Person::class), 'videoable');
     // }
 
     /**

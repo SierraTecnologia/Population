@@ -3,7 +3,7 @@
 namespace Population\Models\Components\Productions;
 
 use Support\Models\Base;
-use Population\Models\Identity\Actors\Person;
+use Telefonica\Models\Actors\Person;
 
 class Character extends Person
 {
@@ -56,7 +56,7 @@ class Character extends Person
      */
     public function persons()
     {
-        return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Population\Models\Identity\Actors\Person::class), 'characteable');
+        return $this->morphedByMany(\Illuminate\Support\Facades\Config::get('sitec.core.models.person', \Telefonica\Models\Actors\Person::class), 'characteable');
     }
 
     /**

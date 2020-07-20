@@ -59,7 +59,7 @@ class PopulationProvider extends ServiceProvider
         //     $this->app->view->addNamespace('Population-frontend', __DIR__.'/Publishes/resources/Population');
         // }
 
-        $this->loadMigrationsFrom(__DIR__.'/Migrations');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         // // Configs
         // $this->app->config->set('Population.modules.Population', include(__DIR__.'/config.php'));

@@ -1,7 +1,26 @@
 {
     "name": "sierratecnologia/population",
     "description": "Population",
+    "type": "library",
+    "keywords": [
+        "sierratecnologia",
+        "population"
+    ],
     "license": "MIT",
+    "homepage": "https://sierratecnologia.com/packages/population/",
+    "support": {
+        "email": "help@sierratecnologia.com",
+        "issues": "https://github.com/sierratecnologia/population/issues",
+        "source": "https://github.com/sierratecnologia/population",
+        "docs": "https://github.com/sierratecnologia/population/blob/master/README.md"
+    },
+    "authors": [
+        {
+            "name": "SierraTecnologia",
+            "homepage": "https://sierratecnologia.com.br",
+            "email": "help@sierratecnologia.com.br"
+        }
+    ],
     "require": {
         "sierratecnologia/informate": "dev-master",
         "symfony/security-core": "^5.0",

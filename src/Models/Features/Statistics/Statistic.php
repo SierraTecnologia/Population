@@ -18,7 +18,7 @@ class Statistic extends Base
 
     protected static $COMPLEX_RELATIONAMENT_MODELS = [
         'model' => [
-            \Finder\Models\Digital\Code\Commit::class
+            \Fabrica\Models\Code\Commit::class
         ]
     ];
 

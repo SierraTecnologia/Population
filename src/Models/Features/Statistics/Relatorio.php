@@ -6,7 +6,7 @@
 namespace Population\Models\Features\Statistics;
 
 use Support\Models\Base;
-use Support\Traits\Models\ComplexRelationamentTrait;
+use Muleta\Traits\Models\ComplexRelationamentTrait;
 
 class Relatorio extends Base
 {

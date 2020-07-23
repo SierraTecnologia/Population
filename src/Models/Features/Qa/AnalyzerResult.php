@@ -3,7 +3,7 @@
 namespace Population\Models\Features\Qa;
 
 use Support\Models\Base;
-use Support\Traits\Models\ComplexRelationamentTrait;
+use Muleta\Traits\Models\ComplexRelationamentTrait;
 
 class AnalyzerResult extends Base
 {

@@ -3,7 +3,7 @@
 namespace Population\Models\Market\Informacao;
 
 use Support\Models\Base;
-use Support\Traits\Models\ComplexRelationamentTrait;
+use Muleta\Traits\Models\ComplexRelationamentTrait;
 use Informate\Models\Entytys\Category\BibliotecaType;
 
 class Biblioteca extends Base

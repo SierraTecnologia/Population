@@ -52,6 +52,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             'tatuages', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
+                $table->string('local', 100)->nullable();
                 $table->longText('text', 255)->nullable();
                 $table->string('tatuageable_id');
                 $table->string('tatuageable_type', 255);
@@ -64,6 +65,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             'pircings', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
+                $table->string('local', 100)->nullable();
                 $table->longText('text', 255)->nullable();
                 $table->string('pircingable_id');
                 $table->string('pircingable_type', 255);
@@ -76,6 +78,7 @@ class CreatePopulationSocialPessoasTables extends Migration
             'pintinhas', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
                 $table->increments('id')->unsigned();
+                $table->string('local', 100)->nullable();
                 $table->longText('text', 255)->nullable();
                 $table->string('pintinhable_id');
                 $table->string('pintinhable_type', 255);
@@ -83,18 +86,6 @@ class CreatePopulationSocialPessoasTables extends Migration
                 $table->softDeletes();
             }
         );
-        
-        Schema::create(
-            'itemables', function (Blueprint $table) {
-                $table->engine = 'InnoDB';
-                $table->integer('item_id')->unsigned();
-                $table->string('itemable_id');
-                $table->string('itemable_type', 255);
-                $table->timestamps();
-                $table->softDeletes();
-            }
-        );
-        
 
         
         

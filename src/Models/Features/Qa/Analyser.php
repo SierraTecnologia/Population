@@ -18,7 +18,7 @@ class Analyser extends Base
                                                                                                                                                                                                  
     public $errorMessage = null;                                                                                                                                                                 
                                                                                                                                                                                                  
-    public static $rules =  [                                                                                                                                                                                 
+    public $rules =  [                                                                                                                                                                                 
         'model_name' => 'required|name|max:32',                                                                                                                                    
         'model_id' => 'required|integer',                                                                                                                                        
         'dateinseconds' => 'required|integer',

@@ -13,6 +13,7 @@ class Pintinha extends Base
      * @var array
      */
     protected $fillable = [
+        'local',
         'name',
         'description',
         'pintinha_id'

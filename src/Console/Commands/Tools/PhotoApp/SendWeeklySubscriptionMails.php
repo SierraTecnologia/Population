@@ -4,7 +4,7 @@ namespace Population\Console\Commands\Tools\PhotoApp;
 
 use App\Mail\WeeklySubscription;
 use Population\Manipule\Builders\SubscriptionBuilder;
-use App\Models\Post;
+use Siravel\Models\Blog\Post;
 use App\Models\Subscription;
 use Carbon\Carbon;
 use Illuminate\Console\Command;

@@ -7,7 +7,7 @@ use App\Contants\Tables;
 use Population\Manipule\Entities\QuestionResponseEntity;
 use Illuminate\Database\Eloquent\Collection;
 use Support\Models\Base;
-use Facilitador\Models\Post;
+use Siravel\Models\Blog\Post;
 
 /**
  * Class QuestionResponse.

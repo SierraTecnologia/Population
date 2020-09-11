@@ -4182,15 +4182,15 @@
                 "shasum": ""
             },
             "require": {
-                "illuminate/http": "^6.0|^7.0",
-                "illuminate/routing": "^6.0|^7.0",
-                "illuminate/session": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
-                "illuminate/view": "^6.0|^7.0",
+                "illuminate/http": "^7.0|^8.0",
+                "illuminate/routing": "^7.0|^8.0",
+                "illuminate/view": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "illuminate/view": "^7.0|^8.0",
                 "php": ">=7.2.5"
             },
             "require-dev": {
-                "illuminate/database": "^6.0|^7.0",
+                "illuminate/database": "^7.0|^8.0",
                 "mockery/mockery": "~1.0",
                 "phpunit/phpunit": "~7.1"
             },
@@ -7483,16 +7483,16 @@
                 "reference": "56eae775c45909caf1eae9365c6aeb3f1037d257"
             },
             "require": {
-                "illuminate/cache": "^6.0|^7.0",
-                "illuminate/console": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/cache": "^7.0|^8.0",
+                "illuminate/console": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": ">=5.5.0"
             },
             "replace": {
                 "zizaco/entrust": "*"
             },
             "require-dev": {
-                "illuminate/database": "^6.0|^7.0",
+                "illuminate/database": "^7.0|^8.0",
                 "mockery/mockery": "dev-master",
                 "phpunit/phpunit": ">=4.1",
                 "sami/sami": "dev-master"
@@ -7699,8 +7699,8 @@
                 "reference": "0c532dd46955ea7a772c46faa496d05a132b4619"
             },
             "require": {
-                "illuminate/filesystem": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/filesystem": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
                 "natxet/cssmin": "3.*",
                 "php": ">=5.4.0",
                 "tedivm/jshrink": "~1.0"
@@ -8254,7 +8254,7 @@
             },
             "require": {
                 "doctrine/dbal": "^2.5",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": ">=7.4",
                 "sierratecnologia/formmaker": "dev-master"
             },
@@ -8313,7 +8313,7 @@
                 "reference": "52606956722f6ac59acbd392fc926adbc85a1d69"
             },
             "require": {
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": ">=5.6.4",
                 "ramsey/uuid": ">=3.8"
             },
@@ -8381,13 +8381,13 @@
             },
             "require": {
                 "anahkiasen/html-object": ">=1.4",
-                "illuminate/config": "^6.0|^7.0",
-                "illuminate/container": "^6.0|^7.0",
-                "illuminate/http": "^6.0|^7.0",
-                "illuminate/routing": "^6.0|^7.0",
-                "illuminate/session": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
-                "illuminate/translation": "^6.0|^7.0",
+                "illuminate/config": "^7.0|^8.0",
+                "illuminate/container": "^7.0|^8.0",
+                "illuminate/http": "^7.0|^8.0",
+                "illuminate/routing": "^7.0|^8.0",
+                "illuminate/view": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "illuminate/translation": "^7.0|^8.0",
                 "php": "^7.4"
             },
             "replace": {
@@ -8395,7 +8395,7 @@
                 "weotch/former": "*"
             },
             "require-dev": {
-                "illuminate/database": "^6.0|^7.0",
+                "illuminate/database": "^7.0|^8.0",
                 "mockery/mockery": ">=0.9.1",
                 "phpunit/phpunit": ">=4"
             },
@@ -8454,7 +8454,7 @@
             },
             "require": {
                 "doctrine/dbal": "^2.5",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/support": "^7.0|^8.0",
                 "laravelcollective/html": "^6.1",
                 "php": ">=7.4",
                 "sierratecnologia/former": "^5.0.4"
@@ -8583,13 +8583,13 @@
                 "google/recaptcha": "*",
                 "graham-campbell/markdown": "*",
                 "hieu-le/active": "^7.0",
-                "illuminate/auth": "^6.0|^7.0",
-                "illuminate/bus": "^6.0|^7.0",
-                "illuminate/contracts": "^6.0|^7.0",
-                "illuminate/http": "^6.0|^7.0",
-                "illuminate/routing": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
-                "illuminate/validation": "^6.0|^7.0",
+                "illuminate/auth": "^7.0|^8.0",
+                "illuminate/bus": "^7.0|^8.0",
+                "illuminate/contracts": "^7.0|^8.0",
+                "illuminate/http": "^7.0|^8.0",
+                "illuminate/routing": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
+                "illuminate/validation": "^7.0|^8.0",
                 "jenssegers/agent": ">=2.1",
                 "jeroennoten/laravel-adminlte": "*",
                 "jlapp/swaggervel": "dev-master",
@@ -8598,7 +8598,7 @@
                 "laracasts/presenter": ">=0.2",
                 "larapack/doctrine-support": ">=0.1",
                 "larapack/hooks": ">=1.0.5",
-                "laravel/framework": "^6.0|^7.0",
+                "laravel/framework": "^7.0|^8.0",
                 "laravel/helpers": ">=1.1.0",
                 "laravel/passport": "^8.0|^9.0|^10.0",
                 "laravel/tinker": "^2.0",
@@ -8729,8 +8729,8 @@
                 "doctrine/dbal": "^2.0",
                 "geo-io/wkb-parser": "^1.0",
                 "igaster/laravel_cities": "^1.0",
-                "illuminate/database": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/database": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
                 "jmikola/geojson": "^1.0",
                 "php": "^7.4",
                 "ricardosierra/translation": "dev-master",
@@ -9160,8 +9160,8 @@
                 "shasum": ""
             },
             "require": {
-                "illuminate/http": "^6.0|^7.0",
-                "illuminate/support": "^6.0|^7.0",
+                "illuminate/http": "^7.0|^8.0",
+                "illuminate/support": "^7.0|^8.0",
                 "php": "^7.2",
                 "symfony/css-selector": "^4.0|^5.0",
                 "symfony/dom-crawler": "^4.0|^5.0"

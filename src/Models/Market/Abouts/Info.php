@@ -6,11 +6,11 @@ use Support\Models\Base;
 
 class Info extends Base
 {
-	public $rules = [
-		'text'   => 'required',
-		// 'slug'    => 'required|unique:posts,slug',
-		// 'content' => 'required'
-	];
+    public $rules = [
+    'text'   => 'required',
+    // 'slug'    => 'required|unique:posts,slug',
+    // 'content' => 'required'
+    ];
 
     /**
      * The attributes that are mass assignable.

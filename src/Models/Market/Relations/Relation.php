@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Relations;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 use Informate\Models\Entytys\Relations\Position;
 

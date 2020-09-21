@@ -2,7 +2,7 @@
 
 namespace Population\Models\Components\Book;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class SearchTerm extends Base
 {

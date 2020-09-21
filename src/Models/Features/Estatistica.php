@@ -13,7 +13,7 @@
 
 namespace Population\Models\Features;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Estatistica extends Base
 {

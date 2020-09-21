@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Informacao;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 use Muleta\Traits\Models\ComplexRelationamentTrait;
 use Informate\Models\Entytys\Category\BibliotecaType;
 

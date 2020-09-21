@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Subjetivos;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Fato extends Base
 {

@@ -7,7 +7,7 @@ namespace Population\Models\Actions\Event;
 
 use Illuminate\Support\Facades\Hash;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 class Payment  extends Base
 {
 

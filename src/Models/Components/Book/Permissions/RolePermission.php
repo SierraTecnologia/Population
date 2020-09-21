@@ -1,7 +1,7 @@
 <?php namespace Population\Models\Components\Book\Permissions;
 
 use App\Models\Role;
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class RolePermission extends Base
 {

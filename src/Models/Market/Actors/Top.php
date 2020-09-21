@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Actors;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Top extends Base
 {

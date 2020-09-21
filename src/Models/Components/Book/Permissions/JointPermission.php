@@ -2,7 +2,7 @@
 
 use App\Models\Role;
 use Population\Models\Components\Book\Entity;
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class JointPermission extends Base
 {

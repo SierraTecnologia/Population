@@ -5,7 +5,7 @@
 
 namespace Population\Models\Components\Productions;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Action extends Base
 {

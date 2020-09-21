@@ -5,7 +5,7 @@
 
 namespace Population\Models\Features\Statistics;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class CommandResult extends Base
 {

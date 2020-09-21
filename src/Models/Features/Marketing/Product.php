@@ -2,7 +2,7 @@
 
 namespace Population\Models\Features\Marketing;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 use Muleta\Traits\Models\ComplexRelationamentTrait;
 
 class Product extends Base

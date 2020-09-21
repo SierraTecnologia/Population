@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Actions;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Vaga extends Base
 {

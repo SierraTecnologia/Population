@@ -2,7 +2,7 @@
 
 namespace Population\Models\Market\Abouts;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Info extends Base
 {

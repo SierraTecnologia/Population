@@ -2,7 +2,7 @@
 
 namespace Population\Models\Components\Productions;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 use Telefonica\Models\Actors\Person;
 
 class Actor extends Person

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Features\Qa;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Analyser extends Base
 {

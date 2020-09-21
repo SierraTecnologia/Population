@@ -2,7 +2,7 @@
 
 namespace Population\Models\Features\Qa;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 use Muleta\Traits\Models\ComplexRelationamentTrait;
 
 class AnalyzerResult extends Base

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Components\Book\Permissions;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class EntityPermission extends Base
 {

@@ -2,7 +2,7 @@
 
 namespace Population\Models\Identity\Fisicos;
 
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class Pircing extends Base
 {

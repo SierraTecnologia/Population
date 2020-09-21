@@ -3,7 +3,7 @@
 namespace Population\Models\Components\Book;
 
 use App\Models\User;
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 
 class PageRevision extends Base
 {

@@ -6,7 +6,7 @@ use Population\Manipule\Builders\QuestionResponseBuilder;
 use App\Contants\Tables;
 use Population\Manipule\Entities\QuestionResponseEntity;
 use Illuminate\Database\Eloquent\Collection;
-use Support\Models\Base;
+use Pedreiro\Models\Base;
 use Siravel\Models\Blog\Post;
 
 /**

@@ -244,7 +244,7 @@ class SearchService
      * @param  $searchString
      * @return array
      */
-    protected function parseSearchString($searchString)
+    protected function parseSearchString(string $searchString)
     {
         $terms = [
             'search' => [],

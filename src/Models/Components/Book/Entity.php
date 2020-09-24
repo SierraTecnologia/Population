@@ -178,7 +178,7 @@ class Entity extends Ownable
      * @param  $type
      * @return bool
      */
-    public static function isA($type)
+    public static function isA(string $type)
     {
         return static::getType() === strtolower($type);
     }

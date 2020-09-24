@@ -622,7 +622,7 @@ class EntityRepo
      * @param  $name
      * @return string
      */
-    protected function nameToSlug($name)
+    protected function nameToSlug(string $name)
     {
         $slug = preg_replace('/[\+\/\\\?\@\}\{\.\,\=\[\]\#\&\!\*\'\;\:\$\%]/', '', mb_strtolower($name));
         $slug = preg_replace('/\s{2,}/', ' ', $slug);

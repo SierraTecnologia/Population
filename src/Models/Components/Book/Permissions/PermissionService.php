@@ -533,7 +533,7 @@ class PermissionService
      * @param  $action
      * @return bool
      */
-    protected function mapHasActiveRestriction($entityMap, Entity $entity, Role $role, $action)
+    protected function mapHasActiveRestriction(array $entityMap, Entity $entity, Role $role, string $action)
     {
         $key = $entity->getMorphClass() . ':' . $entity->getRawAttribute('id') . ':' . $role->getRawAttribute('id') . ':' . $action;
         return isset($entityMap[$key]) ? $entityMap[$key] : false;
@@ -550,7 +550,7 @@ class PermissionService
      * @param  $permissionOwn
      * @return array
      */
-    protected function createJointPermissionDataArray(Entity $entity, Role $role, $action, $permissionAll, $permissionOwn)
+    protected function createJointPermissionDataArray(Entity $entity, Role $role, string $action, bool $permissionAll, bool $permissionOwn)
     {
         return [
             'role_id'            => $role->getRawAttribute('id'),

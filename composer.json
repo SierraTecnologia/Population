@@ -22,6 +22,7 @@
         }
     ],
     "require": {
+        "sierratecnologia/muleta": "dev-master",
         "sierratecnologia/informate": "dev-master",
         "symfony/security-core": "*",
         "overtrue/laravel-follow": ">=1.0"

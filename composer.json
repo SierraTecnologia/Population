@@ -36,15 +36,7 @@
         "post-update-cmd": [],
         "post-create-project-cmd": []
     },
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../**",
-            "options": {
-                "symlink": true
-            }
-        }
-    ],
+    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {

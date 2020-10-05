@@ -22,7 +22,7 @@
         }
     ],
     "require": {
-        "sierratecnologia/informate": "dev-master",
+        "sierratecnologia/informate": "^0.4.0",
         "symfony/security-core": "*",
         "overtrue/laravel-follow": ">=1.0"
     },
@@ -36,7 +36,6 @@
         "post-update-cmd": [],
         "post-create-project-cmd": []
     },
-    "repositories": [{"type": "path","url":"../**","options":{"symlink": true}}],
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {

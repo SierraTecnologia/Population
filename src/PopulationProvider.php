@@ -39,7 +39,7 @@ class PopulationProvider extends ServiceProvider
         // ]);
 
         // $this->publishes([
-        //     __DIR__.'../resources/views' => base_path('resources/views/vendor/Population'),
+        //     __DIR__.'../resources/views' => base_path('resources'.DIRECTORY_SEPARATOR.'views'.DIRECTORY_SEPARATOR.'vendor'.DIRECTORY_SEPARATOR.'Population'),
         // ], 'SierraTecnologia Population');
     }
 
